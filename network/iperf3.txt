@@ -1,0 +1,151 @@
+root@raspberrypi:~# apt install iperf3
+
+	Reading package lists... Done
+	Building dependency tree
+	Reading state information... Done
+	The following additional packages will be installed:
+	  libiperf0 libsctp1
+	Suggested packages:
+	  lksctp-tools
+	The following NEW packages will be installed:
+	  iperf3 libiperf0 libsctp1
+	0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+	Need to get 122 kB of archives.
+	After this operation, 285 kB of additional disk space will be used.
+	Do you want to continue? [Y/n] Y
+	Get:1 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf libsctp1 armhf 1.0.18+dfsg-1 [27.6 kB]
+	Get:2 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf libiperf0 armhf 3.6-2 [68.7 kB]
+	Get:3 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf iperf3 armhf 3.6-2 [25.7 kB]
+	Fetched 122 kB in 1s (120 kB/s)
+	Selecting previously unselected package libsctp1:armhf.
+	(Reading database ... 153744 files and directories currently installed.)
+	Preparing to unpack .../libsctp1_1.0.18+dfsg-1_armhf.deb ...
+	Unpacking libsctp1:armhf (1.0.18+dfsg-1) ...
+	Selecting previously unselected package libiperf0:armhf.
+	Preparing to unpack .../libiperf0_3.6-2_armhf.deb ...
+	Unpacking libiperf0:armhf (3.6-2) ...
+	Selecting previously unselected package iperf3.
+	Preparing to unpack .../iperf3_3.6-2_armhf.deb ...
+	Unpacking iperf3 (3.6-2) ...
+	Setting up libsctp1:armhf (1.0.18+dfsg-1) ...
+	Setting up libiperf0:armhf (3.6-2) ...
+	Setting up iperf3 (3.6-2) ...
+	Processing triggers for man-db (2.8.5-2) ...
+	Processing triggers for libc-bin (2.28-10+rpi1) ...
+
+--------------------------------------------------------------------------
+root@NanoPi-M4:~# ping 192.168.1.49 -f
+
+	25999 packets transmitted, 25999 received, 0% packet loss, time 55772ms
+	rtt min/avg/max/mdev = 0.981/2.151/94.982/3.053 ms, pipe 8, ipg/ewma 2.145/1.761 ms
+	
+root@raspberrypi:~# ping 192.168.1.49 -f
+
+	47540 packets transmitted, 47539 received, +32 duplicates, 0.00210349% packet loss, time 598ms
+	rtt min/avg/max/mdev = 1.082/2.038/58.212/1.197 ms, pipe 4, ipg/ewma 2.092/2.200 ms	
+	
+--------------------------------------------------------------------------	
+root@NanoPi-M4:~# ping 192.168.1.49 -f
+
+	27159 packets transmitted, 27159 received, 0% packet loss, time 60008ms
+	rtt min/avg/max/mdev = 0.996/2.196/94.722/3.070 ms, pipe 8, ipg/ewma 2.209/2.356 ms
+	
+root@raspberrypi:~# ping 192.168.1.49 -f
+
+	28874 packets transmitted, 28873 received, +30 duplicates, 0.00346332% packet loss, time 575ms
+	rtt min/avg/max/mdev = 1.083/2.000/55.957/1.148 ms, pipe 4, ipg/ewma 2.061/1.987 ms
+	
+--------------------------------------------------------------------------	
+root@NanoPi-M4:~# ping 192.168.1.49 -f
+
+	84868 packets transmitted, 84867 received, 0% packet loss, time 181341ms
+	rtt min/avg/max/mdev = 0.989/2.124/98.410/3.019 ms, pipe 8, ipg/ewma 2.136/2.132 ms
+
+root@raspberrypi:~# ping 192.168.1.49 -f
+
+	92949 packets transmitted, 92948 received, +72 duplicates, 0.00107586% packet loss, time 234ms
+	rtt min/avg/max/mdev = 1.018/2.024/60.221/1.119 ms, pipe 4, ipg/ewma 2.087/1.970 ms
+
+--------------------------------------------------------------------------
+NanoPi-M4:~# iperf3 -c 192.168.1.49 -t60
+
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   324 MBytes  45.4 Mbits/sec    4             sender
+	[  4]   0.00-60.00  sec   324 MBytes  45.4 Mbits/sec                  receiver
+
+
+raspberrypi:~# iperf3 -c 192.168.1.49 -t60
+
+	[ ID] Interval           Transfer     Bitrate         Retr
+	[  5]   0.00-60.00  sec   180 MBytes  25.2 Mbits/sec    0             sender
+	[  5]   0.00-60.04  sec   179 MBytes  25.0 Mbits/sec                  receiver
+
+--------------------------------------------------------------------------
+NanoPi-M4:~# iperf3 -c 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   355 MBytes  49.6 Mbits/sec    4             sender
+	[  4]   0.00-60.00  sec   355 MBytes  49.6 Mbits/sec                  receiver
+
+	
+raspberrypi:~# iperf3 -c 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bitrate         Retr
+	[  5]   0.00-60.00  sec   179 MBytes  25.1 Mbits/sec    0             sender
+	[  5]   0.00-60.04  sec   179 MBytes  25.0 Mbits/sec                  receiver
+
+
+NanoPi-M4:~# iperf3 -c 192.168.1.49 -t60 -b27m
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   193 MBytes  27.0 Mbits/sec    1             sender
+	[  4]   0.00-60.00  sec   193 MBytes  27.0 Mbits/sec                  receiver	
+
+--------------------------------------------------------------------------	
+NanoPi-M4:~# iperf3 -RVc 192.168.1.49 -t60
+	[ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   370 MBytes  51.7 Mbits/sec  1075             sender
+	[  4]   0.00-60.00  sec   367 MBytes  51.3 Mbits/sec                  receiver
+	CPU Utilization: local/receiver 2.9% (0.2%u/2.7%s), remote/sender 0.3% (0.0%u/0.3%s)
+
+	
+raspberrypi:~# iperf3 -RVc 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bitrate         Retr
+	[  5]   0.00-60.02  sec   174 MBytes  24.4 Mbits/sec  361             sender
+	[  5]   0.00-60.00  sec   173 MBytes  24.2 Mbits/sec                  receiver
+	CPU Utilization: local/receiver 8.2% (0.4%u/7.8%s), remote/sender 0.1% (0.1%u/0.1%s)
+
+--------------------------------------------------------------------------	
+NanoPi-M4:~# iperf3 -RVc 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   373 MBytes  52.2 Mbits/sec  1030             sender
+	[  4]   0.00-60.00  sec   371 MBytes  51.8 Mbits/sec                  receiver
+	CPU Utilization: local/receiver 2.9% (0.3%u/2.6%s), remote/sender 0.1% (0.0%u/0.1%s)
+
+	
+NanoPi-M4:~# iperf3 -RVc 192.168.1.49 -t60 -b27m
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec   193 MBytes  27.0 Mbits/sec  105             sender
+	[  4]   0.00-60.00  sec   193 MBytes  27.0 Mbits/sec                  receiver
+	CPU Utilization: local/receiver 1.9% (0.2%u/1.6%s), remote/sender 2.9% (0.3%u/2.6%s)
+	
+raspberrypi:~# iperf3 -RVc 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bitrate         Retr
+	[  5]   0.00-60.04  sec   188 MBytes  26.3 Mbits/sec  600             sender
+	[  5]   0.00-60.00  sec   186 MBytes  25.9 Mbits/sec                  receiver
+	CPU Utilization: local/receiver 8.3% (0.4%u/7.9%s), remote/sender 0.2% (0.0%u/0.2%s)
+	
+==========================================================================
+5G
+---
+root@NanoPi-M4:~# iperf3 -Vc 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bandwidth       Retr
+	[  4]   0.00-60.00  sec  2.24 GBytes   321 Mbits/sec    7             sender
+	[  4]   0.00-60.00  sec  2.24 GBytes   321 Mbits/sec                  receiver
+	CPU Utilization: local/sender 43.0% (0.3%u/42.7%s), remote/receiver 0.7% (0.1%u/0.6%s)
+
+root@raspberrypi:~# iperf3 -Vc 192.168.1.49 -t60
+	[ ID] Interval           Transfer     Bitrate         Retr
+	[  5]   0.00-60.00  sec   558 MBytes  78.1 Mbits/sec    0             sender
+	[  5]   0.00-60.04  sec   558 MBytes  77.9 Mbits/sec                  receiver
+	CPU Utilization: local/sender 1.0% (0.1%u/0.9%s), remote/receiver 3.9% (0.5%u/3.4%s)
+
+--------------------------------------------------------------------------
+

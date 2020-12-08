@@ -1,0 +1,5 @@
+root@rpi4:~# uname -a
+Linux rpi4 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
+
+root@rpi4:~# cat /proc/version
+Linux version 5.4.51-v7l+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1333 SMP Mon Aug 10 16:51:40 BST 2020

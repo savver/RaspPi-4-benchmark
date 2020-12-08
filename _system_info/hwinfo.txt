@@ -1,0 +1,5749 @@
+apt search hwinfo
+apt install hwinfo
+hwinfo --short
+hwinfo
+hwinfo --wlan
+hwinfo --network
+
+pi@rpi4:~ $ apt search hwinfo
+
+Sorting... Done
+Full Text Search... Done
+backupninja/stable 1.1.0-2.1 all
+  lightweight, extensible meta-backup system
+
+forensics-extra/stable 2.8 all
+  Forensics Environment - extra console components (metapackage)
+
+hwinfo/stable 21.63-3 armhf
+  Hardware identification system
+
+libhd-dev/stable 21.63-3 armhf
+  Hardware identification system library and headers
+
+libhd-doc/stable 21.63-3 all
+  Hardware identification system library documentation
+
+libhd21/stable 21.63-3 armhf
+  Hardware identification system library
+
+------------------------------------------------------------------------------
+root@rpi4:~# apt install hwinfo
+
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libhd21
+The following NEW packages will be installed:
+  hwinfo libhd21
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 658 kB of archives.
+After this operation, 2,866 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf libhd21 armhf 21.63-3 [627 kB]
+Get:2 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf hwinfo armhf 21.63-3 [31.0 kB]
+Fetched 658 kB in 1s (987 kB/s)
+Selecting previously unselected package libhd21:armhf.
+(Reading database ... 153744 files and directories currently installed.)
+Preparing to unpack .../libhd21_21.63-3_armhf.deb ...
+Unpacking libhd21:armhf (21.63-3) ...
+Selecting previously unselected package hwinfo.
+Preparing to unpack .../hwinfo_21.63-3_armhf.deb ...
+Unpacking hwinfo (21.63-3) ...
+Setting up libhd21:armhf (21.63-3) ...
+Setting up hwinfo (21.63-3) ...
+Processing triggers for man-db (2.8.5-2) ...
+Processing triggers for libc-bin (2.28-10+rpi1) ...
+
+------------------------------------------------------------------------------
+root@rpi4:~# hwinfo --short
+
+cpu:
+                       CPU
+                       CPU
+                       CPU
+                       CPU
+network:
+  eth0                 ARM Ethernet controller
+  wlan0                Broadcom BCM43430 WLAN card
+network interface:
+  wlan0                WLAN network interface
+  lo                   Loopback network interface
+  eth0                 Ethernet network interface
+disk:
+  /dev/ram11           Disk
+  /dev/ram2            Disk
+  /dev/ram0            Disk
+  /dev/ram9            Disk
+  /dev/ram7            Disk
+  /dev/ram14           Disk
+  /dev/ram5            Disk
+  /dev/ram12           Disk
+  /dev/ram3            Disk
+  /dev/ram10           Disk
+  /dev/ram1            Disk
+  /dev/ram8            Disk
+  /dev/ram15           Disk
+  /dev/ram6            Disk
+  /dev/mmcblk0         Disk
+  /dev/ram13           Disk
+  /dev/ram4            Disk
+partition:
+  /dev/mmcblk0p1       Partition
+  /dev/mmcblk0p2       Partition
+usb controller:
+                       VIA VL805 USB 3.0 Host Controller
+bridge:
+                       Broadcom PCI bridge
+hub:
+                       Linux Foundation 2.0 root hub
+                       VIA Hub
+                       Linux Foundation 3.0 root hub
+memory:
+                       Main Memory
+unknown:
+                       Broadcom BCM43430 WLAN card
+                       Broadcom BCM43430 WLAN card
+
+------------------------------------------------------------------------------
+~$ hwinfo
+
+============ start debug info ============
+libhd version 21.63 (arm) [6472]
+using /var/lib/hardware
+kernel version is 5.4
+----- /proc/cmdline -----
+  coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1  smsc95xx.macaddr=DC:A6:32:CF:58:58 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  console=ttyS0,115200 console=tty1 root=PARTUUID=838f922d-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles
+----- /proc/cmdline end -----
+debug = 0xff7ffff7
+probe = 0x15938fcda8107cf9fffe (+memory +pci +isapnp +net +floppy +misc +misc.serial +misc.par +misc.floppy +serial +cpu +bios +monitor +mouse +scsi +usb -usb.mods +modem +modem.usb +parallel +parallel.lp +parallel.zip -isa -isa.isdn +isdn +kbd +prom +sbus +int -braille -braille.alva -braille.fhp -braille.ht -ignx11 +sys -bios.vbe -isapnp.old -isapnp.new -isapnp.mod -braille.baum -manual +fb +pppoe -scan +pcmcia +fork -parallel.imm +s390 +cpuemu -sysfs -s390disks +udev +block +block.cdrom +block.part +edd +edd.mod -bios.ddc -bios.fb -bios.mode +input +block.mods +bios.vesa -cpuemu.debug -scsi.noserial +wlan -bios.crc -hal +bios.vram +bios.acpi -bios.ddc.ports=0 +modules.pata -net.eeprom +x86emu=dump -max -lxrc)
+shm: attached segment 2 at 0xb68dc000
+>> hal.1: read hal data
+>> floppy.1: get nvram
+>> floppy.2: klog info
+>> sys.1: cpu
+>> misc.9: kernel log
+>> misc.1: misc data
+>> misc.1.1: open serial
+>> misc.1.2: open parallel
+>> misc.2.1: io
+>> misc.2.2: dma
+>> misc.2.3: irq
+----- /proc/ioports -----
+----- /proc/ioports end -----
+----- /proc/interrupts -----
+   17:          1          0          0          0     GICv2  99 Level     timer
+   18:          0          0          0          0     GICv2  29 Level     arch_timer
+   19:      10584      15396      17395       4648     GICv2  30 Level     arch_timer
+   26:        480          0          0          0     GICv2  65 Level     fe00b880.mailbox
+   29:       6737          0          0          0     GICv2 153 Level     uart-pl011
+   32:        602          0          0          0     GICv2 114 Level     DMA IRQ
+   39:         54          0          0          0     GICv2  66 Level     VCHIQ doorbell
+   40:      31380          0          0          0     GICv2 158 Level     mmc1, mmc0
+   42:          0          0          0          0     GICv2  48 Level     arm-pmu
+   43:          0          0          0          0     GICv2  49 Level     arm-pmu
+   44:          0          0          0          0     GICv2  50 Level     arm-pmu
+   45:          0          0          0          0     GICv2  51 Level     arm-pmu
+   47:        571          0          0          0     GICv2 189 Level     eth0
+   48:          0          0          0          0     GICv2 190 Level     eth0
+   54:          0          0          0          0     GICv2 106 Level     v3d
+   55:          0          0          0          0     GICv2 175 Level     PCIe PME, aerdrv
+   56:         37          0          0          0  BRCM STB PCIe MSI 524288 Edge      xhci_hcd
+  IPI0:          0          0          0          0  CPU wakeup interrupts
+  IPI1:          0          0          0          0  Timer broadcast interrupts
+  IPI2:       2902       5938       4424       7426  Rescheduling interrupts
+  IPI3:        134       1062       3159       1050  Function call interrupts
+  IPI4:          0          0          0          0  CPU stop interrupts
+  IPI5:        423        288         78        189  IRQ work interrupts
+  IPI6:          0          0          0          0  completion interrupts
+  Err:          0
+----- /proc/interrupts end -----
+----- /proc/dma -----
+----- /proc/dma end -----
+>> misc.3: FPU
+>> misc.3.1: DMA
+>> misc.3.2: PIC
+>> misc.3.3: timer
+>> misc.3.4: RTC
+>> cpu.1: cpuinfo
+----- /proc/cpuinfo -----
+  processor	: 0
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 108.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 1
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 108.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 2
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 108.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 3
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 108.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  Hardware	: BCM2711
+  Revision	: b03114
+  Serial		: 100000009a394246
+  Model		: Raspberry Pi 4 Model B Rev 1.4
+----- /proc/cpuinfo end -----
+>> memory.1: main memory size
+  kcore mem:  0x0
+  klog mem 0: 0x0
+  klog mem 1: 0x0
+  klog mem:   0x0
+  bios mem:   0x0
+  meminfo:    0x74b31000
+  xen balloon:    0x0
+>> pci.1: sysfs drivers
+----- sysfs driver list (id 0xeb8c95c108dc0c53) -----
+    bcm2835-vcsm: /devices/platform/soc/soc:vcsm
+raspberrypi-power: /devices/platform/soc/soc:power
+       reg-dummy: /devices/platform/reg-dummy
+        vcsm-cma: /devices/platform/soc/fe00b840.mailbox/vcsm-cma
+        vcsm-cma: module = vc_sm_cma
+vc4_firmware_kms: /devices/platform/soc/fe600000.firmwarekms
+vc4_firmware_kms: module = vc4
+        vc4_crtc: module = vc4
+ gpiomem-bcm2835: /devices/platform/soc/fe200000.gpiomem
+     mmc-bcm2835: /devices/platform/soc/fe300000.mmcnr
+   bcm2835-codec: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec
+   bcm2835-codec: module = bcm2835_codec
+         vc4_dsi: module = vc4
+     bcm2835-wdt: /devices/platform/soc/fe100000.watchdog/bcm2835-wdt
+             v3d: /devices/platform/v3dbus/fec00000.v3d
+             v3d: module = v3d
+      rpivid-mem: /devices/platform/scb/feb10000.rpivid-local-intc
+      rpivid-mem: /devices/platform/scb/feb20000.h264-decoder
+      rpivid-mem: /devices/platform/scb/feb00000.hevc-decoder
+      rpivid-mem: /devices/platform/scb/feb30000.vp9-decoder
+      rpivid-mem: module = rpivid_mem
+raspberrypi-exp-gpio: /devices/platform/soc/soc:firmware/soc:firmware:gpio
+       leds-gpio: /devices/platform/leds
+         vc4_dpi: module = vc4
+         vc4_v3d: module = vc4
+        vc4_hdmi: module = vc4
+raspberrypi-cpufreq: /devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+      cpufreq-dt: /devices/platform/cpufreq-dt
+  bcm2835-camera: module = bcm2835_v4l2
+       brcm-pcie: /devices/platform/scb/fd500000.pcie
+        bcmgenet: /devices/platform/scb/fd580000.ethernet
+ pinctrl-bcm2835: /devices/platform/soc/fe200000.gpio
+       soc-audio: module = snd_soc_core
+         hci_bcm: module = hci_uart
+         vc4_txp: module = vc4
+ raspberrypi-clk: /devices/platform/soc/soc:firmware/soc:firmware:clocks
+   bcm2835_vchiq: /devices/platform/soc/fe00b840.mailbox
+       armv7-pmu: /devices/platform/arm-pmu
+   bcm2835_audio: module = snd_bcm2835
+   bcm2835_audio: /devices/platform/soc/fe00b840.mailbox/bcm2835_audio
+    bcm2835-mbox: /devices/platform/soc/fe00b880.mailbox
+     sdhci-iproc: /devices/platform/emmc2bus/fe340000.emmc2
+raspberrypi-hwmon: module = raspberrypi_hwmon
+raspberrypi-hwmon: /devices/platform/soc/soc:firmware/raspberrypi-hwmon
+      bcm2835-pm: /devices/platform/soc/fe100000.watchdog
+   bcm2835-power: /devices/platform/soc/fe100000.watchdog/bcm2835-power
+         vc4_vec: module = vc4
+reg-fixed-voltage: /devices/platform/sd_vcc_reg
+reg-fixed-voltage: /devices/platform/fixedregulator_3v3
+reg-fixed-voltage: /devices/platform/fixedregulator_5v0
+         vc4_hvs: module = vc4
+     bcm2835-clk: /devices/platform/soc/fe101000.cprman
+     unimac-mdio: /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19
+    iproc-rng200: /devices/platform/soc/fe104000.rng
+ bcm2835-aux-clk: /devices/platform/soc/fe215000.aux
+         vc4-drm: /devices/platform/gpu
+         vc4-drm: module = vc4
+   snd-soc-dummy: module = snd_soc_core
+   snd-soc-dummy: /devices/platform/snd-soc-dummy
+          kgdboc: /devices/platform/kgdboc
+ uio_pdrv_genirq: module = uio_pdrv_genirq
+     bcm2835-isp: module = bcm2835_isp
+     bcm2835-isp: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp
+ bcm2711_thermal: /devices/platform/soc/fd5d2000.avs-monitor/fd5d2000.avs-monitor:thermal
+  gpio-regulator: /devices/platform/sd_io_1v8_reg
+     bcm2835-dma: /devices/platform/soc/fe007000.dma
+     bcm2835-dma: /devices/platform/scb/fe007b00.dma
+raspberrypi-firmware: /devices/platform/soc/soc:firmware
+        pcie_pme: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie001
+             aer: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie002
+      uart-pl011: /devices/platform/soc/fe201000.serial
+        pcieport: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+        xhci_hcd: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+Broadcom BCM54210E: /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19/unimac-mdio--19:01
+          mmcblk: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+              st: module = st
+              sr: module = sr_mod
+           usbfs: module = usbcore
+          usbhid: module = usbhid
+         lan78xx: module = lan78xx
+     usb-storage: module = usb_storage
+        smsc95xx: module = smsc95xx
+             usb: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+             usb: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+             usb: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+             hub: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+             hub: module = usbcore
+             hub: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+             hub: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+        brcmfmac: module = brcmfmac
+           r8152: module = r8152
+    hci_uart_bcm: module = hci_uart
+     hci_uart_h5: module = hci_uart
+        brcmfmac: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+        brcmfmac: module = brcmfmac
+        brcmfmac: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+----- sysfs driver list end -----
+>> pci.2: get sysfs pci data
+  pci device: name = 0000:00:00.0
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+    modalias = "pci:v000014E4d00002711sv00000000sd00000000bc06sc04i00"
+    class = 0x60400
+    vendor = 0x14e4
+    device = 0x2711
+    subvendor = 0x0
+    subdevice = 0x0
+    irq = 55
+    config[64]
+  pci device: name = 0000:01:00.0
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+    modalias = "pci:v00001106d00003483sv00001106sd00003483bc0Csc03i30"
+    class = 0xc0330
+    vendor = 0x1106
+    device = 0x3483
+    subvendor = 0x1106
+    subdevice = 0x3483
+    irq = 56
+    res[0] = 0x600000000 0x600000fff 0x140204
+    config[64]
+---------- PCI raw data ----------
+bus 00->01, slot 00, func 0, vend:dev:s_vend:s_dev:rev 14e4:2711:0000:0000:10
+class 06, sub_class 04 prog_if 00, hdr 1, flags <>, irq 55
+  00: e4 14 11 27 46 01 10 00 10 00 04 06 10 00 01 00  "...'F..........."
+  10: 00 00 00 00 00 00 00 00 00 01 01 00 00 00 00 00  "................"
+  20: 00 f8 00 f8 f1 ff 01 00 00 00 00 00 00 00 00 00  "................"
+  30: 00 00 00 00 48 00 00 00 00 00 00 00 37 01 03 00  "....H.......7..."
+
+bus 01, slot 00, func 0, vend:dev:s_vend:s_dev:rev 1106:3483:1106:3483:01
+class 0c, sub_class 03 prog_if 30, hdr 0, flags <pm>, irq 56
+  addr0 600000000, size 00001000
+  00: 06 11 83 34 46 05 10 00 01 30 03 0c 10 00 00 00  "...4F....0......"
+  10: 04 00 00 f8 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  20: 00 00 00 00 00 00 00 00 00 00 00 00 06 11 83 34  "...............4"
+  30: 00 00 00 00 80 00 00 00 00 00 00 00 37 01 00 00  "............7..."
+  40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  80: 01 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  90: 05 c4 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
+  c0: 00 00 00 00 10 00  "......"
+---------- PCI raw data end ----------
+>> pci.4: build list
+>> pci.3: macio
+sysfs: no such bus: macio
+>> pci.4: vio
+sysfs: no such bus: vio
+>> pci.5: xen
+sysfs: no such bus: xen
+>> pci.6: ps3
+sysfs: no such bus: ps3_system_bus
+>> pci.7: platform
+  platform device: name = fe104000.rng
+    path = /devices/platform/soc/fe104000.rng
+    type = "rng", modalias = "of:NrngT(null)Cbrcm,bcm2711-rng200", driver = "iproc-rng200"
+  platform device: name = fe007000.dma
+    path = /devices/platform/soc/fe007000.dma
+    type = "dma", modalias = "of:NdmaT(null)Cbrcm,bcm2835-dma", driver = "bcm2835-dma"
+  platform device: name = reg-dummy
+    path = /devices/platform/reg-dummy
+    type = "", modalias = "platform:reg-dummy", driver = "reg-dummy"
+  platform device: name = vcsm-cma
+    path = /devices/platform/soc/fe00b840.mailbox/vcsm-cma
+    type = "", modalias = "platform:vcsm-cma", driver = "vcsm-cma"
+  platform device: name = fe00b840.mailbox
+    path = /devices/platform/soc/fe00b840.mailbox
+    type = "mailbox", modalias = "of:NmailboxT(null)Cbrcm,bcm2711-vchiq", driver = "bcm2835_vchiq"
+  platform device: name = feb10000.rpivid-local-intc
+    path = /devices/platform/scb/feb10000.rpivid-local-intc
+    type = "rpivid-local-intc", modalias = "of:Nrpivid-local-intcT(null)Craspberrypi,rpivid-local-intc", driver = "rpivid-mem"
+  platform device: name = soc:firmware:gpio
+    path = /devices/platform/soc/soc:firmware/soc:firmware:gpio
+    type = "gpio", modalias = "of:NgpioT(null)Craspberrypi,firmware-gpio", driver = "raspberrypi-exp-gpio"
+  platform device: name = fe200000.gpio
+    path = /devices/platform/soc/fe200000.gpio
+    type = "gpio", modalias = "of:NgpioT(null)Cbrcm,bcm2711-gpio", driver = "pinctrl-bcm2835"
+  platform device: name = feb20000.h264-decoder
+    path = /devices/platform/scb/feb20000.h264-decoder
+    type = "h264-decoder", modalias = "of:Nh264-decoderT(null)Craspberrypi,rpivid-h264-decoder", driver = "rpivid-mem"
+  platform device: name = gpu
+    path = /devices/platform/gpu
+    type = "gpu", modalias = "of:NgpuT(null)Cbrcm,bcm2711-vc5", driver = "vc4-drm"
+  platform device: name = bcm2835-codec
+    path = /devices/platform/soc/fe00b840.mailbox/bcm2835-codec
+    type = "", modalias = "platform:bcm2835-codec", driver = "bcm2835-codec"
+  platform device: name = arm-pmu
+    path = /devices/platform/arm-pmu
+    type = "arm-pmu", modalias = "of:Narm-pmuT(null)Carm,cortex-a72-pmuCarm,cortex-a15-pmu", driver = "armv7-pmu"
+  platform device: name = fe215000.aux
+    path = /devices/platform/soc/fe215000.aux
+    type = "aux", modalias = "of:NauxT(null)Cbrcm,bcm2835-aux", driver = "bcm2835-aux-clk"
+  platform device: name = soc:vcsm
+    path = /devices/platform/soc/soc:vcsm
+    type = "vcsm", modalias = "of:NvcsmT(null)Craspberrypi,bcm2835-vcsm", driver = "bcm2835-vcsm"
+  platform device: name = regulatory.0
+    path = /devices/platform/regulatory.0
+    type = "", modalias = "platform:regulatory", driver = ""
+  platform device: name = scb
+    path = /devices/platform/scb
+    type = "scb", modalias = "of:NscbT(null)Csimple-bus", driver = ""
+  platform device: name = bcm2835-wdt
+    path = /devices/platform/soc/fe100000.watchdog/bcm2835-wdt
+    type = "", modalias = "platform:bcm2835-wdt", driver = "bcm2835-wdt"
+  platform device: name = ff800000.local_intc
+    path = /devices/platform/soc/ff800000.local_intc
+    type = "local_intc", modalias = "of:Nlocal_intcT(null)Cbrcm,bcm2836-l1-intc", driver = ""
+  platform device: name = sd_vcc_reg
+    path = /devices/platform/sd_vcc_reg
+    type = "sd_vcc_reg", modalias = "of:Nsd_vcc_regT(null)Cregulator-fixed", driver = "reg-fixed-voltage"
+  platform device: name = fe00b880.mailbox
+    path = /devices/platform/soc/fe00b880.mailbox
+    type = "mailbox", modalias = "of:NmailboxT(null)Cbrcm,bcm2835-mbox", driver = "bcm2835-mbox"
+  platform device: name = soc
+    path = /devices/platform/soc
+    type = "soc", modalias = "of:NsocT(null)Csimple-bus", driver = ""
+  platform device: name = raspberrypi-cpufreq
+    path = /devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+    type = "", modalias = "platform:raspberrypi-cpufreq", driver = "raspberrypi-cpufreq"
+  platform device: name = cpufreq-dt
+    path = /devices/platform/cpufreq-dt
+    type = "", modalias = "platform:cpufreq-dt", driver = "cpufreq-dt"
+  platform device: name = bcm2835-camera
+    path = /devices/platform/soc/fe00b840.mailbox/bcm2835-camera
+    type = "", modalias = "platform:bcm2835-camera", driver = ""
+  platform device: name = fe007b00.dma
+    path = /devices/platform/scb/fe007b00.dma
+    type = "dma", modalias = "of:NdmaT(null)Cbrcm,bcm2711-dma", driver = "bcm2835-dma"
+  platform device: name = fd500000.pcie
+    path = /devices/platform/scb/fd500000.pcie
+    type = "pcie", modalias = "of:NpcieTpciCbrcm,bcm2711-pcie", driver = "brcm-pcie"
+  platform device: name = leds
+    path = /devices/platform/leds
+    type = "leds", modalias = "of:NledsT(null)Cgpio-leds", driver = "leds-gpio"
+  platform device: name = fec00000.v3d
+    path = /devices/platform/v3dbus/fec00000.v3d
+    type = "v3d", modalias = "of:Nv3dT(null)Cbrcm,2711-v3d", driver = "v3d"
+  platform device: name = fe600000.firmwarekms
+    path = /devices/platform/soc/fe600000.firmwarekms
+    type = "firmwarekms", modalias = "of:NfirmwarekmsT(null)Craspberrypi,rpi-firmware-kms-2711", driver = "vc4_firmware_kms"
+  platform device: name = fe003000.timer
+    path = /devices/platform/soc/fe003000.timer
+    type = "timer", modalias = "of:NtimerT(null)Cbrcm,bcm2835-system-timer", driver = ""
+  platform device: name = chosen
+    path = /devices/platform/chosen
+    type = "chosen", modalias = "of:NchosenT(null)Csimple_bus", driver = ""
+  platform device: name = fd5d2000.avs-monitor
+    path = /devices/platform/soc/fd5d2000.avs-monitor
+    type = "avs-monitor", modalias = "of:Navs-monitorT(null)Cbrcm,bcm2711-avs-monitorCsysconCsimple-mfd", driver = ""
+  platform device: name = fd5d2000.avs-monitor:thermal
+    path = /devices/platform/soc/fd5d2000.avs-monitor/fd5d2000.avs-monitor:thermal
+    type = "thermal", modalias = "of:NthermalT(null)Cbrcm,bcm2711-thermal", driver = "bcm2711_thermal"
+  platform device: name = unimac-mdio.-19
+    path = /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19
+    type = "mdio", modalias = "of:NmdioT(null)Cbrcm,genet-mdio-v5", driver = "unimac-mdio"
+  platform device: name = feb00000.hevc-decoder
+    path = /devices/platform/scb/feb00000.hevc-decoder
+    type = "hevc-decoder", modalias = "of:Nhevc-decoderT(null)Craspberrypi,rpivid-hevc-decoder", driver = "rpivid-mem"
+  platform device: name = feb30000.vp9-decoder
+    path = /devices/platform/scb/feb30000.vp9-decoder
+    type = "vp9-decoder", modalias = "of:Nvp9-decoderT(null)Craspberrypi,rpivid-vp9-decoder", driver = "rpivid-mem"
+  platform device: name = timer
+    path = /devices/platform/timer
+    type = "timer", modalias = "of:NtimerT(null)Carm,armv8-timer", driver = ""
+  platform device: name = bcm2835_audio
+    path = /devices/platform/soc/fe00b840.mailbox/bcm2835_audio
+    type = "bcm2835_audio", modalias = "of:Nbcm2835_audioT(null)Cbrcm,bcm2835-audio", driver = "bcm2835_audio"
+  platform device: name = raspberrypi-hwmon
+    path = /devices/platform/soc/soc:firmware/raspberrypi-hwmon
+    type = "", modalias = "platform:raspberrypi-hwmon", driver = "raspberrypi-hwmon"
+  platform device: name = fd580000.ethernet
+    path = /devices/platform/scb/fd580000.ethernet
+    type = "ethernet", modalias = "of:NethernetT(null)Cbrcm,bcm2711-genet-v5Cbrcm,genet-v5", driver = "bcmgenet"
+    is net: sf_eth_net = /sys/devices/platform/scb/fd580000.ethernet/net
+  platform device: name = soc:firmware
+    path = /devices/platform/soc/soc:firmware
+    type = "firmware", modalias = "of:NfirmwareT(null)Craspberrypi,bcm2835-firmwareCsimple-bus", driver = "raspberrypi-firmware"
+  platform device: name = 0.framebuffer
+    path = /devices/platform/0.framebuffer
+    type = "framebuffer", modalias = "of:NframebufferT(null)Csimple-framebuffer", driver = ""
+  platform device: name = bcm2835-power
+    path = /devices/platform/soc/fe100000.watchdog/bcm2835-power
+    type = "", modalias = "platform:bcm2835-power", driver = "bcm2835-power"
+  platform device: name = fe101000.cprman
+    path = /devices/platform/soc/fe101000.cprman
+    type = "cprman", modalias = "of:NcprmanT(null)Cbrcm,bcm2711-cprman", driver = "bcm2835-clk"
+  platform device: name = fe300000.mmcnr
+    path = /devices/platform/soc/fe300000.mmcnr
+    type = "mmcnr", modalias = "of:NmmcnrT(null)Cbrcm,bcm2835-mmcCbrcm,bcm2835-sdhci", driver = "mmc-bcm2835"
+  platform device: name = v3dbus
+    path = /devices/platform/v3dbus
+    type = "v3dbus", modalias = "of:Nv3dbusT(null)Csimple-bus", driver = ""
+  platform device: name = phy
+    path = /devices/platform/phy
+    type = "phy", modalias = "of:NphyT(null)Cusb-nop-xceiv", driver = ""
+  platform device: name = Fixed MDIO bus.0
+    path = /devices/platform/Fixed MDIO bus.0
+    type = "", modalias = "platform:Fixed MDIO bus", driver = ""
+  platform device: name = emmc2bus
+    path = /devices/platform/emmc2bus
+    type = "emmc2bus", modalias = "of:Nemmc2busT(null)Csimple-bus", driver = ""
+  platform device: name = snd-soc-dummy
+    path = /devices/platform/snd-soc-dummy
+    type = "", modalias = "platform:snd-soc-dummy", driver = "snd-soc-dummy"
+  platform device: name = fixedregulator_3v3
+    path = /devices/platform/fixedregulator_3v3
+    type = "fixedregulator_3v3", modalias = "of:Nfixedregulator_3v3T(null)Cregulator-fixed", driver = "reg-fixed-voltage"
+  platform device: name = soc:power
+    path = /devices/platform/soc/soc:power
+    type = "power", modalias = "of:NpowerT(null)Craspberrypi,bcm2835-power", driver = "raspberrypi-power"
+  platform device: name = sd_io_1v8_reg
+    path = /devices/platform/sd_io_1v8_reg
+    type = "sd_io_1v8_reg", modalias = "of:Nsd_io_1v8_regT(null)Cregulator-gpio", driver = "gpio-regulator"
+  platform device: name = kgdboc
+    path = /devices/platform/kgdboc
+    type = "", modalias = "platform:kgdboc", driver = "kgdboc"
+  platform device: name = fixedregulator_5v0
+    path = /devices/platform/fixedregulator_5v0
+    type = "fixedregulator_5v0", modalias = "of:Nfixedregulator_5v0T(null)Cregulator-fixed", driver = "reg-fixed-voltage"
+  platform device: name = bcm2835-isp
+    path = /devices/platform/soc/fe00b840.mailbox/bcm2835-isp
+    type = "", modalias = "platform:bcm2835-isp", driver = "bcm2835-isp"
+  platform device: name = fe100000.watchdog
+    path = /devices/platform/soc/fe100000.watchdog
+    type = "watchdog", modalias = "of:NwatchdogT(null)Cbrcm,bcm2835-pmCbrcm,bcm2835-pm-wdt", driver = "bcm2835-pm"
+  platform device: name = fe340000.emmc2
+    path = /devices/platform/emmc2bus/fe340000.emmc2
+    type = "emmc2", modalias = "of:Nemmc2T(null)Cbrcm,bcm2711-emmc2", driver = "sdhci-iproc"
+  platform device: name = soc:firmware:clocks
+    path = /devices/platform/soc/soc:firmware/soc:firmware:clocks
+    type = "clocks", modalias = "of:NclocksT(null)Craspberrypi,firmware-clocks", driver = "raspberrypi-clk"
+  platform device: name = fe200000.gpiomem
+    path = /devices/platform/soc/fe200000.gpiomem
+    type = "gpiomem", modalias = "of:NgpiomemT(null)Cbrcm,bcm2835-gpiomem", driver = "gpiomem-bcm2835"
+>> pci.8: of_platform
+sysfs: no such bus: of_platform
+>> pci.9: vm
+sysfs: no such bus: vm
+>> pci.10: virtio
+sysfs: no such bus: virtio
+>> pci.11: ibmebus
+sysfs: no such bus: ibmebus
+>> pci.12: uisvirtpci
+sysfs: no such bus: uisvirtpci
+>> pci.13: mmc
+  mmc device: name = mmc1:0001
+    path = /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001
+    driver = "(null)"
+    index = 1
+    type = "SDIO"
+  mmc device: name = mmc0:1234
+    path = /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+    driver = "mmcblk"
+    index = 0
+    type = "SD"
+>> pci.14: sdio
+  sdio device: name = mmc1:0001:3
+    path = /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:3
+    driver = "(null)"
+    modalias = "sdio:c02v02D0dA9A6"
+    vendor = 720
+    device = 43430
+  sdio device: name = mmc1:0001:1
+    path = /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+    driver = "brcmfmac"
+    modalias = "sdio:c00v02D0dA9A6"
+    vendor = 720
+    device = 43430
+  sdio device: name = mmc1:0001:2
+    path = /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+    driver = "brcmfmac"
+    modalias = "sdio:c00v02D0dA9A6"
+    vendor = 720
+    device = 43430
+>> pci.15: nd
+sysfs: no such bus: nd
+>> pci.16: visorbus
+sysfs: no such bus: visorbus
+>> pci.17: mdio
+  mdio device: name = unimac-mdio--19:01
+    path = /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19/unimac-mdio--19:01
+>> monitor.1: ddc
+>> monitor.2: bios
+>> monitor.3: pci
+>> monitor.4: internal db
+>> monitor.5: prom
+>> pcmcia.1: sysfs drivers
+>> pcmcia.2: pcmcia
+sysfs: no such bus: pcmcia
+>> pcmcia.3: pcmcia ctrl
+sysfs: no such class: pcmcia_socket
+>> serial.1: read info
+----- serial info -----
+----- serial info end -----
+>> serial.2: build list
+>> misc.5: misc data
+----- misc resources -----
+irq:0 17 (        1) "99 Level     timer"
+irq:0 18 (        0) "29 Level     arch_timer"
+irq:0 19 (    48023) "30 Level     arch_timer"
+irq:0 26 (      480) "65 Level     fe00b880.mailbox"
+irq:0 29 (     6737) "153 Level     uart-pl011"
+irq:0 32 (      602) "114 Level     DMA IRQ"
+irq:0 39 (       54) "66 Level     VCHIQ doorbell"
+irq:0 40 (    31380) "158 Level     mmc1" "mmc0"
+irq:0 42 (        0) "48 Level     arm-pmu"
+irq:0 43 (        0) "49 Level     arm-pmu"
+irq:0 44 (        0) "50 Level     arm-pmu"
+irq:0 45 (        0) "51 Level     arm-pmu"
+irq:0 47 (      571) "189 Level     eth0"
+irq:0 48 (        0) "190 Level     eth0"
+irq:0 54 (        0) "106 Level     v3d"
+irq:0 55 (        0) "175 Level     PCIe PME" "aerdrv"
+irq:0 56 (       37) "STB PCIe MSI 524288 Edge      xhci_hcd"
+----- misc resources end -----
+>> parallel.1: pp mod
+----- exec: "/sbin/modprobe parport_pc" -----
+  modprobe: FATAL: Module parport_pc not found in directory /lib/modules/5.4.51-v7l+
+----- return code: ? -----
+----- exec: "/sbin/modprobe lp" -----
+  modprobe: FATAL: Module lp not found in directory /lib/modules/5.4.51-v7l+
+----- return code: ? -----
+>> parallel.2.1: lp read info
+>> parallel.2.2: lp read info
+>> parallel.2.3: lp read info
+----- parallel info -----
+----- parallel info end -----
+>> block.1: block modules
+----- exec: "/sbin/modprobe ide-cd_mod " -----
+  modprobe: FATAL: Module ide-cd_mod not found in directory /lib/modules/5.4.51-v7l+
+----- return code: ? -----
+----- exec: "/sbin/modprobe ide-disk " -----
+  modprobe: FATAL: Module ide-disk not found in directory /lib/modules/5.4.51-v7l+
+----- return code: ? -----
+----- exec: "/sbin/modprobe sd_mod " -----
+----- return code: ? -----
+>> block.2: sysfs drivers
+>> block.3: cdrom
+----- /proc/sys/dev/cdrom/info -----
+drive name:	
+drive speed:	
+drive # of slots:
+Can close tray:	
+Can open tray:	
+Can lock tray:	
+Can change speed:
+Can select disk:
+Can read multisession:
+Can read MCN:	
+Reports media changed:
+Can play audio:	
+Can write CD-R:	
+Can write CD-RW:
+Can read DVD:	
+Can write DVD-R:
+Can write DVD-RAM:
+Can read MRW:	
+Can write MRW:	
+Can write RAM:	
+----- /proc/sys/dev/cdrom/info end -----
+>> block.4: partition
+----- /proc/partitions -----
+     1        0       4096 ram0
+     1        1       4096 ram1
+     1        2       4096 ram2
+     1        3       4096 ram3
+     1        4       4096 ram4
+     1        5       4096 ram5
+     1        6       4096 ram6
+     1        7       4096 ram7
+     1        8       4096 ram8
+     1        9       4096 ram9
+     1       10       4096 ram10
+     1       11       4096 ram11
+     1       12       4096 ram12
+     1       13       4096 ram13
+     1       14       4096 ram14
+     1       15       4096 ram15
+   179        0   30253056 mmcblk0
+   179        1     262144 mmcblk0p1
+   179        2   29986816 mmcblk0p2
+----- /proc/partitions end -----
+disks:
+  ram0
+  ram1
+  ram2
+  ram3
+  ram4
+  ram5
+  ram6
+  ram7
+  ram8
+  ram9
+  ram10
+  ram11
+  ram12
+  ram13
+  ram14
+  ram15
+  mmcblk0
+partitions:
+  mmcblk0p1
+  mmcblk0p2
+>> block.5: get sysfs block dev data
+-----  lsscsi -----
+-----  lsscsi end -----
+  block: name = ram11, path = /class/block/ram11
+    dev = 1:11
+    range = 1
+>> block.5: /dev/ram11
+>> block.5.1: /dev/ram11 geo
+  dev = /dev/ram11, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram11: ioctl(block size) ok
+/dev/ram11: ioctl(disk size) ok
+  block: name = ram2, path = /class/block/ram2
+    dev = 1:2
+    range = 1
+>> block.5: /dev/ram2
+>> block.5.1: /dev/ram2 geo
+  dev = /dev/ram2, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram2: ioctl(block size) ok
+/dev/ram2: ioctl(disk size) ok
+  block: name = loop1, path = /class/block/loop1
+    dev = 7:1
+    range = 1
+  block: name = mmcblk0p2, path = /class/block/mmcblk0p2
+    dev = 179:2
+  block: name = ram0, path = /class/block/ram0
+    dev = 1:0
+    range = 1
+>> block.5: /dev/ram0
+>> block.5.1: /dev/ram0 geo
+  dev = /dev/ram0, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram0: ioctl(block size) ok
+/dev/ram0: ioctl(disk size) ok
+  block: name = ram9, path = /class/block/ram9
+    dev = 1:9
+    range = 1
+>> block.5: /dev/ram9
+>> block.5.1: /dev/ram9 geo
+  dev = /dev/ram9, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram9: ioctl(block size) ok
+/dev/ram9: ioctl(disk size) ok
+  block: name = ram7, path = /class/block/ram7
+    dev = 1:7
+    range = 1
+>> block.5: /dev/ram7
+>> block.5.1: /dev/ram7 geo
+  dev = /dev/ram7, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram7: ioctl(block size) ok
+/dev/ram7: ioctl(disk size) ok
+  block: name = loop6, path = /class/block/loop6
+    dev = 7:6
+    range = 1
+  block: name = ram14, path = /class/block/ram14
+    dev = 1:14
+    range = 1
+>> block.5: /dev/ram14
+>> block.5.1: /dev/ram14 geo
+  dev = /dev/ram14, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram14: ioctl(block size) ok
+/dev/ram14: ioctl(disk size) ok
+  block: name = ram5, path = /class/block/ram5
+    dev = 1:5
+    range = 1
+>> block.5: /dev/ram5
+>> block.5.1: /dev/ram5 geo
+  dev = /dev/ram5, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram5: ioctl(block size) ok
+/dev/ram5: ioctl(disk size) ok
+  block: name = loop4, path = /class/block/loop4
+    dev = 7:4
+    range = 1
+  block: name = ram12, path = /class/block/ram12
+    dev = 1:12
+    range = 1
+>> block.5: /dev/ram12
+>> block.5.1: /dev/ram12 geo
+  dev = /dev/ram12, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram12: ioctl(block size) ok
+/dev/ram12: ioctl(disk size) ok
+  block: name = ram3, path = /class/block/ram3
+    dev = 1:3
+    range = 1
+>> block.5: /dev/ram3
+>> block.5.1: /dev/ram3 geo
+  dev = /dev/ram3, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram3: ioctl(block size) ok
+/dev/ram3: ioctl(disk size) ok
+  block: name = loop2, path = /class/block/loop2
+    dev = 7:2
+    range = 1
+  block: name = ram10, path = /class/block/ram10
+    dev = 1:10
+    range = 1
+>> block.5: /dev/ram10
+>> block.5.1: /dev/ram10 geo
+  dev = /dev/ram10, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram10: ioctl(block size) ok
+/dev/ram10: ioctl(disk size) ok
+  block: name = ram1, path = /class/block/ram1
+    dev = 1:1
+    range = 1
+>> block.5: /dev/ram1
+>> block.5.1: /dev/ram1 geo
+  dev = /dev/ram1, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram1: ioctl(block size) ok
+/dev/ram1: ioctl(disk size) ok
+  block: name = loop0, path = /class/block/loop0
+    dev = 7:0
+    range = 1
+  block: name = mmcblk0p1, path = /class/block/mmcblk0p1
+    dev = 179:1
+  block: name = ram8, path = /class/block/ram8
+    dev = 1:8
+    range = 1
+>> block.5: /dev/ram8
+>> block.5.1: /dev/ram8 geo
+  dev = /dev/ram8, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram8: ioctl(block size) ok
+/dev/ram8: ioctl(disk size) ok
+  block: name = loop7, path = /class/block/loop7
+    dev = 7:7
+    range = 1
+  block: name = ram15, path = /class/block/ram15
+    dev = 1:15
+    range = 1
+>> block.5: /dev/ram15
+>> block.5.1: /dev/ram15 geo
+  dev = /dev/ram15, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram15: ioctl(block size) ok
+/dev/ram15: ioctl(disk size) ok
+  block: name = ram6, path = /class/block/ram6
+    dev = 1:6
+    range = 1
+>> block.5: /dev/ram6
+>> block.5.1: /dev/ram6 geo
+  dev = /dev/ram6, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram6: ioctl(block size) ok
+/dev/ram6: ioctl(disk size) ok
+  block: name = loop5, path = /class/block/loop5
+    dev = 7:5
+    range = 1
+  block: name = mmcblk0, path = /class/block/mmcblk0
+    dev = 179:0
+    range = 32
+    block device: bus = mmc, bus_id = mmc0:1234 driver = mmcblk
+      path = /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+>> block.5: /dev/mmcblk0
+>> block.5.1: /dev/mmcblk0 geo
+  dev = /dev/mmcblk0, fd = 3
+  open ok, fd = 3
+/dev/mmcblk0: ioctl(geo) ok
+/dev/mmcblk0: ioctl(block size) ok
+/dev/mmcblk0: ioctl(disk size) ok
+  block: name = ram13, path = /class/block/ram13
+    dev = 1:13
+    range = 1
+>> block.5: /dev/ram13
+>> block.5.1: /dev/ram13 geo
+  dev = /dev/ram13, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram13: ioctl(block size) ok
+/dev/ram13: ioctl(disk size) ok
+  block: name = ram4, path = /class/block/ram4
+    dev = 1:4
+    range = 1
+>> block.5: /dev/ram4
+>> block.5.1: /dev/ram4 geo
+  dev = /dev/ram4, fd = 3
+  open ok, fd = 3
+  geo failed: Inappropriate ioctl for device
+/dev/ram4: ioctl(block size) ok
+/dev/ram4: ioctl(disk size) ok
+  block: name = loop3, path = /class/block/loop3
+    dev = 7:3
+    range = 1
+>> scsi.1: scsi modules
+>> scsi.2: scsi tape
+sysfs: no such class: scsi_tape
+>> scsi.3: scsi generic
+sysfs: no such class: scsi_generic
+>> usb.1: sysfs drivers
+>> usb.2: usb
+  usb dev: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+  usb dev: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+  usb dev: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+  usb device: name = usb1
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+  usb device: name = 1-1
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+  usb device: name = 1-0:1.0
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+    modalias = "usb:v1D6Bp0002d0504dc09dsc00dp01ic09isc00ip00in00"
+    bInterfaceNumber = 0
+    bInterfaceClass = 9
+    bInterfaceSubClass = 0
+    bInterfaceProtocol = 0
+    if: 1-0:1.0 @ /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+    bDeviceClass = 9
+    bDeviceSubClass = 0
+    bDeviceProtocol = 1
+    idVendor = 0x1d6b
+    idProduct = 0x0002
+    manufacturer = "Linux 5.4.51-v7l+ xhci-hcd"
+    product = "xHCI Host Controller"
+    serial = "0000:01:00.0"
+    bcdDevice = 0504
+    speed = "480"
+  usb device: name = usb2
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+  usb device: name = 1-1:1.0
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+    modalias = "usb:v2109p3431d0421dc09dsc00dp01ic09isc00ip00in00"
+    bInterfaceNumber = 0
+    bInterfaceClass = 9
+    bInterfaceSubClass = 0
+    bInterfaceProtocol = 0
+    if: 1-1:1.0 @ /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+    bDeviceClass = 9
+    bDeviceSubClass = 0
+    bDeviceProtocol = 1
+    idVendor = 0x2109
+    idProduct = 0x3431
+    product = "USB2.0 Hub"
+    bcdDevice = 0421
+    speed = "480"
+  usb device: name = 2-0:1.0
+    path = /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+    modalias = "usb:v1D6Bp0003d0504dc09dsc00dp03ic09isc00ip00in00"
+    bInterfaceNumber = 0
+    bInterfaceClass = 9
+    bInterfaceSubClass = 0
+    bInterfaceProtocol = 0
+    if: 2-0:1.0 @ /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+    bDeviceClass = 9
+    bDeviceSubClass = 0
+    bDeviceProtocol = 3
+    idVendor = 0x1d6b
+    idProduct = 0x0003
+    manufacturer = "Linux 5.4.51-v7l+ xhci-hcd"
+    product = "xHCI Host Controller"
+    serial = "0000:01:00.0"
+    bcdDevice = 0504
+    speed = "5000"
+>> usb.3.1: joydev mod
+>> usb.3.2: evdev mod
+>> usb.3.3: input
+  input: name = mice, path = /devices/virtual/input/mice
+    dev = 13:63
+>> usb.3.4: lp
+sysfs: no such class: usb
+>> usb.3.5: serial
+>> modem.1: serial
+******  started child process 901 (15s/120s)  ******
+******  stopped child process 901 (120s)  ******
+>> mouse.2: serial
+******  started child process 902 (20s/20s)  ******
+******  stopped child process 902 (20s)  ******
+>> input.1: joydev mod
+>> input.1.1: evdev mod
+>> input.2: input
+----- /proc/bus/input/devices -----
+----- /proc/bus/input/devices end -----
+>> kbd.2: uml
+>> cpu.1: cpuinfo
+----- /proc/cpuinfo -----
+  processor	: 0
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 270.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 1
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 270.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 2
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 270.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  processor	: 3
+  model name	: ARMv7 Processor rev 3 (v7l)
+  BogoMIPS	: 270.00
+  Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+  CPU implementer	: 0x41
+  CPU architecture: 7
+  CPU variant	: 0x0
+  CPU part	: 0xd08
+  CPU revision	: 3
+  
+  Hardware	: BCM2711
+  Revision	: b03114
+  Serial		: 100000009a394246
+  Model		: Raspberry Pi 4 Model B Rev 1.4
+----- /proc/cpuinfo end -----
+>> kbd.3: serial console
+>> fb.1: read info
+>> net.1: get network data
+  net interface: name = wlan0, path = /class/net/wlan0
+    type = 1
+    carrier = 1
+    hw_addr = dc:a6:32:cf:58:59
+    net device: path = /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+    net driver: name = brcmfmac, path = /bus/sdio/drivers/brcmfmac
+  wlan0: ethtool permanent hw address[6]: dc:a6:32:cf:58:59
+    ethtool private flags: 0
+  net interface: name = lo, path = /class/net/lo
+    type = 772
+    carrier = 1
+    hw_addr = 00:00:00:00:00:00
+  lo: ethtool permanent hw address[6]: 00:00:00:00:00:00
+    GDRVINFO ethtool error: Operation not supported
+    ethtool private flags: 0
+  net interface: name = eth0, path = /class/net/eth0
+    type = 1
+    carrier = 0
+    hw_addr = dc:a6:32:cf:58:58
+    net device: path = /devices/platform/scb/fd580000.ethernet
+    net driver: name = bcmgenet, path = /bus/platform/drivers/bcmgenet
+  eth0: ethtool permanent hw address[6]: dc:a6:32:cf:58:58
+    ethtool private flags: 0
+>> pppoe.1: looking for pppoe
+>> pppoe.2: discovery
+Attempt number 1
+eth0: Sending PADI packet
+Timeout waiting for PADO packets
+Attempt number 2
+eth0: Sending PADI packet
+Timeout waiting for PADO packets
+>> wlan.1: detecting wlan features
+*** device wlan0 is wireless ***
+>> isdn.1: list
+>> dsl.1: list
+>> int.2: cdrom
+>> int.3: media
+>> int.4.1: /dev/ram11
+  read_block0: 512 bytes (4s, 999993us)
+>> int.4.2: /dev/ram2
+  read_block0: 512 bytes (4s, 999995us)
+>> int.4.3: /dev/ram0
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.4: /dev/ram9
+  read_block0: 512 bytes (4s, 999995us)
+>> int.4.5: /dev/ram7
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.6: /dev/ram14
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.7: /dev/ram5
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.8: /dev/ram12
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.9: /dev/ram3
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.10: /dev/ram10
+  read_block0: 512 bytes (4s, 999995us)
+>> int.4.11: /dev/ram1
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.12: /dev/ram8
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.13: /dev/ram15
+  read_block0: 512 bytes (4s, 999995us)
+>> int.4.14: /dev/ram6
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.15: /dev/mmcblk0
+  read_block0: 512 bytes (4s, 999994us)
+>> int.4.16: /dev/ram13
+  read_block0: 512 bytes (4s, 999996us)
+>> int.4.17: /dev/ram4
+  read_block0: 512 bytes (4s, 999996us)
+>> int.4: floppy
+>> int.6: mouse
+>> int.7: hdb
+>> int.7.1: modules
+>> int.8: usbscsi
+>> int.9: hotplug
+>> int.10: modem
+>> int.11: wlan
+>> int.12: udev
+-----  udevinfo -----
+  P: /devices/armv7_cortex_a15
+  L: 0
+  E: DEVPATH=/devices/armv7_cortex_a15
+  E: SUBSYSTEM=event_source
+  
+  P: /devices/breakpoint
+  L: 0
+  E: DEVPATH=/devices/breakpoint
+  E: SUBSYSTEM=event_source
+  
+  P: /devices/kprobe
+  L: 0
+  E: DEVPATH=/devices/kprobe
+  E: SUBSYSTEM=event_source
+  
+  P: /devices/platform/0.framebuffer
+  L: 0
+  E: DEVPATH=/devices/platform/0.framebuffer
+  E: SUBSYSTEM=platform
+  E: OF_NAME=framebuffer
+  E: OF_FULLNAME=/chosen/framebuffer@00000000
+  E: OF_COMPATIBLE_0=simple-framebuffer
+  E: OF_COMPATIBLE_N=1
+  E: OF_ALIAS_0=display0
+  E: MODALIAS=of:NframebufferT(null)Csimple-framebuffer
+  
+  P: /devices/platform/Fixed MDIO bus.0
+  L: 0
+  E: DEVPATH=/devices/platform/Fixed MDIO bus.0
+  E: SUBSYSTEM=platform
+  E: MODALIAS=platform:Fixed MDIO bus
+  
+  P: /devices/platform/Fixed MDIO bus.0/mdio_bus/fixed-0
+  L: 0
+  E: DEVPATH=/devices/platform/Fixed MDIO bus.0/mdio_bus/fixed-0
+  E: SUBSYSTEM=mdio_bus
+  
+  P: /devices/platform/arm-pmu
+  L: 0
+  E: DEVPATH=/devices/platform/arm-pmu
+  E: SUBSYSTEM=platform
+  E: DRIVER=armv7-pmu
+  E: OF_NAME=arm-pmu
+  E: OF_FULLNAME=/arm-pmu
+  E: OF_COMPATIBLE_0=arm,cortex-a72-pmu
+  E: OF_COMPATIBLE_1=arm,cortex-a15-pmu
+  E: OF_COMPATIBLE_N=2
+  E: MODALIAS=of:Narm-pmuT(null)Carm,cortex-a72-pmuCarm,cortex-a15-pmu
+  
+  P: /devices/platform/chosen
+  L: 0
+  E: DEVPATH=/devices/platform/chosen
+  E: SUBSYSTEM=platform
+  E: OF_NAME=chosen
+  E: OF_FULLNAME=/chosen
+  E: OF_COMPATIBLE_0=simple_bus
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NchosenT(null)Csimple_bus
+  
+  P: /devices/platform/cpufreq-dt
+  L: 0
+  E: DEVPATH=/devices/platform/cpufreq-dt
+  E: SUBSYSTEM=platform
+  E: DRIVER=cpufreq-dt
+  E: MODALIAS=platform:cpufreq-dt
+  
+  P: /devices/platform/emmc2bus
+  L: 0
+  E: DEVPATH=/devices/platform/emmc2bus
+  E: SUBSYSTEM=platform
+  E: OF_NAME=emmc2bus
+  E: OF_FULLNAME=/emmc2bus
+  E: OF_COMPATIBLE_0=simple-bus
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nemmc2busT(null)Csimple-bus
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2
+  L: 0
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2
+  E: SUBSYSTEM=platform
+  E: DRIVER=sdhci-iproc
+  E: OF_NAME=emmc2
+  E: OF_FULLNAME=/emmc2bus/emmc2@7e340000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-emmc2
+  E: OF_COMPATIBLE_N=1
+  E: OF_ALIAS_0=mmc0
+  E: MODALIAS=of:Nemmc2T(null)Cbrcm,bcm2711-emmc2
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/leds/mmc0::
+  L: 0
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/leds/mmc0::
+  E: SUBSYSTEM=leds
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0
+  L: 0
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0
+  E: SUBSYSTEM=mmc_host
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+  L: 0
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+  E: SUBSYSTEM=mmc
+  E: DRIVER=mmcblk
+  E: MMC_TYPE=SD
+  E: MMC_NAME=SA32G
+  E: MODALIAS=mmc:block
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0
+  N: mmcblk0
+  L: 0
+  S: disk/by-id/mmc-SA32G_0x480c68ee
+  S: disk/by-path/platform-fe340000.emmc2
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/mmcblk0
+  E: DEVTYPE=disk
+  E: MAJOR=179
+  E: MINOR=0
+  E: USEC_INITIALIZED=4167913
+  E: ID_NAME=SA32G
+  E: ID_SERIAL=0x480c68ee
+  E: ID_PATH=platform-fe340000.emmc2
+  E: ID_PATH_TAG=platform-fe340000_emmc2
+  E: ID_PART_TABLE_UUID=838f922d
+  E: ID_PART_TABLE_TYPE=dos
+  E: ID_DRIVE_FLASH_SD=1
+  E: ID_DRIVE_MEDIA_FLASH_SD=1
+  E: DEVLINKS=/dev/disk/by-id/mmc-SA32G_0x480c68ee /dev/disk/by-path/platform-fe340000.emmc2
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p1
+  N: mmcblk0p1
+  L: 0
+  S: disk/by-path/platform-fe340000.emmc2-part1
+  S: disk/by-id/mmc-SA32G_0x480c68ee-part1
+  S: disk/by-uuid/997C-A34A
+  S: disk/by-label/boot
+  S: disk/by-partuuid/838f922d-01
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p1
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/mmcblk0p1
+  E: DEVTYPE=partition
+  E: PARTN=1
+  E: MAJOR=179
+  E: MINOR=1
+  E: USEC_INITIALIZED=4483553
+  E: ID_NAME=SA32G
+  E: ID_SERIAL=0x480c68ee
+  E: ID_PATH=platform-fe340000.emmc2
+  E: ID_PATH_TAG=platform-fe340000_emmc2
+  E: ID_PART_TABLE_UUID=838f922d
+  E: ID_PART_TABLE_TYPE=dos
+  E: ID_DRIVE_FLASH_SD=1
+  E: ID_DRIVE_MEDIA_FLASH_SD=1
+  E: ID_FS_LABEL=boot
+  E: ID_FS_LABEL_ENC=boot
+  E: ID_FS_UUID=997C-A34A
+  E: ID_FS_UUID_ENC=997C-A34A
+  E: ID_FS_VERSION=FAT32
+  E: ID_FS_TYPE=vfat
+  E: ID_FS_USAGE=filesystem
+  E: ID_PART_ENTRY_SCHEME=dos
+  E: ID_PART_ENTRY_UUID=838f922d-01
+  E: ID_PART_ENTRY_TYPE=0xc
+  E: ID_PART_ENTRY_NUMBER=1
+  E: ID_PART_ENTRY_OFFSET=8192
+  E: ID_PART_ENTRY_SIZE=524288
+  E: ID_PART_ENTRY_DISK=179:0
+  E: DEVLINKS=/dev/disk/by-path/platform-fe340000.emmc2-part1 /dev/disk/by-id/mmc-SA32G_0x480c68ee-part1 /dev/disk/by-uuid/997C-A34A /dev/disk/by-label/boot /dev/disk/by-partuuid/838f922d-01
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p2
+  N: mmcblk0p2
+  L: 0
+  S: disk/by-path/platform-fe340000.emmc2-part2
+  S: disk/by-id/mmc-SA32G_0x480c68ee-part2
+  S: disk/by-label/rootfs
+  S: disk/by-uuid/05c2c54d-f13e-4442-bf69-70e99c3d748d
+  S: disk/by-partuuid/838f922d-02
+  E: DEVPATH=/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p2
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/mmcblk0p2
+  E: DEVTYPE=partition
+  E: PARTN=2
+  E: MAJOR=179
+  E: MINOR=2
+  E: USEC_INITIALIZED=4307436
+  E: ID_NAME=SA32G
+  E: ID_SERIAL=0x480c68ee
+  E: ID_PATH=platform-fe340000.emmc2
+  E: ID_PATH_TAG=platform-fe340000_emmc2
+  E: ID_PART_TABLE_UUID=838f922d
+  E: ID_PART_TABLE_TYPE=dos
+  E: ID_DRIVE_FLASH_SD=1
+  E: ID_DRIVE_MEDIA_FLASH_SD=1
+  E: ID_FS_LABEL=rootfs
+  E: ID_FS_LABEL_ENC=rootfs
+  E: ID_FS_UUID=05c2c54d-f13e-4442-bf69-70e99c3d748d
+  E: ID_FS_UUID_ENC=05c2c54d-f13e-4442-bf69-70e99c3d748d
+  E: ID_FS_VERSION=1.0
+  E: ID_FS_TYPE=ext4
+  E: ID_FS_USAGE=filesystem
+  E: ID_PART_ENTRY_SCHEME=dos
+  E: ID_PART_ENTRY_UUID=838f922d-02
+  E: ID_PART_ENTRY_TYPE=0x83
+  E: ID_PART_ENTRY_NUMBER=2
+  E: ID_PART_ENTRY_OFFSET=532480
+  E: ID_PART_ENTRY_SIZE=59973632
+  E: ID_PART_ENTRY_DISK=179:0
+  E: DEVLINKS=/dev/disk/by-path/platform-fe340000.emmc2-part2 /dev/disk/by-id/mmc-SA32G_0x480c68ee-part2 /dev/disk/by-label/rootfs /dev/disk/by-uuid/05c2c54d-f13e-4442-bf69-70e99c3d748d /dev/disk/by-partuuid/838f922d-02
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/fixedregulator_3v3
+  L: 0
+  E: DEVPATH=/devices/platform/fixedregulator_3v3
+  E: SUBSYSTEM=platform
+  E: DRIVER=reg-fixed-voltage
+  E: OF_NAME=fixedregulator_3v3
+  E: OF_FULLNAME=/fixedregulator_3v3
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nfixedregulator_3v3T(null)Cregulator-fixed
+  
+  P: /devices/platform/fixedregulator_3v3/regulator/regulator.1
+  L: 0
+  E: DEVPATH=/devices/platform/fixedregulator_3v3/regulator/regulator.1
+  E: SUBSYSTEM=regulator
+  E: OF_NAME=fixedregulator_3v3
+  E: OF_FULLNAME=/fixedregulator_3v3
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  
+  P: /devices/platform/fixedregulator_5v0
+  L: 0
+  E: DEVPATH=/devices/platform/fixedregulator_5v0
+  E: SUBSYSTEM=platform
+  E: DRIVER=reg-fixed-voltage
+  E: OF_NAME=fixedregulator_5v0
+  E: OF_FULLNAME=/fixedregulator_5v0
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nfixedregulator_5v0T(null)Cregulator-fixed
+  
+  P: /devices/platform/fixedregulator_5v0/regulator/regulator.2
+  L: 0
+  E: DEVPATH=/devices/platform/fixedregulator_5v0/regulator/regulator.2
+  E: SUBSYSTEM=regulator
+  E: OF_NAME=fixedregulator_5v0
+  E: OF_FULLNAME=/fixedregulator_5v0
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  
+  P: /devices/platform/gpu
+  L: 0
+  E: DEVPATH=/devices/platform/gpu
+  E: SUBSYSTEM=platform
+  E: DRIVER=vc4-drm
+  E: OF_NAME=gpu
+  E: OF_FULLNAME=/gpu
+  E: OF_COMPATIBLE_0=brcm,bcm2711-vc5
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NgpuT(null)Cbrcm,bcm2711-vc5
+  
+  P: /devices/platform/gpu/drm/card1
+  N: dri/card1
+  L: 0
+  S: dri/by-path/platform-gpu-card
+  E: DEVPATH=/devices/platform/gpu/drm/card1
+  E: SUBSYSTEM=drm
+  E: DEVNAME=/dev/dri/card1
+  E: DEVTYPE=drm_minor
+  E: MAJOR=226
+  E: MINOR=1
+  E: USEC_INITIALIZED=5069151
+  E: ID_PATH=platform-gpu
+  E: ID_PATH_TAG=platform-gpu
+  E: ID_FOR_SEAT=drm-platform-gpu
+  E: DEVLINKS=/dev/dri/by-path/platform-gpu-card
+  E: TAGS=:uaccess:seat:master-of-seat:
+  
+  P: /devices/platform/kgdboc
+  L: 0
+  E: DEVPATH=/devices/platform/kgdboc
+  E: SUBSYSTEM=platform
+  E: DRIVER=kgdboc
+  E: MODALIAS=platform:kgdboc
+  
+  P: /devices/platform/leds
+  L: 0
+  E: DEVPATH=/devices/platform/leds
+  E: SUBSYSTEM=platform
+  E: DRIVER=leds-gpio
+  E: OF_NAME=leds
+  E: OF_FULLNAME=/leds
+  E: OF_COMPATIBLE_0=gpio-leds
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NledsT(null)Cgpio-leds
+  
+  P: /devices/platform/leds/leds/led0
+  L: 0
+  E: DEVPATH=/devices/platform/leds/leds/led0
+  E: SUBSYSTEM=leds
+  
+  P: /devices/platform/leds/leds/led1
+  L: 0
+  E: DEVPATH=/devices/platform/leds/leds/led1
+  E: SUBSYSTEM=leds
+  
+  P: /devices/platform/phy
+  L: 0
+  E: DEVPATH=/devices/platform/phy
+  E: SUBSYSTEM=platform
+  E: OF_NAME=phy
+  E: OF_FULLNAME=/phy
+  E: OF_COMPATIBLE_0=usb-nop-xceiv
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NphyT(null)Cusb-nop-xceiv
+  
+  P: /devices/platform/reg-dummy
+  L: 0
+  E: DEVPATH=/devices/platform/reg-dummy
+  E: SUBSYSTEM=platform
+  E: DRIVER=reg-dummy
+  E: MODALIAS=platform:reg-dummy
+  
+  P: /devices/platform/reg-dummy/regulator/regulator.0
+  L: 0
+  E: DEVPATH=/devices/platform/reg-dummy/regulator/regulator.0
+  E: SUBSYSTEM=regulator
+  
+  P: /devices/platform/regulatory.0
+  L: 0
+  E: DEVPATH=/devices/platform/regulatory.0
+  E: SUBSYSTEM=platform
+  E: MODALIAS=platform:regulatory
+  
+  P: /devices/platform/scb
+  L: 0
+  E: DEVPATH=/devices/platform/scb
+  E: SUBSYSTEM=platform
+  E: OF_NAME=scb
+  E: OF_FULLNAME=/scb
+  E: OF_COMPATIBLE_0=simple-bus
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NscbT(null)Csimple-bus
+  
+  P: /devices/platform/scb/fd500000.pcie
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie
+  E: SUBSYSTEM=platform
+  E: DRIVER=brcm-pcie
+  E: OF_NAME=pcie
+  E: OF_FULLNAME=/scb/pcie@7d500000
+  E: OF_TYPE=pci
+  E: OF_COMPATIBLE_0=brcm,bcm2711-pcie
+  E: OF_COMPATIBLE_N=1
+  E: OF_ALIAS_0=pcie0
+  E: MODALIAS=of:NpcieTpciCbrcm,bcm2711-pcie
+  E: USEC_INITIALIZED=3992541
+  E: ID_DRIVE_FLOPPY=1
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+  E: SUBSYSTEM=pci
+  E: DRIVER=pcieport
+  E: PCI_CLASS=60400
+  E: PCI_ID=14E4:2711
+  E: PCI_SUBSYS_ID=0000:0000
+  E: PCI_SLOT_NAME=0000:00:00.0
+  E: MODALIAS=pci:v000014E4d00002711sv00000000sd00000000bc06sc04i00
+  E: USEC_INITIALIZED=4055069
+  E: ID_PCI_CLASS_FROM_DATABASE=Bridge
+  E: ID_PCI_SUBCLASS_FROM_DATABASE=PCI bridge
+  E: ID_PCI_INTERFACE_FROM_DATABASE=Normal decode
+  E: ID_VENDOR_FROM_DATABASE=Broadcom Inc. and subsidiaries
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie001
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie001
+  E: SUBSYSTEM=pci_express
+  E: DRIVER=pcie_pme
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie002
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie002
+  E: SUBSYSTEM=pci_express
+  E: DRIVER=aer
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie010
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie010
+  E: SUBSYSTEM=pci_express
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+  E: SUBSYSTEM=pci
+  E: DRIVER=xhci_hcd
+  E: PCI_CLASS=C0330
+  E: PCI_ID=1106:3483
+  E: PCI_SUBSYS_ID=1106:3483
+  E: PCI_SLOT_NAME=0000:01:00.0
+  E: MODALIAS=pci:v00001106d00003483sv00001106sd00003483bc0Csc03i30
+  E: USEC_INITIALIZED=4096177
+  E: ID_PCI_CLASS_FROM_DATABASE=Serial bus controller
+  E: ID_PCI_SUBCLASS_FROM_DATABASE=USB controller
+  E: ID_PCI_INTERFACE_FROM_DATABASE=XHCI
+  E: ID_VENDOR_FROM_DATABASE=VIA Technologies, Inc.
+  E: ID_MODEL_FROM_DATABASE=VL805 USB 3.0 Host Controller
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+  N: bus/usb/001/001
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+  E: SUBSYSTEM=usb
+  E: DEVNAME=/dev/bus/usb/001/001
+  E: DEVTYPE=usb_device
+  E: DRIVER=usb
+  E: PRODUCT=1d6b/2/504
+  E: TYPE=9/0/1
+  E: BUSNUM=001
+  E: DEVNUM=001
+  E: MAJOR=189
+  E: MINOR=0
+  E: USEC_INITIALIZED=4144983
+  E: ID_VENDOR=Linux_5.4.51-v7l+_xhci-hcd
+  E: ID_VENDOR_ENC=Linux\x205.4.51-v7l+\x20xhci-hcd
+  E: ID_VENDOR_ID=1d6b
+  E: ID_MODEL=xHCI_Host_Controller
+  E: ID_MODEL_ENC=xHCI\x20Host\x20Controller
+  E: ID_MODEL_ID=0002
+  E: ID_REVISION=0504
+  E: ID_SERIAL=Linux_5.4.51-v7l+_xhci-hcd_xHCI_Host_Controller_0000:01:00.0
+  E: ID_SERIAL_SHORT=0000:01:00.0
+  E: ID_BUS=usb
+  E: ID_USB_INTERFACES=:090000:
+  E: ID_VENDOR_FROM_DATABASE=Linux Foundation
+  E: ID_MODEL_FROM_DATABASE=2.0 root hub
+  E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0
+  E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0
+  E: ID_FOR_SEAT=usb-platform-fd500000_pcie-pci-0000_01_00_0
+  E: TAGS=:seat:
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+  E: SUBSYSTEM=usb
+  E: DEVTYPE=usb_interface
+  E: DRIVER=hub
+  E: PRODUCT=1d6b/2/504
+  E: TYPE=9/0/1
+  E: INTERFACE=9/0/0
+  E: MODALIAS=usb:v1D6Bp0002d0504dc09dsc00dp01ic09isc00ip00in00
+  E: USEC_INITIALIZED=4186902
+  E: ID_USB_CLASS_FROM_DATABASE=Hub
+  E: ID_USB_PROTOCOL_FROM_DATABASE=Single TT
+  E: ID_VENDOR_FROM_DATABASE=Linux Foundation
+  E: ID_MODEL_FROM_DATABASE=2.0 root hub
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+  N: bus/usb/001/002
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+  E: SUBSYSTEM=usb
+  E: DEVNAME=/dev/bus/usb/001/002
+  E: DEVTYPE=usb_device
+  E: DRIVER=usb
+  E: PRODUCT=2109/3431/421
+  E: TYPE=9/0/1
+  E: BUSNUM=001
+  E: DEVNUM=002
+  E: MAJOR=189
+  E: MINOR=1
+  E: USEC_INITIALIZED=4225795
+  E: ID_VENDOR=2109
+  E: ID_VENDOR_ENC=2109
+  E: ID_VENDOR_ID=2109
+  E: ID_MODEL=USB2.0_Hub
+  E: ID_MODEL_ENC=USB2.0\x20Hub
+  E: ID_MODEL_ID=3431
+  E: ID_REVISION=0421
+  E: ID_SERIAL=2109_USB2.0_Hub
+  E: ID_BUS=usb
+  E: ID_USB_INTERFACES=:090000:
+  E: ID_VENDOR_FROM_DATABASE=VIA Labs, Inc.
+  E: ID_MODEL_FROM_DATABASE=Hub
+  E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1
+  E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1
+  E: ID_FOR_SEAT=usb-platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1
+  E: TAGS=:seat:
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+  E: SUBSYSTEM=usb
+  E: DEVTYPE=usb_interface
+  E: DRIVER=hub
+  E: PRODUCT=2109/3431/421
+  E: TYPE=9/0/1
+  E: INTERFACE=9/0/0
+  E: MODALIAS=usb:v2109p3431d0421dc09dsc00dp01ic09isc00ip00in00
+  E: USEC_INITIALIZED=4238932
+  E: ID_USB_CLASS_FROM_DATABASE=Hub
+  E: ID_USB_PROTOCOL_FROM_DATABASE=Single TT
+  E: ID_VENDOR_FROM_DATABASE=VIA Labs, Inc.
+  E: ID_MODEL_FROM_DATABASE=Hub
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+  N: bus/usb/002/001
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+  E: SUBSYSTEM=usb
+  E: DEVNAME=/dev/bus/usb/002/001
+  E: DEVTYPE=usb_device
+  E: DRIVER=usb
+  E: PRODUCT=1d6b/3/504
+  E: TYPE=9/0/3
+  E: BUSNUM=002
+  E: DEVNUM=001
+  E: MAJOR=189
+  E: MINOR=128
+  E: USEC_INITIALIZED=4163272
+  E: ID_VENDOR=Linux_5.4.51-v7l+_xhci-hcd
+  E: ID_VENDOR_ENC=Linux\x205.4.51-v7l+\x20xhci-hcd
+  E: ID_VENDOR_ID=1d6b
+  E: ID_MODEL=xHCI_Host_Controller
+  E: ID_MODEL_ENC=xHCI\x20Host\x20Controller
+  E: ID_MODEL_ID=0003
+  E: ID_REVISION=0504
+  E: ID_SERIAL=Linux_5.4.51-v7l+_xhci-hcd_xHCI_Host_Controller_0000:01:00.0
+  E: ID_SERIAL_SHORT=0000:01:00.0
+  E: ID_BUS=usb
+  E: ID_USB_INTERFACES=:090000:
+  E: ID_VENDOR_FROM_DATABASE=Linux Foundation
+  E: ID_MODEL_FROM_DATABASE=3.0 root hub
+  E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0
+  E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0
+  E: ID_FOR_SEAT=usb-platform-fd500000_pcie-pci-0000_01_00_0
+  E: TAGS=:seat:
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+  E: SUBSYSTEM=usb
+  E: DEVTYPE=usb_interface
+  E: DRIVER=hub
+  E: PRODUCT=1d6b/3/504
+  E: TYPE=9/0/3
+  E: INTERFACE=9/0/0
+  E: MODALIAS=usb:v1D6Bp0003d0504dc09dsc00dp03ic09isc00ip00in00
+  E: USEC_INITIALIZED=4186617
+  E: ID_USB_CLASS_FROM_DATABASE=Hub
+  E: ID_VENDOR_FROM_DATABASE=Linux Foundation
+  E: ID_MODEL_FROM_DATABASE=3.0 root hub
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/pci_bus/0000:01
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/pci_bus/0000:01
+  E: SUBSYSTEM=pci_bus
+  
+  P: /devices/platform/scb/fd500000.pcie/pci0000:00/pci_bus/0000:00
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/pci_bus/0000:00
+  E: SUBSYSTEM=pci_bus
+  E: OF_NAME=pcie
+  E: OF_FULLNAME=/scb/pcie@7d500000
+  E: OF_TYPE=pci
+  E: OF_COMPATIBLE_0=brcm,bcm2711-pcie
+  E: OF_COMPATIBLE_N=1
+  E: OF_ALIAS_0=pcie0
+  
+  P: /devices/platform/scb/fd580000.ethernet
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd580000.ethernet
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcmgenet
+  E: OF_NAME=ethernet
+  E: OF_FULLNAME=/scb/ethernet@7d580000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-genet-v5
+  E: OF_COMPATIBLE_1=brcm,genet-v5
+  E: OF_COMPATIBLE_N=2
+  E: OF_ALIAS_0=ethernet0
+  E: MODALIAS=of:NethernetT(null)Cbrcm,bcm2711-genet-v5Cbrcm,genet-v5
+  E: USEC_INITIALIZED=4002532
+  E: ID_DRIVE_FLOPPY=1
+  
+  P: /devices/platform/scb/fd580000.ethernet/net/eth0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd580000.ethernet/net/eth0
+  E: SUBSYSTEM=net
+  E: INTERFACE=eth0
+  E: IFINDEX=2
+  E: USEC_INITIALIZED=4071737
+  E: ID_NET_NAMING_SCHEME=v240
+  E: ID_NET_NAME_MAC=enxdca632cf5858
+  E: ID_PATH=platform-fd580000.ethernet
+  E: ID_PATH_TAG=platform-fd580000_ethernet
+  E: ID_NET_DRIVER=bcmgenet
+  E: SYSTEMD_ALIAS=/sys/subsystem/net/devices/eth0
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19
+  E: SUBSYSTEM=platform
+  E: DRIVER=unimac-mdio
+  E: OF_NAME=mdio
+  E: OF_FULLNAME=/scb/ethernet@7d580000/mdio@e14
+  E: OF_COMPATIBLE_0=brcm,genet-mdio-v5
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NmdioT(null)Cbrcm,genet-mdio-v5
+  
+  P: /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19
+  E: SUBSYSTEM=mdio_bus
+  E: OF_NAME=mdio
+  E: OF_FULLNAME=/scb/ethernet@7d580000/mdio@e14
+  E: OF_COMPATIBLE_0=brcm,genet-mdio-v5
+  E: OF_COMPATIBLE_N=1
+  
+  P: /devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19/unimac-mdio--19:01
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19/unimac-mdio--19:01
+  E: SUBSYSTEM=mdio_bus
+  E: DEVTYPE=PHY
+  E: DRIVER=Broadcom BCM54210E
+  E: OF_NAME=ethernet-phy
+  E: OF_FULLNAME=/scb/ethernet@7d580000/mdio@e14/ethernet-phy@1
+  E: OF_COMPATIBLE_N=0
+  E: MODALIAS=of:Nethernet-phyT(null)
+  
+  P: /devices/platform/scb/fe007b00.dma
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fe007b00.dma
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-dma
+  E: OF_NAME=dma
+  E: OF_FULLNAME=/scb/dma@7e007b00
+  E: OF_COMPATIBLE_0=brcm,bcm2711-dma
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NdmaT(null)Cbrcm,bcm2711-dma
+  
+  P: /devices/platform/scb/fe007b00.dma/dma/dma1chan0
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fe007b00.dma/dma/dma1chan0
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/scb/fe007b00.dma/dma/dma1chan1
+  L: 0
+  E: DEVPATH=/devices/platform/scb/fe007b00.dma/dma/dma1chan1
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/scb/feb00000.hevc-decoder
+  L: 0
+  E: DEVPATH=/devices/platform/scb/feb00000.hevc-decoder
+  E: SUBSYSTEM=platform
+  E: DRIVER=rpivid-mem
+  E: OF_NAME=hevc-decoder
+  E: OF_FULLNAME=/scb/hevc-decoder@7eb00000
+  E: OF_COMPATIBLE_0=raspberrypi,rpivid-hevc-decoder
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nhevc-decoderT(null)Craspberrypi,rpivid-hevc-decoder
+  
+  P: /devices/platform/scb/feb10000.rpivid-local-intc
+  L: 0
+  E: DEVPATH=/devices/platform/scb/feb10000.rpivid-local-intc
+  E: SUBSYSTEM=platform
+  E: DRIVER=rpivid-mem
+  E: OF_NAME=rpivid-local-intc
+  E: OF_FULLNAME=/scb/rpivid-local-intc@7eb10000
+  E: OF_COMPATIBLE_0=raspberrypi,rpivid-local-intc
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nrpivid-local-intcT(null)Craspberrypi,rpivid-local-intc
+  
+  P: /devices/platform/scb/feb20000.h264-decoder
+  L: 0
+  E: DEVPATH=/devices/platform/scb/feb20000.h264-decoder
+  E: SUBSYSTEM=platform
+  E: DRIVER=rpivid-mem
+  E: OF_NAME=h264-decoder
+  E: OF_FULLNAME=/scb/h264-decoder@7eb20000
+  E: OF_COMPATIBLE_0=raspberrypi,rpivid-h264-decoder
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nh264-decoderT(null)Craspberrypi,rpivid-h264-decoder
+  
+  P: /devices/platform/scb/feb30000.vp9-decoder
+  L: 0
+  E: DEVPATH=/devices/platform/scb/feb30000.vp9-decoder
+  E: SUBSYSTEM=platform
+  E: DRIVER=rpivid-mem
+  E: OF_NAME=vp9-decoder
+  E: OF_FULLNAME=/scb/vp9-decoder@7eb30000
+  E: OF_COMPATIBLE_0=raspberrypi,rpivid-vp9-decoder
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nvp9-decoderT(null)Craspberrypi,rpivid-vp9-decoder
+  
+  P: /devices/platform/sd_io_1v8_reg
+  L: 0
+  E: DEVPATH=/devices/platform/sd_io_1v8_reg
+  E: SUBSYSTEM=platform
+  E: DRIVER=gpio-regulator
+  E: OF_NAME=sd_io_1v8_reg
+  E: OF_FULLNAME=/sd_io_1v8_reg
+  E: OF_COMPATIBLE_0=regulator-gpio
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nsd_io_1v8_regT(null)Cregulator-gpio
+  
+  P: /devices/platform/sd_io_1v8_reg/regulator/regulator.4
+  L: 0
+  E: DEVPATH=/devices/platform/sd_io_1v8_reg/regulator/regulator.4
+  E: SUBSYSTEM=regulator
+  E: OF_NAME=sd_io_1v8_reg
+  E: OF_FULLNAME=/sd_io_1v8_reg
+  E: OF_COMPATIBLE_0=regulator-gpio
+  E: OF_COMPATIBLE_N=1
+  
+  P: /devices/platform/sd_vcc_reg
+  L: 0
+  E: DEVPATH=/devices/platform/sd_vcc_reg
+  E: SUBSYSTEM=platform
+  E: DRIVER=reg-fixed-voltage
+  E: OF_NAME=sd_vcc_reg
+  E: OF_FULLNAME=/sd_vcc_reg
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nsd_vcc_regT(null)Cregulator-fixed
+  
+  P: /devices/platform/sd_vcc_reg/regulator/regulator.3
+  L: 0
+  E: DEVPATH=/devices/platform/sd_vcc_reg/regulator/regulator.3
+  E: SUBSYSTEM=regulator
+  E: OF_NAME=sd_vcc_reg
+  E: OF_FULLNAME=/sd_vcc_reg
+  E: OF_COMPATIBLE_0=regulator-fixed
+  E: OF_COMPATIBLE_N=1
+  
+  P: /devices/platform/snd-soc-dummy
+  L: 0
+  E: DEVPATH=/devices/platform/snd-soc-dummy
+  E: SUBSYSTEM=platform
+  E: DRIVER=snd-soc-dummy
+  E: MODALIAS=platform:snd-soc-dummy
+  
+  P: /devices/platform/soc
+  L: 0
+  E: DEVPATH=/devices/platform/soc
+  E: SUBSYSTEM=platform
+  E: OF_NAME=soc
+  E: OF_FULLNAME=/soc
+  E: OF_COMPATIBLE_0=simple-bus
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NsocT(null)Csimple-bus
+  
+  P: /devices/platform/soc/fd5d2000.avs-monitor
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fd5d2000.avs-monitor
+  E: SUBSYSTEM=platform
+  E: OF_NAME=avs-monitor
+  E: OF_FULLNAME=/soc/avs-monitor@7d5d2000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-avs-monitor
+  E: OF_COMPATIBLE_1=syscon
+  E: OF_COMPATIBLE_2=simple-mfd
+  E: OF_COMPATIBLE_N=3
+  E: MODALIAS=of:Navs-monitorT(null)Cbrcm,bcm2711-avs-monitorCsysconCsimple-mfd
+  E: USEC_INITIALIZED=4051448
+  E: ID_DRIVE_FLOPPY=1
+  
+  P: /devices/platform/soc/fd5d2000.avs-monitor/fd5d2000.avs-monitor:thermal
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fd5d2000.avs-monitor/fd5d2000.avs-monitor:thermal
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2711_thermal
+  E: OF_NAME=thermal
+  E: OF_FULLNAME=/soc/avs-monitor@7d5d2000/thermal
+  E: OF_COMPATIBLE_0=brcm,bcm2711-thermal
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NthermalT(null)Cbrcm,bcm2711-thermal
+  E: USEC_INITIALIZED=4073577
+  E: ID_DRIVE_FLOPPY=1
+  
+  P: /devices/platform/soc/fe003000.timer
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe003000.timer
+  E: SUBSYSTEM=platform
+  E: OF_NAME=timer
+  E: OF_FULLNAME=/soc/timer@7e003000
+  E: OF_COMPATIBLE_0=brcm,bcm2835-system-timer
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NtimerT(null)Cbrcm,bcm2835-system-timer
+  
+  P: /devices/platform/soc/fe007000.dma
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-dma
+  E: OF_NAME=dma
+  E: OF_FULLNAME=/soc/dma@7e007000
+  E: OF_COMPATIBLE_0=brcm,bcm2835-dma
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NdmaT(null)Cbrcm,bcm2835-dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan0
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan1
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan2
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan2
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan3
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan3
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan4
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan4
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe007000.dma/dma/dma0chan5
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe007000.dma/dma/dma0chan5
+  E: SUBSYSTEM=dma
+  
+  P: /devices/platform/soc/fe00b840.mailbox
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835_vchiq
+  E: OF_NAME=mailbox
+  E: OF_FULLNAME=/soc/mailbox@7e00b840
+  E: OF_COMPATIBLE_0=brcm,bcm2711-vchiq
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NmailboxT(null)Cbrcm,bcm2711-vchiq
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-camera
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-camera
+  E: SUBSYSTEM=platform
+  E: MODALIAS=platform:bcm2835-camera
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-codec
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-codec
+  E: MODALIAS=platform:bcm2835-codec
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec/media1
+  N: media1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/media1
+  E: SUBSYSTEM=media
+  E: DEVNAME=/dev/media1
+  E: MAJOR=236
+  E: MINOR=1
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video10
+  N: video10
+  L: 0
+  S: v4l/by-path/platform-bcm2835-codec-video-index0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video10
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video10
+  E: MAJOR=81
+  E: MINOR=3
+  E: USEC_INITIALIZED=5073626
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-codec-decode
+  E: ID_V4L_CAPABILITIES=:
+  E: ID_PATH=platform-bcm2835-codec
+  E: ID_PATH_TAG=platform-bcm2835-codec
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-codec
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-codec-video-index0
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video11
+  N: video11
+  L: 0
+  S: v4l/by-path/platform-bcm2835-codec-video-index0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video11
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video11
+  E: MAJOR=81
+  E: MINOR=5
+  E: USEC_INITIALIZED=5074273
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-codec-encode
+  E: ID_V4L_CAPABILITIES=:
+  E: ID_PATH=platform-bcm2835-codec
+  E: ID_PATH_TAG=platform-bcm2835-codec
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-codec
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-codec-video-index0
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video12
+  N: video12
+  L: 0
+  S: v4l/by-path/platform-bcm2835-codec-video-index0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video12
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video12
+  E: MAJOR=81
+  E: MINOR=6
+  E: USEC_INITIALIZED=5026322
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-codec-isp
+  E: ID_V4L_CAPABILITIES=:
+  E: ID_PATH=platform-bcm2835-codec
+  E: ID_PATH_TAG=platform-bcm2835-codec
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-codec
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-codec-video-index0
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-isp
+  E: MODALIAS=platform:bcm2835-isp
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp/media0
+  N: media0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/media0
+  E: SUBSYSTEM=media
+  E: DEVNAME=/dev/media0
+  E: MAJOR=236
+  E: MINOR=0
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video13
+  N: video13
+  L: 0
+  S: v4l/by-path/platform-bcm2835-isp-video-index0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video13
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video13
+  E: MAJOR=81
+  E: MINOR=0
+  E: USEC_INITIALIZED=5036239
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-isp
+  E: ID_V4L_CAPABILITIES=:video_output:
+  E: ID_PATH=platform-bcm2835-isp
+  E: ID_PATH_TAG=platform-bcm2835-isp
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-isp
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-isp-video-index0
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video14
+  N: video14
+  L: 0
+  S: v4l/by-path/platform-bcm2835-isp-video-index1
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video14
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video14
+  E: MAJOR=81
+  E: MINOR=1
+  E: USEC_INITIALIZED=5043815
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-isp
+  E: ID_V4L_CAPABILITIES=:capture:
+  E: ID_PATH=platform-bcm2835-isp
+  E: ID_PATH_TAG=platform-bcm2835-isp
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-isp
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-isp-video-index1
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video15
+  N: video15
+  L: 0
+  S: v4l/by-path/platform-bcm2835-isp-video-index2
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video15
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video15
+  E: MAJOR=81
+  E: MINOR=2
+  E: USEC_INITIALIZED=5041943
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-isp
+  E: ID_V4L_CAPABILITIES=:capture:
+  E: ID_PATH=platform-bcm2835-isp
+  E: ID_PATH_TAG=platform-bcm2835-isp
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-isp
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-isp-video-index2
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video16
+  N: video16
+  L: 0
+  S: v4l/by-path/platform-bcm2835-isp-video-index3
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video16
+  E: SUBSYSTEM=video4linux
+  E: DEVNAME=/dev/video16
+  E: MAJOR=81
+  E: MINOR=4
+  E: USEC_INITIALIZED=5007912
+  E: ID_V4L_VERSION=2
+  E: ID_V4L_PRODUCT=bcm2835-isp
+  E: ID_V4L_CAPABILITIES=:
+  E: ID_PATH=platform-bcm2835-isp
+  E: ID_PATH_TAG=platform-bcm2835-isp
+  E: ID_FOR_SEAT=video4linux-platform-bcm2835-isp
+  E: DEVLINKS=/dev/v4l/by-path/platform-bcm2835-isp-video-index3
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835_audio
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835_audio
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835_audio
+  E: OF_NAME=bcm2835_audio
+  E: OF_FULLNAME=/soc/mailbox@7e00b840/bcm2835_audio
+  E: OF_COMPATIBLE_0=brcm,bcm2835-audio
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nbcm2835_audioT(null)Cbrcm,bcm2835-audio
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0
+  E: SUBSYSTEM=sound
+  E: USEC_INITIALIZED=4929268
+  E: ID_PATH=platform-bcm2835_audio
+  E: ID_PATH_TAG=platform-bcm2835_audio
+  E: ID_FOR_SEAT=sound-platform-bcm2835_audio
+  E: SOUND_INITIALIZED=1
+  E: SOUND_FORM_FACTOR=internal
+  E: SYSTEMD_WANTS=sound.target
+  E: TAGS=:systemd:seat:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/pcmC0D0p
+  N: snd/pcmC0D0p
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/pcmC0D0p
+  E: SUBSYSTEM=sound
+  E: DEVNAME=/dev/snd/pcmC0D0p
+  E: DEVTYPE=pcm
+  E: MAJOR=116
+  E: MINOR=16
+  E: USEC_INITIALIZED=4957529
+  E: TAGS=:uaccess:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/controlC0
+  N: snd/controlC0
+  L: 0
+  S: snd/by-path/platform-bcm2835_audio
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/controlC0
+  E: SUBSYSTEM=sound
+  E: DEVNAME=/dev/snd/controlC0
+  E: MAJOR=116
+  E: MINOR=0
+  E: USEC_INITIALIZED=5006045
+  E: ID_PATH=platform-bcm2835_audio
+  E: ID_PATH_TAG=platform-bcm2835_audio
+  E: DEVLINKS=/dev/snd/by-path/platform-bcm2835_audio
+  E: TAGS=:uaccess:
+  
+  P: /devices/platform/soc/fe00b840.mailbox/vchiq/vchiq
+  N: vchiq
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/vchiq/vchiq
+  E: SUBSYSTEM=vchiq
+  E: DEVNAME=/dev/vchiq
+  E: MAJOR=243
+  E: MINOR=0
+  
+  P: /devices/platform/soc/fe00b840.mailbox/vcsm-cma
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b840.mailbox/vcsm-cma
+  E: SUBSYSTEM=platform
+  E: DRIVER=vcsm-cma
+  E: MODALIAS=platform:vcsm-cma
+  
+  P: /devices/platform/soc/fe00b880.mailbox
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe00b880.mailbox
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-mbox
+  E: OF_NAME=mailbox
+  E: OF_FULLNAME=/soc/mailbox@7e00b880
+  E: OF_COMPATIBLE_0=brcm,bcm2835-mbox
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NmailboxT(null)Cbrcm,bcm2835-mbox
+  
+  P: /devices/platform/soc/fe100000.watchdog
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe100000.watchdog
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-pm
+  E: OF_NAME=watchdog
+  E: OF_FULLNAME=/soc/watchdog@7e100000
+  E: OF_COMPATIBLE_0=brcm,bcm2835-pm
+  E: OF_COMPATIBLE_1=brcm,bcm2835-pm-wdt
+  E: OF_COMPATIBLE_N=2
+  E: MODALIAS=of:NwatchdogT(null)Cbrcm,bcm2835-pmCbrcm,bcm2835-pm-wdt
+  
+  P: /devices/platform/soc/fe100000.watchdog/bcm2835-power
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe100000.watchdog/bcm2835-power
+  E: SUBSYSTEM=platform
+  E: DEVTYPE=mfd_device
+  E: DRIVER=bcm2835-power
+  E: MODALIAS=platform:bcm2835-power
+  
+  P: /devices/platform/soc/fe100000.watchdog/bcm2835-wdt
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe100000.watchdog/bcm2835-wdt
+  E: SUBSYSTEM=platform
+  E: DEVTYPE=mfd_device
+  E: DRIVER=bcm2835-wdt
+  E: MODALIAS=platform:bcm2835-wdt
+  
+  P: /devices/platform/soc/fe100000.watchdog/bcm2835-wdt/misc/watchdog
+  N: watchdog
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe100000.watchdog/bcm2835-wdt/misc/watchdog
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/watchdog
+  E: MAJOR=10
+  E: MINOR=130
+  
+  P: /devices/platform/soc/fe100000.watchdog/bcm2835-wdt/watchdog/watchdog0
+  N: watchdog0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe100000.watchdog/bcm2835-wdt/watchdog/watchdog0
+  E: SUBSYSTEM=watchdog
+  E: DEVNAME=/dev/watchdog0
+  E: MAJOR=250
+  E: MINOR=0
+  
+  P: /devices/platform/soc/fe101000.cprman
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe101000.cprman
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-clk
+  E: OF_NAME=cprman
+  E: OF_FULLNAME=/soc/cprman@7e101000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-cprman
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NcprmanT(null)Cbrcm,bcm2711-cprman
+  
+  P: /devices/platform/soc/fe104000.rng
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe104000.rng
+  E: SUBSYSTEM=platform
+  E: DRIVER=iproc-rng200
+  E: OF_NAME=rng
+  E: OF_FULLNAME=/soc/rng@7e104000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-rng200
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NrngT(null)Cbrcm,bcm2711-rng200
+  
+  P: /devices/platform/soc/fe200000.gpio
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe200000.gpio
+  E: SUBSYSTEM=platform
+  E: DRIVER=pinctrl-bcm2835
+  E: OF_NAME=gpio
+  E: OF_FULLNAME=/soc/gpio@7e200000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-gpio
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NgpioT(null)Cbrcm,bcm2711-gpio
+  
+  P: /devices/platform/soc/fe200000.gpio/gpio/gpiochip0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe200000.gpio/gpio/gpiochip0
+  E: SUBSYSTEM=gpio
+  
+  P: /devices/platform/soc/fe200000.gpio/gpiochip0
+  N: gpiochip0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe200000.gpio/gpiochip0
+  E: SUBSYSTEM=gpio
+  E: DEVNAME=/dev/gpiochip0
+  E: OF_NAME=gpio
+  E: OF_FULLNAME=/soc/gpio@7e200000
+  E: OF_COMPATIBLE_0=brcm,bcm2711-gpio
+  E: OF_COMPATIBLE_N=1
+  E: MAJOR=254
+  E: MINOR=0
+  
+  P: /devices/platform/soc/fe200000.gpiomem
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe200000.gpiomem
+  E: SUBSYSTEM=platform
+  E: DRIVER=gpiomem-bcm2835
+  E: OF_NAME=gpiomem
+  E: OF_FULLNAME=/soc/gpiomem
+  E: OF_COMPATIBLE_0=brcm,bcm2835-gpiomem
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NgpiomemT(null)Cbrcm,bcm2835-gpiomem
+  
+  P: /devices/platform/soc/fe201000.serial
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe201000.serial
+  E: SUBSYSTEM=amba
+  E: DRIVER=uart-pl011
+  E: OF_NAME=serial
+  E: OF_FULLNAME=/soc/serial@7e201000
+  E: OF_COMPATIBLE_0=arm,pl011
+  E: OF_COMPATIBLE_1=arm,primecell
+  E: OF_COMPATIBLE_N=2
+  E: OF_ALIAS_0=serial1
+  E: OF_ALIAS_1=uart0
+  E: AMBA_ID=00241011
+  E: MODALIAS=amba:d00241011
+  
+  P: /devices/platform/soc/fe201000.serial/tty/ttyAMA0
+  N: ttyAMA0
+  L: 0
+  S: serial1
+  E: DEVPATH=/devices/platform/soc/fe201000.serial/tty/ttyAMA0
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/ttyAMA0
+  E: MAJOR=204
+  E: MINOR=64
+  E: USEC_INITIALIZED=4327183
+  E: DEVLINKS=/dev/serial1
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0
+  E: SUBSYSTEM=bluetooth
+  E: DEVTYPE=host
+  E: USEC_INITIALIZED=13204886
+  E: SYSTEMD_WANTS=bluealsa.service bthelper@hci0.service bluetooth.target
+  E: SYSTEMD_ALIAS=/sys/subsystem/bluetooth/devices/hci0
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0/rfkill1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0/rfkill1
+  E: SUBSYSTEM=rfkill
+  E: RFKILL_NAME=hci0
+  E: RFKILL_TYPE=bluetooth
+  E: RFKILL_STATE=1
+  E: USEC_INITIALIZED=13213608
+  E: SYSTEMD_RFKILL=1
+  E: ID_PATH=platform-soc
+  E: ID_PATH_TAG=platform-soc
+  
+  P: /devices/platform/soc/fe215000.aux
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe215000.aux
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-aux-clk
+  E: OF_NAME=aux
+  E: OF_FULLNAME=/soc/aux@7e215000
+  E: OF_COMPATIBLE_0=brcm,bcm2835-aux
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NauxT(null)Cbrcm,bcm2835-aux
+  
+  P: /devices/platform/soc/fe300000.mmcnr
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr
+  E: SUBSYSTEM=platform
+  E: DRIVER=mmc-bcm2835
+  E: OF_NAME=mmcnr
+  E: OF_FULLNAME=/soc/mmcnr@7e300000
+  E: OF_COMPATIBLE_0=brcm,bcm2835-mmc
+  E: OF_COMPATIBLE_1=brcm,bcm2835-sdhci
+  E: OF_COMPATIBLE_N=2
+  E: OF_ALIAS_0=mmc1
+  E: MODALIAS=of:NmmcnrT(null)Cbrcm,bcm2835-mmcCbrcm,bcm2835-sdhci
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1
+  E: SUBSYSTEM=mmc_host
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001
+  E: SUBSYSTEM=mmc
+  E: MMC_TYPE=SDIO
+  E: MMC_NAME=
+  E: MODALIAS=mmc:block
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  E: SUBSYSTEM=sdio
+  E: DRIVER=brcmfmac
+  E: SDIO_CLASS=00
+  E: SDIO_ID=02D0:A9A6
+  E: MODALIAS=sdio:c00v02D0dA9A6
+  E: USEC_INITIALIZED=4315325
+  E: ID_VENDOR_FROM_DATABASE=Broadcom Corp.
+  E: ID_MODEL_FROM_DATABASE=BCM43438 combo WLAN and Bluetooth Low Energy (BLE)
+  E: ID_SDIO_CLASS_FROM_DATABASE=Non-standard SDIO interface
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0
+  E: SUBSYSTEM=ieee80211
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0/rfkill0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0/rfkill0
+  E: SUBSYSTEM=rfkill
+  E: RFKILL_NAME=phy0
+  E: RFKILL_TYPE=wlan
+  E: RFKILL_STATE=1
+  E: USEC_INITIALIZED=5146948
+  E: SYSTEMD_RFKILL=1
+  E: ID_PATH=platform-fe300000.mmcnr
+  E: ID_PATH_TAG=platform-fe300000_mmcnr
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/net/wlan0
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/net/wlan0
+  E: SUBSYSTEM=net
+  E: DEVTYPE=wlan
+  E: INTERFACE=wlan0
+  E: IFINDEX=3
+  E: USEC_INITIALIZED=5108790
+  E: ID_NET_NAMING_SCHEME=v240
+  E: ID_NET_NAME_MAC=wlxdca632cf5859
+  E: ID_PATH=platform-fe300000.mmcnr
+  E: ID_PATH_TAG=platform-fe300000_mmcnr
+  E: ID_NET_DRIVER=brcmfmac
+  E: SYSTEMD_ALIAS=/sys/subsystem/net/devices/wlan0
+  E: TAGS=:systemd:
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+  E: SUBSYSTEM=sdio
+  E: DRIVER=brcmfmac
+  E: SDIO_CLASS=00
+  E: SDIO_ID=02D0:A9A6
+  E: MODALIAS=sdio:c00v02D0dA9A6
+  E: USEC_INITIALIZED=4311693
+  E: ID_VENDOR_FROM_DATABASE=Broadcom Corp.
+  E: ID_MODEL_FROM_DATABASE=BCM43438 combo WLAN and Bluetooth Low Energy (BLE)
+  E: ID_SDIO_CLASS_FROM_DATABASE=Non-standard SDIO interface
+  
+  P: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:3
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:3
+  E: SUBSYSTEM=sdio
+  E: SDIO_CLASS=02
+  E: SDIO_ID=02D0:A9A6
+  E: MODALIAS=sdio:c02v02D0dA9A6
+  E: USEC_INITIALIZED=4307711
+  E: ID_VENDOR_FROM_DATABASE=Broadcom Corp.
+  E: ID_MODEL_FROM_DATABASE=BCM43438 combo WLAN and Bluetooth Low Energy (BLE)
+  E: ID_SDIO_CLASS_FROM_DATABASE=Bluetooth Type-A standard interface
+  
+  P: /devices/platform/soc/fe600000.firmwarekms
+  L: 0
+  E: DEVPATH=/devices/platform/soc/fe600000.firmwarekms
+  E: SUBSYSTEM=platform
+  E: DRIVER=vc4_firmware_kms
+  E: OF_NAME=firmwarekms
+  E: OF_FULLNAME=/soc/firmwarekms@7e600000
+  E: OF_COMPATIBLE_0=raspberrypi,rpi-firmware-kms-2711
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NfirmwarekmsT(null)Craspberrypi,rpi-firmware-kms-2711
+  
+  P: /devices/platform/soc/ff800000.local_intc
+  L: 0
+  E: DEVPATH=/devices/platform/soc/ff800000.local_intc
+  E: SUBSYSTEM=platform
+  E: OF_NAME=local_intc
+  E: OF_FULLNAME=/soc/local_intc@40000000
+  E: OF_COMPATIBLE_0=brcm,bcm2836-l1-intc
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nlocal_intcT(null)Cbrcm,bcm2836-l1-intc
+  
+  P: /devices/platform/soc/soc:firmware
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-firmware
+  E: OF_NAME=firmware
+  E: OF_FULLNAME=/soc/firmware
+  E: OF_COMPATIBLE_0=raspberrypi,bcm2835-firmware
+  E: OF_COMPATIBLE_1=simple-bus
+  E: OF_COMPATIBLE_N=2
+  E: MODALIAS=of:NfirmwareT(null)Craspberrypi,bcm2835-firmwareCsimple-bus
+  
+  P: /devices/platform/soc/soc:firmware/raspberrypi-hwmon
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/raspberrypi-hwmon
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-hwmon
+  E: MODALIAS=platform:raspberrypi-hwmon
+  
+  P: /devices/platform/soc/soc:firmware/raspberrypi-hwmon/hwmon/hwmon1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/raspberrypi-hwmon/hwmon/hwmon1
+  E: SUBSYSTEM=hwmon
+  
+  P: /devices/platform/soc/soc:firmware/soc:firmware:clocks
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/soc:firmware:clocks
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-clk
+  E: OF_NAME=clocks
+  E: OF_FULLNAME=/soc/firmware/clocks
+  E: OF_COMPATIBLE_0=raspberrypi,firmware-clocks
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NclocksT(null)Craspberrypi,firmware-clocks
+  
+  P: /devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-cpufreq
+  E: MODALIAS=platform:raspberrypi-cpufreq
+  
+  P: /devices/platform/soc/soc:firmware/soc:firmware:gpio
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/soc:firmware:gpio
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-exp-gpio
+  E: OF_NAME=gpio
+  E: OF_FULLNAME=/soc/firmware/gpio
+  E: OF_COMPATIBLE_0=raspberrypi,firmware-gpio
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NgpioT(null)Craspberrypi,firmware-gpio
+  
+  P: /devices/platform/soc/soc:firmware/soc:firmware:gpio/gpio/gpiochip504
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/soc:firmware:gpio/gpio/gpiochip504
+  E: SUBSYSTEM=gpio
+  
+  P: /devices/platform/soc/soc:firmware/soc:firmware:gpio/gpiochip1
+  N: gpiochip1
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:firmware/soc:firmware:gpio/gpiochip1
+  E: SUBSYSTEM=gpio
+  E: DEVNAME=/dev/gpiochip1
+  E: OF_NAME=gpio
+  E: OF_FULLNAME=/soc/firmware/gpio
+  E: OF_COMPATIBLE_0=raspberrypi,firmware-gpio
+  E: OF_COMPATIBLE_N=1
+  E: MAJOR=254
+  E: MINOR=1
+  
+  P: /devices/platform/soc/soc:power
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:power
+  E: SUBSYSTEM=platform
+  E: DRIVER=raspberrypi-power
+  E: OF_NAME=power
+  E: OF_FULLNAME=/soc/power
+  E: OF_COMPATIBLE_0=raspberrypi,bcm2835-power
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NpowerT(null)Craspberrypi,bcm2835-power
+  
+  P: /devices/platform/soc/soc:vcsm
+  L: 0
+  E: DEVPATH=/devices/platform/soc/soc:vcsm
+  E: SUBSYSTEM=platform
+  E: DRIVER=bcm2835-vcsm
+  E: OF_NAME=vcsm
+  E: OF_FULLNAME=/soc/vcsm
+  E: OF_COMPATIBLE_0=raspberrypi,bcm2835-vcsm
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NvcsmT(null)Craspberrypi,bcm2835-vcsm
+  
+  P: /devices/platform/timer
+  L: 0
+  E: DEVPATH=/devices/platform/timer
+  E: SUBSYSTEM=platform
+  E: OF_NAME=timer
+  E: OF_FULLNAME=/timer
+  E: OF_COMPATIBLE_0=arm,armv8-timer
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:NtimerT(null)Carm,armv8-timer
+  
+  P: /devices/platform/v3dbus
+  L: 0
+  E: DEVPATH=/devices/platform/v3dbus
+  E: SUBSYSTEM=platform
+  E: OF_NAME=v3dbus
+  E: OF_FULLNAME=/v3dbus
+  E: OF_COMPATIBLE_0=simple-bus
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nv3dbusT(null)Csimple-bus
+  
+  P: /devices/platform/v3dbus/fec00000.v3d
+  L: 0
+  E: DEVPATH=/devices/platform/v3dbus/fec00000.v3d
+  E: SUBSYSTEM=platform
+  E: DRIVER=v3d
+  E: OF_NAME=v3d
+  E: OF_FULLNAME=/v3dbus/v3d@7ec04000
+  E: OF_COMPATIBLE_0=brcm,2711-v3d
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=of:Nv3dT(null)Cbrcm,2711-v3d
+  
+  P: /devices/platform/v3dbus/fec00000.v3d/drm/card0
+  N: dri/card0
+  L: 0
+  S: dri/by-path/platform-fec00000.v3d-card
+  E: DEVPATH=/devices/platform/v3dbus/fec00000.v3d/drm/card0
+  E: SUBSYSTEM=drm
+  E: DEVNAME=/dev/dri/card0
+  E: DEVTYPE=drm_minor
+  E: MAJOR=226
+  E: MINOR=0
+  E: USEC_INITIALIZED=5092486
+  E: ID_PATH=platform-fec00000.v3d
+  E: ID_PATH_TAG=platform-fec00000_v3d
+  E: ID_FOR_SEAT=drm-platform-fec00000_v3d
+  E: DEVLINKS=/dev/dri/by-path/platform-fec00000.v3d-card
+  E: TAGS=:uaccess:seat:master-of-seat:
+  
+  P: /devices/platform/v3dbus/fec00000.v3d/drm/renderD128
+  N: dri/renderD128
+  L: 0
+  S: dri/by-path/platform-fec00000.v3d-render
+  E: DEVPATH=/devices/platform/v3dbus/fec00000.v3d/drm/renderD128
+  E: SUBSYSTEM=drm
+  E: DEVNAME=/dev/dri/renderD128
+  E: DEVTYPE=drm_minor
+  E: MAJOR=226
+  E: MINOR=128
+  E: USEC_INITIALIZED=5076640
+  E: ID_PATH=platform-fec00000.v3d
+  E: ID_PATH_TAG=platform-fec00000_v3d
+  E: ID_FOR_SEAT=drm-platform-fec00000_v3d
+  E: DEVLINKS=/dev/dri/by-path/platform-fec00000.v3d-render
+  E: TAGS=:uaccess:seat:
+  
+  P: /devices/software
+  L: 0
+  E: DEVPATH=/devices/software
+  E: SUBSYSTEM=event_source
+  
+  P: /devices/system/clockevents/broadcast
+  L: 0
+  E: DEVPATH=/devices/system/clockevents/broadcast
+  E: SUBSYSTEM=clockevents
+  
+  P: /devices/system/clockevents/clockevent0
+  L: 0
+  E: DEVPATH=/devices/system/clockevents/clockevent0
+  E: SUBSYSTEM=clockevents
+  
+  P: /devices/system/clockevents/clockevent1
+  L: 0
+  E: DEVPATH=/devices/system/clockevents/clockevent1
+  E: SUBSYSTEM=clockevents
+  
+  P: /devices/system/clockevents/clockevent2
+  L: 0
+  E: DEVPATH=/devices/system/clockevents/clockevent2
+  E: SUBSYSTEM=clockevents
+  
+  P: /devices/system/clockevents/clockevent3
+  L: 0
+  E: DEVPATH=/devices/system/clockevents/clockevent3
+  E: SUBSYSTEM=clockevents
+  
+  P: /devices/system/clocksource/clocksource0
+  L: 0
+  E: DEVPATH=/devices/system/clocksource/clocksource0
+  E: SUBSYSTEM=clocksource
+  
+  P: /devices/system/cpu/cpu0
+  L: 0
+  E: DEVPATH=/devices/system/cpu/cpu0
+  E: SUBSYSTEM=cpu
+  E: OF_NAME=cpu
+  E: OF_FULLNAME=/cpus/cpu@0
+  E: OF_TYPE=cpu
+  E: OF_COMPATIBLE_0=arm,cortex-a72
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=cpu:type:v7l:feature:,0001,0002,0004,0006,0007,000C,000D,000F,0010,0011,0012,0013,0014,0015,0024
+  
+  P: /devices/system/cpu/cpu1
+  L: 0
+  E: DEVPATH=/devices/system/cpu/cpu1
+  E: SUBSYSTEM=cpu
+  E: OF_NAME=cpu
+  E: OF_FULLNAME=/cpus/cpu@1
+  E: OF_TYPE=cpu
+  E: OF_COMPATIBLE_0=arm,cortex-a72
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=cpu:type:v7l:feature:,0001,0002,0004,0006,0007,000C,000D,000F,0010,0011,0012,0013,0014,0015,0024
+  
+  P: /devices/system/cpu/cpu2
+  L: 0
+  E: DEVPATH=/devices/system/cpu/cpu2
+  E: SUBSYSTEM=cpu
+  E: OF_NAME=cpu
+  E: OF_FULLNAME=/cpus/cpu@2
+  E: OF_TYPE=cpu
+  E: OF_COMPATIBLE_0=arm,cortex-a72
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=cpu:type:v7l:feature:,0001,0002,0004,0006,0007,000C,000D,000F,0010,0011,0012,0013,0014,0015,0024
+  
+  P: /devices/system/cpu/cpu3
+  L: 0
+  E: DEVPATH=/devices/system/cpu/cpu3
+  E: SUBSYSTEM=cpu
+  E: OF_NAME=cpu
+  E: OF_FULLNAME=/cpus/cpu@3
+  E: OF_TYPE=cpu
+  E: OF_COMPATIBLE_0=arm,cortex-a72
+  E: OF_COMPATIBLE_N=1
+  E: MODALIAS=cpu:type:v7l:feature:,0001,0002,0004,0006,0007,000C,000D,000F,0010,0011,0012,0013,0014,0015,0024
+  
+  P: /devices/tracepoint
+  L: 0
+  E: DEVPATH=/devices/tracepoint
+  E: SUBSYSTEM=event_source
+  
+  P: /devices/virtual/bcm2708_vcio/vcio
+  N: vcio
+  L: 0
+  E: DEVPATH=/devices/virtual/bcm2708_vcio/vcio
+  E: SUBSYSTEM=bcm2708_vcio
+  E: DEVNAME=/dev/vcio
+  E: MAJOR=247
+  E: MINOR=0
+  
+  P: /devices/virtual/bcm2835-gpiomem/gpiomem
+  N: gpiomem
+  L: 0
+  E: DEVPATH=/devices/virtual/bcm2835-gpiomem/gpiomem
+  E: SUBSYSTEM=bcm2835-gpiomem
+  E: DEVNAME=/dev/gpiomem
+  E: MAJOR=246
+  E: MINOR=0
+  
+  P: /devices/virtual/bdi/179:0
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/179:0
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:0
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:0
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:1
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:1
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:10
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:10
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:11
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:11
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:12
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:12
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:13
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:13
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:14
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:14
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:15
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:15
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:2
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:2
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:3
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:3
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:4
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:4
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:5
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:5
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:6
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:6
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:7
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:7
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:8
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:8
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/1:9
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/1:9
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:0
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:0
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:1
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:1
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:2
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:2
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:3
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:3
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:4
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:4
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:5
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:5
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:6
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:6
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/bdi/7:7
+  L: 0
+  E: DEVPATH=/devices/virtual/bdi/7:7
+  E: SUBSYSTEM=bdi
+  
+  P: /devices/virtual/block/loop0
+  N: loop0
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop0
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop0
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=0
+  E: USEC_INITIALIZED=4534905
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop1
+  N: loop1
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop1
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop1
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=1
+  E: USEC_INITIALIZED=4550866
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop2
+  N: loop2
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop2
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop2
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=2
+  E: USEC_INITIALIZED=4549339
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop3
+  N: loop3
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop3
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop3
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=3
+  E: USEC_INITIALIZED=4554196
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop4
+  N: loop4
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop4
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop4
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=4
+  E: USEC_INITIALIZED=4558472
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop5
+  N: loop5
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop5
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop5
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=5
+  E: USEC_INITIALIZED=4576940
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop6
+  N: loop6
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop6
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop6
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=6
+  E: USEC_INITIALIZED=4577178
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/loop7
+  N: loop7
+  L: 0
+  E: DEVPATH=/devices/virtual/block/loop7
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/loop7
+  E: DEVTYPE=disk
+  E: MAJOR=7
+  E: MINOR=7
+  E: USEC_INITIALIZED=4592156
+  E: SYSTEMD_READY=0
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram0
+  N: ram0
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram0
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram0
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=0
+  E: USEC_INITIALIZED=4595963
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram1
+  N: ram1
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram1
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram1
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=1
+  E: USEC_INITIALIZED=4600195
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram10
+  N: ram10
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram10
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram10
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=10
+  E: USEC_INITIALIZED=4604556
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram11
+  N: ram11
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram11
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram11
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=11
+  E: USEC_INITIALIZED=4607927
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram12
+  N: ram12
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram12
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram12
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=12
+  E: USEC_INITIALIZED=4607792
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram13
+  N: ram13
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram13
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram13
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=13
+  E: USEC_INITIALIZED=4611554
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram14
+  N: ram14
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram14
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram14
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=14
+  E: USEC_INITIALIZED=4612569
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram15
+  N: ram15
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram15
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram15
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=15
+  E: USEC_INITIALIZED=4619896
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram2
+  N: ram2
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram2
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram2
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=2
+  E: USEC_INITIALIZED=4628396
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram3
+  N: ram3
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram3
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram3
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=3
+  E: USEC_INITIALIZED=4628386
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram4
+  N: ram4
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram4
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram4
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=4
+  E: USEC_INITIALIZED=4657922
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram5
+  N: ram5
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram5
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram5
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=5
+  E: USEC_INITIALIZED=4632740
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram6
+  N: ram6
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram6
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram6
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=6
+  E: USEC_INITIALIZED=4633020
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram7
+  N: ram7
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram7
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram7
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=7
+  E: USEC_INITIALIZED=4636150
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram8
+  N: ram8
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram8
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram8
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=8
+  E: USEC_INITIALIZED=4636167
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/block/ram9
+  N: ram9
+  L: 0
+  E: DEVPATH=/devices/virtual/block/ram9
+  E: SUBSYSTEM=block
+  E: DEVNAME=/dev/ram9
+  E: DEVTYPE=disk
+  E: MAJOR=1
+  E: MINOR=9
+  E: USEC_INITIALIZED=4639032
+  E: UDISKS_IGNORE=1
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/dma_heap/linux,cma
+  N: dma_heap/linux,cma
+  L: 0
+  E: DEVPATH=/devices/virtual/dma_heap/linux,cma
+  E: SUBSYSTEM=dma_heap
+  E: DEVNAME=/dev/dma_heap/linux,cma
+  E: MAJOR=253
+  E: MINOR=1
+  
+  P: /devices/virtual/dma_heap/system
+  N: dma_heap/system
+  L: 0
+  E: DEVPATH=/devices/virtual/dma_heap/system
+  E: SUBSYSTEM=dma_heap
+  E: DEVNAME=/dev/dma_heap/system
+  E: MAJOR=253
+  E: MINOR=0
+  
+  P: /devices/virtual/graphics/fbcon
+  L: 0
+  E: DEVPATH=/devices/virtual/graphics/fbcon
+  E: SUBSYSTEM=graphics
+  
+  P: /devices/virtual/input/mice
+  N: input/mice
+  L: 0
+  E: DEVPATH=/devices/virtual/input/mice
+  E: SUBSYSTEM=input
+  E: DEVNAME=/dev/input/mice
+  E: MAJOR=13
+  E: MINOR=63
+  
+  P: /devices/virtual/leds/default-on
+  L: 0
+  E: DEVPATH=/devices/virtual/leds/default-on
+  E: SUBSYSTEM=leds
+  
+  P: /devices/virtual/leds/mmc0
+  L: 0
+  E: DEVPATH=/devices/virtual/leds/mmc0
+  E: SUBSYSTEM=leds
+  
+  P: /devices/virtual/mem/full
+  N: full
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/full
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/full
+  E: DEVMODE=0666
+  E: MAJOR=1
+  E: MINOR=7
+  
+  P: /devices/virtual/mem/kmsg
+  N: kmsg
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/kmsg
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/kmsg
+  E: DEVMODE=0644
+  E: MAJOR=1
+  E: MINOR=11
+  
+  P: /devices/virtual/mem/mem
+  N: mem
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/mem
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/mem
+  E: MAJOR=1
+  E: MINOR=1
+  
+  P: /devices/virtual/mem/null
+  N: null
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/null
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/null
+  E: DEVMODE=0666
+  E: MAJOR=1
+  E: MINOR=3
+  
+  P: /devices/virtual/mem/port
+  N: port
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/port
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/port
+  E: MAJOR=1
+  E: MINOR=4
+  
+  P: /devices/virtual/mem/random
+  N: random
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/random
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/random
+  E: DEVMODE=0666
+  E: MAJOR=1
+  E: MINOR=8
+  
+  P: /devices/virtual/mem/urandom
+  N: urandom
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/urandom
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/urandom
+  E: DEVMODE=0666
+  E: MAJOR=1
+  E: MINOR=9
+  
+  P: /devices/virtual/mem/zero
+  N: zero
+  L: 0
+  E: DEVPATH=/devices/virtual/mem/zero
+  E: SUBSYSTEM=mem
+  E: DEVNAME=/dev/zero
+  E: DEVMODE=0666
+  E: MAJOR=1
+  E: MINOR=5
+  
+  P: /devices/virtual/misc/autofs
+  N: autofs
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/autofs
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/autofs
+  E: DEVMODE=0644
+  E: MAJOR=10
+  E: MINOR=235
+  
+  P: /devices/virtual/misc/cachefiles
+  N: cachefiles
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/cachefiles
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/cachefiles
+  E: MAJOR=10
+  E: MINOR=62
+  
+  P: /devices/virtual/misc/cpu_dma_latency
+  N: cpu_dma_latency
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/cpu_dma_latency
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/cpu_dma_latency
+  E: MAJOR=10
+  E: MINOR=61
+  
+  P: /devices/virtual/misc/hw_random
+  N: hwrng
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/hw_random
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/hwrng
+  E: MAJOR=10
+  E: MINOR=183
+  
+  P: /devices/virtual/misc/loop-control
+  N: loop-control
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/loop-control
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/loop-control
+  E: MAJOR=10
+  E: MINOR=237
+  
+  P: /devices/virtual/misc/rfkill
+  N: rfkill
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/rfkill
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/rfkill
+  E: MAJOR=10
+  E: MINOR=242
+  E: USEC_INITIALIZED=5015574
+  E: SYSTEMD_WANTS=systemd-rfkill.socket
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/misc/vcsm-cma
+  N: vcsm-cma
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/vcsm-cma
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/vcsm-cma
+  E: DEVMODE=0666
+  E: MAJOR=10
+  E: MINOR=60
+  
+  P: /devices/virtual/misc/vga_arbiter
+  N: vga_arbiter
+  L: 0
+  E: DEVPATH=/devices/virtual/misc/vga_arbiter
+  E: SUBSYSTEM=misc
+  E: DEVNAME=/dev/vga_arbiter
+  E: MAJOR=10
+  E: MINOR=63
+  
+  P: /devices/virtual/net/lo
+  L: 0
+  E: DEVPATH=/devices/virtual/net/lo
+  E: SUBSYSTEM=net
+  E: INTERFACE=lo
+  E: IFINDEX=1
+  
+  P: /devices/virtual/raw/rawctl
+  N: raw/rawctl
+  L: 0
+  E: DEVPATH=/devices/virtual/raw/rawctl
+  E: SUBSYSTEM=raw
+  E: DEVNAME=/dev/raw/rawctl
+  E: MAJOR=162
+  E: MINOR=0
+  
+  P: /devices/virtual/rpivid-h264mem/rpivid-h264mem
+  N: rpivid-h264mem
+  L: 0
+  E: DEVPATH=/devices/virtual/rpivid-h264mem/rpivid-h264mem
+  E: SUBSYSTEM=rpivid-h264mem
+  E: DEVNAME=/dev/rpivid-h264mem
+  E: MAJOR=238
+  E: MINOR=0
+  
+  P: /devices/virtual/rpivid-hevcmem/rpivid-hevcmem
+  N: rpivid-hevcmem
+  L: 0
+  E: DEVPATH=/devices/virtual/rpivid-hevcmem/rpivid-hevcmem
+  E: SUBSYSTEM=rpivid-hevcmem
+  E: DEVNAME=/dev/rpivid-hevcmem
+  E: MAJOR=240
+  E: MINOR=0
+  
+  P: /devices/virtual/rpivid-intcmem/rpivid-intcmem
+  N: rpivid-intcmem
+  L: 0
+  E: DEVPATH=/devices/virtual/rpivid-intcmem/rpivid-intcmem
+  E: SUBSYSTEM=rpivid-intcmem
+  E: DEVNAME=/dev/rpivid-intcmem
+  E: MAJOR=239
+  E: MINOR=0
+  
+  P: /devices/virtual/rpivid-vp9mem/rpivid-vp9mem
+  N: rpivid-vp9mem
+  L: 0
+  E: DEVPATH=/devices/virtual/rpivid-vp9mem/rpivid-vp9mem
+  E: SUBSYSTEM=rpivid-vp9mem
+  E: DEVNAME=/dev/rpivid-vp9mem
+  E: MAJOR=237
+  E: MINOR=0
+  
+  P: /devices/virtual/sound/timer
+  N: snd/timer
+  L: 0
+  E: DEVPATH=/devices/virtual/sound/timer
+  E: SUBSYSTEM=sound
+  E: DEVNAME=/dev/snd/timer
+  E: MAJOR=116
+  E: MINOR=33
+  E: USEC_INITIALIZED=4915757
+  E: TAGS=:uaccess:
+  
+  P: /devices/virtual/thermal/thermal_zone0
+  L: 0
+  E: DEVPATH=/devices/virtual/thermal/thermal_zone0
+  E: SUBSYSTEM=thermal
+  
+  P: /devices/virtual/thermal/thermal_zone0/hwmon0
+  L: 0
+  E: DEVPATH=/devices/virtual/thermal/thermal_zone0/hwmon0
+  E: SUBSYSTEM=hwmon
+  
+  P: /devices/virtual/tty/console
+  N: console
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/console
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/console
+  E: MAJOR=5
+  E: MINOR=1
+  
+  P: /devices/virtual/tty/ptmx
+  N: ptmx
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/ptmx
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/ptmx
+  E: DEVMODE=0666
+  E: MAJOR=5
+  E: MINOR=2
+  
+  P: /devices/virtual/tty/tty
+  N: tty
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty
+  E: DEVMODE=0666
+  E: MAJOR=5
+  E: MINOR=0
+  
+  P: /devices/virtual/tty/tty0
+  N: tty0
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty0
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty0
+  E: MAJOR=4
+  E: MINOR=0
+  
+  P: /devices/virtual/tty/tty1
+  N: tty1
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty1
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty1
+  E: MAJOR=4
+  E: MINOR=1
+  
+  P: /devices/virtual/tty/tty10
+  N: tty10
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty10
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty10
+  E: MAJOR=4
+  E: MINOR=10
+  
+  P: /devices/virtual/tty/tty11
+  N: tty11
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty11
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty11
+  E: MAJOR=4
+  E: MINOR=11
+  
+  P: /devices/virtual/tty/tty12
+  N: tty12
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty12
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty12
+  E: MAJOR=4
+  E: MINOR=12
+  
+  P: /devices/virtual/tty/tty13
+  N: tty13
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty13
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty13
+  E: MAJOR=4
+  E: MINOR=13
+  
+  P: /devices/virtual/tty/tty14
+  N: tty14
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty14
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty14
+  E: MAJOR=4
+  E: MINOR=14
+  
+  P: /devices/virtual/tty/tty15
+  N: tty15
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty15
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty15
+  E: MAJOR=4
+  E: MINOR=15
+  
+  P: /devices/virtual/tty/tty16
+  N: tty16
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty16
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty16
+  E: MAJOR=4
+  E: MINOR=16
+  
+  P: /devices/virtual/tty/tty17
+  N: tty17
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty17
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty17
+  E: MAJOR=4
+  E: MINOR=17
+  
+  P: /devices/virtual/tty/tty18
+  N: tty18
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty18
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty18
+  E: MAJOR=4
+  E: MINOR=18
+  
+  P: /devices/virtual/tty/tty19
+  N: tty19
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty19
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty19
+  E: MAJOR=4
+  E: MINOR=19
+  
+  P: /devices/virtual/tty/tty2
+  N: tty2
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty2
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty2
+  E: MAJOR=4
+  E: MINOR=2
+  
+  P: /devices/virtual/tty/tty20
+  N: tty20
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty20
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty20
+  E: MAJOR=4
+  E: MINOR=20
+  
+  P: /devices/virtual/tty/tty21
+  N: tty21
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty21
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty21
+  E: MAJOR=4
+  E: MINOR=21
+  
+  P: /devices/virtual/tty/tty22
+  N: tty22
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty22
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty22
+  E: MAJOR=4
+  E: MINOR=22
+  
+  P: /devices/virtual/tty/tty23
+  N: tty23
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty23
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty23
+  E: MAJOR=4
+  E: MINOR=23
+  
+  P: /devices/virtual/tty/tty24
+  N: tty24
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty24
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty24
+  E: MAJOR=4
+  E: MINOR=24
+  
+  P: /devices/virtual/tty/tty25
+  N: tty25
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty25
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty25
+  E: MAJOR=4
+  E: MINOR=25
+  
+  P: /devices/virtual/tty/tty26
+  N: tty26
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty26
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty26
+  E: MAJOR=4
+  E: MINOR=26
+  
+  P: /devices/virtual/tty/tty27
+  N: tty27
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty27
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty27
+  E: MAJOR=4
+  E: MINOR=27
+  
+  P: /devices/virtual/tty/tty28
+  N: tty28
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty28
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty28
+  E: MAJOR=4
+  E: MINOR=28
+  
+  P: /devices/virtual/tty/tty29
+  N: tty29
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty29
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty29
+  E: MAJOR=4
+  E: MINOR=29
+  
+  P: /devices/virtual/tty/tty3
+  N: tty3
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty3
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty3
+  E: MAJOR=4
+  E: MINOR=3
+  
+  P: /devices/virtual/tty/tty30
+  N: tty30
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty30
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty30
+  E: MAJOR=4
+  E: MINOR=30
+  
+  P: /devices/virtual/tty/tty31
+  N: tty31
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty31
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty31
+  E: MAJOR=4
+  E: MINOR=31
+  
+  P: /devices/virtual/tty/tty32
+  N: tty32
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty32
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty32
+  E: MAJOR=4
+  E: MINOR=32
+  
+  P: /devices/virtual/tty/tty33
+  N: tty33
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty33
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty33
+  E: MAJOR=4
+  E: MINOR=33
+  
+  P: /devices/virtual/tty/tty34
+  N: tty34
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty34
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty34
+  E: MAJOR=4
+  E: MINOR=34
+  
+  P: /devices/virtual/tty/tty35
+  N: tty35
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty35
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty35
+  E: MAJOR=4
+  E: MINOR=35
+  
+  P: /devices/virtual/tty/tty36
+  N: tty36
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty36
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty36
+  E: MAJOR=4
+  E: MINOR=36
+  
+  P: /devices/virtual/tty/tty37
+  N: tty37
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty37
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty37
+  E: MAJOR=4
+  E: MINOR=37
+  
+  P: /devices/virtual/tty/tty38
+  N: tty38
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty38
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty38
+  E: MAJOR=4
+  E: MINOR=38
+  
+  P: /devices/virtual/tty/tty39
+  N: tty39
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty39
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty39
+  E: MAJOR=4
+  E: MINOR=39
+  
+  P: /devices/virtual/tty/tty4
+  N: tty4
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty4
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty4
+  E: MAJOR=4
+  E: MINOR=4
+  
+  P: /devices/virtual/tty/tty40
+  N: tty40
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty40
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty40
+  E: MAJOR=4
+  E: MINOR=40
+  
+  P: /devices/virtual/tty/tty41
+  N: tty41
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty41
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty41
+  E: MAJOR=4
+  E: MINOR=41
+  
+  P: /devices/virtual/tty/tty42
+  N: tty42
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty42
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty42
+  E: MAJOR=4
+  E: MINOR=42
+  
+  P: /devices/virtual/tty/tty43
+  N: tty43
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty43
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty43
+  E: MAJOR=4
+  E: MINOR=43
+  
+  P: /devices/virtual/tty/tty44
+  N: tty44
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty44
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty44
+  E: MAJOR=4
+  E: MINOR=44
+  
+  P: /devices/virtual/tty/tty45
+  N: tty45
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty45
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty45
+  E: MAJOR=4
+  E: MINOR=45
+  
+  P: /devices/virtual/tty/tty46
+  N: tty46
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty46
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty46
+  E: MAJOR=4
+  E: MINOR=46
+  
+  P: /devices/virtual/tty/tty47
+  N: tty47
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty47
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty47
+  E: MAJOR=4
+  E: MINOR=47
+  
+  P: /devices/virtual/tty/tty48
+  N: tty48
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty48
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty48
+  E: MAJOR=4
+  E: MINOR=48
+  
+  P: /devices/virtual/tty/tty49
+  N: tty49
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty49
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty49
+  E: MAJOR=4
+  E: MINOR=49
+  
+  P: /devices/virtual/tty/tty5
+  N: tty5
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty5
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty5
+  E: MAJOR=4
+  E: MINOR=5
+  
+  P: /devices/virtual/tty/tty50
+  N: tty50
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty50
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty50
+  E: MAJOR=4
+  E: MINOR=50
+  
+  P: /devices/virtual/tty/tty51
+  N: tty51
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty51
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty51
+  E: MAJOR=4
+  E: MINOR=51
+  
+  P: /devices/virtual/tty/tty52
+  N: tty52
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty52
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty52
+  E: MAJOR=4
+  E: MINOR=52
+  
+  P: /devices/virtual/tty/tty53
+  N: tty53
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty53
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty53
+  E: MAJOR=4
+  E: MINOR=53
+  
+  P: /devices/virtual/tty/tty54
+  N: tty54
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty54
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty54
+  E: MAJOR=4
+  E: MINOR=54
+  
+  P: /devices/virtual/tty/tty55
+  N: tty55
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty55
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty55
+  E: MAJOR=4
+  E: MINOR=55
+  
+  P: /devices/virtual/tty/tty56
+  N: tty56
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty56
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty56
+  E: MAJOR=4
+  E: MINOR=56
+  
+  P: /devices/virtual/tty/tty57
+  N: tty57
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty57
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty57
+  E: MAJOR=4
+  E: MINOR=57
+  
+  P: /devices/virtual/tty/tty58
+  N: tty58
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty58
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty58
+  E: MAJOR=4
+  E: MINOR=58
+  
+  P: /devices/virtual/tty/tty59
+  N: tty59
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty59
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty59
+  E: MAJOR=4
+  E: MINOR=59
+  
+  P: /devices/virtual/tty/tty6
+  N: tty6
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty6
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty6
+  E: MAJOR=4
+  E: MINOR=6
+  
+  P: /devices/virtual/tty/tty60
+  N: tty60
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty60
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty60
+  E: MAJOR=4
+  E: MINOR=60
+  
+  P: /devices/virtual/tty/tty61
+  N: tty61
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty61
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty61
+  E: MAJOR=4
+  E: MINOR=61
+  
+  P: /devices/virtual/tty/tty62
+  N: tty62
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty62
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty62
+  E: MAJOR=4
+  E: MINOR=62
+  
+  P: /devices/virtual/tty/tty63
+  N: tty63
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty63
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty63
+  E: MAJOR=4
+  E: MINOR=63
+  
+  P: /devices/virtual/tty/tty7
+  N: tty7
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty7
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty7
+  E: MAJOR=4
+  E: MINOR=7
+  
+  P: /devices/virtual/tty/tty8
+  N: tty8
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty8
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty8
+  E: MAJOR=4
+  E: MINOR=8
+  
+  P: /devices/virtual/tty/tty9
+  N: tty9
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/tty9
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/tty9
+  E: MAJOR=4
+  E: MINOR=9
+  
+  P: /devices/virtual/tty/ttyprintk
+  N: ttyprintk
+  L: 0
+  E: DEVPATH=/devices/virtual/tty/ttyprintk
+  E: SUBSYSTEM=tty
+  E: DEVNAME=/dev/ttyprintk
+  E: MAJOR=5
+  E: MINOR=3
+  E: USEC_INITIALIZED=4828040
+  E: TAGS=:systemd:
+  
+  P: /devices/virtual/vc-mem/vc-mem
+  N: vc-mem
+  L: 0
+  E: DEVPATH=/devices/virtual/vc-mem/vc-mem
+  E: SUBSYSTEM=vc-mem
+  E: DEVNAME=/dev/vc-mem
+  E: MAJOR=248
+  E: MINOR=0
+  
+  P: /devices/virtual/vc-sm/vcsm
+  N: vcsm
+  L: 0
+  E: DEVPATH=/devices/virtual/vc-sm/vcsm
+  E: SUBSYSTEM=vc-sm
+  E: DEVNAME=/dev/vcsm
+  E: MAJOR=242
+  E: MINOR=0
+  
+  P: /devices/virtual/vc/vcs
+  N: vcs
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs
+  E: MAJOR=7
+  E: MINOR=0
+  
+  P: /devices/virtual/vc/vcs1
+  N: vcs1
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs1
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs1
+  E: MAJOR=7
+  E: MINOR=1
+  
+  P: /devices/virtual/vc/vcs2
+  N: vcs2
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs2
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs2
+  E: MAJOR=7
+  E: MINOR=2
+  
+  P: /devices/virtual/vc/vcs3
+  N: vcs3
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs3
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs3
+  E: MAJOR=7
+  E: MINOR=3
+  
+  P: /devices/virtual/vc/vcs4
+  N: vcs4
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs4
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs4
+  E: MAJOR=7
+  E: MINOR=4
+  
+  P: /devices/virtual/vc/vcs5
+  N: vcs5
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs5
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs5
+  E: MAJOR=7
+  E: MINOR=5
+  
+  P: /devices/virtual/vc/vcs6
+  N: vcs6
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs6
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs6
+  E: MAJOR=7
+  E: MINOR=6
+  
+  P: /devices/virtual/vc/vcs7
+  N: vcs7
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcs7
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcs7
+  E: MAJOR=7
+  E: MINOR=7
+  
+  P: /devices/virtual/vc/vcsa
+  N: vcsa
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa
+  E: MAJOR=7
+  E: MINOR=128
+  
+  P: /devices/virtual/vc/vcsa1
+  N: vcsa1
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa1
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa1
+  E: MAJOR=7
+  E: MINOR=129
+  
+  P: /devices/virtual/vc/vcsa2
+  N: vcsa2
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa2
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa2
+  E: MAJOR=7
+  E: MINOR=130
+  
+  P: /devices/virtual/vc/vcsa3
+  N: vcsa3
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa3
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa3
+  E: MAJOR=7
+  E: MINOR=131
+  
+  P: /devices/virtual/vc/vcsa4
+  N: vcsa4
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa4
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa4
+  E: MAJOR=7
+  E: MINOR=132
+  
+  P: /devices/virtual/vc/vcsa5
+  N: vcsa5
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa5
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa5
+  E: MAJOR=7
+  E: MINOR=133
+  
+  P: /devices/virtual/vc/vcsa6
+  N: vcsa6
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa6
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa6
+  E: MAJOR=7
+  E: MINOR=134
+  
+  P: /devices/virtual/vc/vcsa7
+  N: vcsa7
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsa7
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsa7
+  E: MAJOR=7
+  E: MINOR=135
+  
+  P: /devices/virtual/vc/vcsu
+  N: vcsu
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu
+  E: MAJOR=7
+  E: MINOR=64
+  
+  P: /devices/virtual/vc/vcsu1
+  N: vcsu1
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu1
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu1
+  E: MAJOR=7
+  E: MINOR=65
+  
+  P: /devices/virtual/vc/vcsu2
+  N: vcsu2
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu2
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu2
+  E: MAJOR=7
+  E: MINOR=66
+  
+  P: /devices/virtual/vc/vcsu3
+  N: vcsu3
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu3
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu3
+  E: MAJOR=7
+  E: MINOR=67
+  
+  P: /devices/virtual/vc/vcsu4
+  N: vcsu4
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu4
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu4
+  E: MAJOR=7
+  E: MINOR=68
+  
+  P: /devices/virtual/vc/vcsu5
+  N: vcsu5
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu5
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu5
+  E: MAJOR=7
+  E: MINOR=69
+  
+  P: /devices/virtual/vc/vcsu6
+  N: vcsu6
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu6
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu6
+  E: MAJOR=7
+  E: MINOR=70
+  
+  P: /devices/virtual/vc/vcsu7
+  N: vcsu7
+  L: 0
+  E: DEVPATH=/devices/virtual/vc/vcsu7
+  E: SUBSYSTEM=vc
+  E: DEVNAME=/dev/vcsu7
+  E: MAJOR=7
+  E: MINOR=71
+  
+  P: /devices/virtual/vtconsole/vtcon0
+  L: 0
+  E: DEVPATH=/devices/virtual/vtconsole/vtcon0
+  E: SUBSYSTEM=vtconsole
+  
+  P: /devices/virtual/workqueue/blkcg_punt_bio
+  L: 0
+  E: DEVPATH=/devices/virtual/workqueue/blkcg_punt_bio
+  E: SUBSYSTEM=workqueue
+  
+  P: /devices/virtual/workqueue/writeback
+  L: 0
+  E: DEVPATH=/devices/virtual/workqueue/writeback
+  E: SUBSYSTEM=workqueue
+  
+-----  udevinfo end -----
+udev link /dev/v4l/by-path/platform-bcm2835-codec-video-index0 points to /dev/video11 (expected /dev/video10) - removed
+udev link /dev/v4l/by-path/platform-bcm2835-codec-video-index0 points to /dev/video11 (expected /dev/video12) - removed
+/devices/armv7_cortex_a15
+/devices/breakpoint
+/devices/kprobe
+/devices/platform/0.framebuffer
+/devices/platform/Fixed
+/devices/platform/Fixed
+/devices/platform/arm-pmu
+/devices/platform/chosen
+/devices/platform/cpufreq-dt
+/devices/platform/emmc2bus
+/devices/platform/emmc2bus/fe340000.emmc2
+/devices/platform/emmc2bus/fe340000.emmc2/leds/mmc0::
+/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0
+/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0
+  name: /dev/mmcblk0
+  links: /dev/disk/by-id/mmc-SA32G_0x480c68ee, /dev/disk/by-path/platform-fe340000.emmc2
+/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p1
+  name: /dev/mmcblk0p1
+  links: /dev/disk/by-path/platform-fe340000.emmc2-part1, /dev/disk/by-id/mmc-SA32G_0x480c68ee-part1, /dev/disk/by-uuid/997C-A34A, /dev/disk/by-label/boot, /dev/disk/by-partuuid/838f922d-01
+/devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234/block/mmcblk0/mmcblk0p2
+  name: /dev/mmcblk0p2
+  links: /dev/disk/by-path/platform-fe340000.emmc2-part2, /dev/disk/by-id/mmc-SA32G_0x480c68ee-part2, /dev/disk/by-label/rootfs, /dev/disk/by-uuid/05c2c54d-f13e-4442-bf69-70e99c3d748d, /dev/disk/by-partuuid/838f922d-02
+/devices/platform/fixedregulator_3v3
+/devices/platform/fixedregulator_3v3/regulator/regulator.1
+/devices/platform/fixedregulator_5v0
+/devices/platform/fixedregulator_5v0/regulator/regulator.2
+/devices/platform/gpu
+/devices/platform/gpu/drm/card1
+  name: /dev/dri/card1
+  links: /dev/dri/by-path/platform-gpu-card
+/devices/platform/kgdboc
+/devices/platform/leds
+/devices/platform/leds/leds/led0
+/devices/platform/leds/leds/led1
+/devices/platform/phy
+/devices/platform/reg-dummy
+/devices/platform/reg-dummy/regulator/regulator.0
+/devices/platform/regulatory.0
+/devices/platform/scb
+/devices/platform/scb/fd500000.pcie
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie001
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie002
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:00:00.0:pcie010
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1
+  name: /dev/bus/usb/001/001
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1
+  name: /dev/bus/usb/001/002
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2
+  name: /dev/bus/usb/002/001
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/pci_bus/0000:01
+/devices/platform/scb/fd500000.pcie/pci0000:00/pci_bus/0000:00
+/devices/platform/scb/fd580000.ethernet
+/devices/platform/scb/fd580000.ethernet/net/eth0
+/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19
+/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19
+/devices/platform/scb/fd580000.ethernet/unimac-mdio.-19/mdio_bus/unimac-mdio--19/unimac-mdio--19:01
+/devices/platform/scb/fe007b00.dma
+/devices/platform/scb/fe007b00.dma/dma/dma1chan0
+/devices/platform/scb/fe007b00.dma/dma/dma1chan1
+/devices/platform/scb/feb00000.hevc-decoder
+/devices/platform/scb/feb10000.rpivid-local-intc
+/devices/platform/scb/feb20000.h264-decoder
+/devices/platform/scb/feb30000.vp9-decoder
+/devices/platform/sd_io_1v8_reg
+/devices/platform/sd_io_1v8_reg/regulator/regulator.4
+/devices/platform/sd_vcc_reg
+/devices/platform/sd_vcc_reg/regulator/regulator.3
+/devices/platform/snd-soc-dummy
+/devices/platform/soc
+/devices/platform/soc/fd5d2000.avs-monitor
+/devices/platform/soc/fd5d2000.avs-monitor/fd5d2000.avs-monitor:thermal
+/devices/platform/soc/fe003000.timer
+/devices/platform/soc/fe007000.dma
+/devices/platform/soc/fe007000.dma/dma/dma0chan0
+/devices/platform/soc/fe007000.dma/dma/dma0chan1
+/devices/platform/soc/fe007000.dma/dma/dma0chan2
+/devices/platform/soc/fe007000.dma/dma/dma0chan3
+/devices/platform/soc/fe007000.dma/dma/dma0chan4
+/devices/platform/soc/fe007000.dma/dma/dma0chan5
+/devices/platform/soc/fe00b840.mailbox
+/devices/platform/soc/fe00b840.mailbox/bcm2835-camera
+/devices/platform/soc/fe00b840.mailbox/bcm2835-codec
+/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/media1
+  name: /dev/media1
+/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video10
+  name: /dev/video10
+  links: /dev/video10
+/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video11
+  name: /dev/video11
+  links: /dev/v4l/by-path/platform-bcm2835-codec-video-index0
+/devices/platform/soc/fe00b840.mailbox/bcm2835-codec/video4linux/video12
+  name: /dev/video12
+  links: /dev/video12
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/media0
+  name: /dev/media0
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video13
+  name: /dev/video13
+  links: /dev/v4l/by-path/platform-bcm2835-isp-video-index0
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video14
+  name: /dev/video14
+  links: /dev/v4l/by-path/platform-bcm2835-isp-video-index1
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video15
+  name: /dev/video15
+  links: /dev/v4l/by-path/platform-bcm2835-isp-video-index2
+/devices/platform/soc/fe00b840.mailbox/bcm2835-isp/video4linux/video16
+  name: /dev/video16
+  links: /dev/v4l/by-path/platform-bcm2835-isp-video-index3
+/devices/platform/soc/fe00b840.mailbox/bcm2835_audio
+/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0
+/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/pcmC0D0p
+  name: /dev/snd/pcmC0D0p
+/devices/platform/soc/fe00b840.mailbox/bcm2835_audio/sound/card0/controlC0
+  name: /dev/snd/controlC0
+  links: /dev/snd/by-path/platform-bcm2835_audio
+/devices/platform/soc/fe00b840.mailbox/vchiq/vchiq
+  name: /dev/vchiq
+/devices/platform/soc/fe00b840.mailbox/vcsm-cma
+/devices/platform/soc/fe00b880.mailbox
+/devices/platform/soc/fe100000.watchdog
+/devices/platform/soc/fe100000.watchdog/bcm2835-power
+/devices/platform/soc/fe100000.watchdog/bcm2835-wdt
+/devices/platform/soc/fe100000.watchdog/bcm2835-wdt/misc/watchdog
+  name: /dev/watchdog
+/devices/platform/soc/fe100000.watchdog/bcm2835-wdt/watchdog/watchdog0
+  name: /dev/watchdog0
+/devices/platform/soc/fe101000.cprman
+/devices/platform/soc/fe104000.rng
+/devices/platform/soc/fe200000.gpio
+/devices/platform/soc/fe200000.gpio/gpio/gpiochip0
+/devices/platform/soc/fe200000.gpio/gpiochip0
+  name: /dev/gpiochip0
+/devices/platform/soc/fe200000.gpiomem
+/devices/platform/soc/fe201000.serial
+/devices/platform/soc/fe201000.serial/tty/ttyAMA0
+  name: /dev/ttyAMA0
+  links: /dev/serial1
+/devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0
+/devices/platform/soc/fe201000.serial/tty/ttyAMA0/hci0/rfkill1
+/devices/platform/soc/fe215000.aux
+/devices/platform/soc/fe300000.mmcnr
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/ieee80211/phy0/rfkill0
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/net/wlan0
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+/devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:3
+/devices/platform/soc/fe600000.firmwarekms
+/devices/platform/soc/ff800000.local_intc
+/devices/platform/soc/soc:firmware
+/devices/platform/soc/soc:firmware/raspberrypi-hwmon
+/devices/platform/soc/soc:firmware/raspberrypi-hwmon/hwmon/hwmon1
+/devices/platform/soc/soc:firmware/soc:firmware:clocks
+/devices/platform/soc/soc:firmware/soc:firmware:clocks/raspberrypi-cpufreq
+/devices/platform/soc/soc:firmware/soc:firmware:gpio
+/devices/platform/soc/soc:firmware/soc:firmware:gpio/gpio/gpiochip504
+/devices/platform/soc/soc:firmware/soc:firmware:gpio/gpiochip1
+  name: /dev/gpiochip1
+/devices/platform/soc/soc:power
+/devices/platform/soc/soc:vcsm
+/devices/platform/timer
+/devices/platform/v3dbus
+/devices/platform/v3dbus/fec00000.v3d
+/devices/platform/v3dbus/fec00000.v3d/drm/card0
+  name: /dev/dri/card0
+  links: /dev/dri/by-path/platform-fec00000.v3d-card
+/devices/platform/v3dbus/fec00000.v3d/drm/renderD128
+  name: /dev/dri/renderD128
+  links: /dev/dri/by-path/platform-fec00000.v3d-render
+/devices/software
+/devices/system/clockevents/broadcast
+/devices/system/clockevents/clockevent0
+/devices/system/clockevents/clockevent1
+/devices/system/clockevents/clockevent2
+/devices/system/clockevents/clockevent3
+/devices/system/clocksource/clocksource0
+/devices/system/cpu/cpu0
+/devices/system/cpu/cpu1
+/devices/system/cpu/cpu2
+/devices/system/cpu/cpu3
+/devices/tracepoint
+/devices/virtual/bcm2708_vcio/vcio
+  name: /dev/vcio
+/devices/virtual/bcm2835-gpiomem/gpiomem
+  name: /dev/gpiomem
+/devices/virtual/bdi/179:0
+/devices/virtual/bdi/1:0
+/devices/virtual/bdi/1:1
+/devices/virtual/bdi/1:10
+/devices/virtual/bdi/1:11
+/devices/virtual/bdi/1:12
+/devices/virtual/bdi/1:13
+/devices/virtual/bdi/1:14
+/devices/virtual/bdi/1:15
+/devices/virtual/bdi/1:2
+/devices/virtual/bdi/1:3
+/devices/virtual/bdi/1:4
+/devices/virtual/bdi/1:5
+/devices/virtual/bdi/1:6
+/devices/virtual/bdi/1:7
+/devices/virtual/bdi/1:8
+/devices/virtual/bdi/1:9
+/devices/virtual/bdi/7:0
+/devices/virtual/bdi/7:1
+/devices/virtual/bdi/7:2
+/devices/virtual/bdi/7:3
+/devices/virtual/bdi/7:4
+/devices/virtual/bdi/7:5
+/devices/virtual/bdi/7:6
+/devices/virtual/bdi/7:7
+/devices/virtual/block/loop0
+  name: /dev/loop0
+/devices/virtual/block/loop1
+  name: /dev/loop1
+/devices/virtual/block/loop2
+  name: /dev/loop2
+/devices/virtual/block/loop3
+  name: /dev/loop3
+/devices/virtual/block/loop4
+  name: /dev/loop4
+/devices/virtual/block/loop5
+  name: /dev/loop5
+/devices/virtual/block/loop6
+  name: /dev/loop6
+/devices/virtual/block/loop7
+  name: /dev/loop7
+/devices/virtual/block/ram0
+  name: /dev/ram0
+/devices/virtual/block/ram1
+  name: /dev/ram1
+/devices/virtual/block/ram10
+  name: /dev/ram10
+/devices/virtual/block/ram11
+  name: /dev/ram11
+/devices/virtual/block/ram12
+  name: /dev/ram12
+/devices/virtual/block/ram13
+  name: /dev/ram13
+/devices/virtual/block/ram14
+  name: /dev/ram14
+/devices/virtual/block/ram15
+  name: /dev/ram15
+/devices/virtual/block/ram2
+  name: /dev/ram2
+/devices/virtual/block/ram3
+  name: /dev/ram3
+/devices/virtual/block/ram4
+  name: /dev/ram4
+/devices/virtual/block/ram5
+  name: /dev/ram5
+/devices/virtual/block/ram6
+  name: /dev/ram6
+/devices/virtual/block/ram7
+  name: /dev/ram7
+/devices/virtual/block/ram8
+  name: /dev/ram8
+/devices/virtual/block/ram9
+  name: /dev/ram9
+/devices/virtual/dma_heap/linux,cma
+  name: /dev/dma_heap/linux,cma
+/devices/virtual/dma_heap/system
+  name: /dev/dma_heap/system
+/devices/virtual/graphics/fbcon
+/devices/virtual/input/mice
+  name: /dev/input/mice
+/devices/virtual/leds/default-on
+/devices/virtual/leds/mmc0
+/devices/virtual/mem/full
+  name: /dev/full
+/devices/virtual/mem/kmsg
+  name: /dev/kmsg
+/devices/virtual/mem/mem
+  name: /dev/mem
+/devices/virtual/mem/null
+  name: /dev/null
+/devices/virtual/mem/port
+  name: /dev/port
+/devices/virtual/mem/random
+  name: /dev/random
+/devices/virtual/mem/urandom
+  name: /dev/urandom
+/devices/virtual/mem/zero
+  name: /dev/zero
+/devices/virtual/misc/autofs
+  name: /dev/autofs
+/devices/virtual/misc/cachefiles
+  name: /dev/cachefiles
+/devices/virtual/misc/cpu_dma_latency
+  name: /dev/cpu_dma_latency
+/devices/virtual/misc/hw_random
+  name: /dev/hwrng
+/devices/virtual/misc/loop-control
+  name: /dev/loop-control
+/devices/virtual/misc/rfkill
+  name: /dev/rfkill
+/devices/virtual/misc/vcsm-cma
+  name: /dev/vcsm-cma
+/devices/virtual/misc/vga_arbiter
+  name: /dev/vga_arbiter
+/devices/virtual/net/lo
+/devices/virtual/raw/rawctl
+  name: /dev/raw/rawctl
+/devices/virtual/rpivid-h264mem/rpivid-h264mem
+  name: /dev/rpivid-h264mem
+/devices/virtual/rpivid-hevcmem/rpivid-hevcmem
+  name: /dev/rpivid-hevcmem
+/devices/virtual/rpivid-intcmem/rpivid-intcmem
+  name: /dev/rpivid-intcmem
+/devices/virtual/rpivid-vp9mem/rpivid-vp9mem
+  name: /dev/rpivid-vp9mem
+/devices/virtual/sound/timer
+  name: /dev/snd/timer
+/devices/virtual/thermal/thermal_zone0
+/devices/virtual/thermal/thermal_zone0/hwmon0
+/devices/virtual/tty/console
+  name: /dev/console
+/devices/virtual/tty/ptmx
+  name: /dev/ptmx
+/devices/virtual/tty/tty
+  name: /dev/tty
+/devices/virtual/tty/tty0
+  name: /dev/tty0
+/devices/virtual/tty/tty1
+  name: /dev/tty1
+/devices/virtual/tty/tty10
+  name: /dev/tty10
+/devices/virtual/tty/tty11
+  name: /dev/tty11
+/devices/virtual/tty/tty12
+  name: /dev/tty12
+/devices/virtual/tty/tty13
+  name: /dev/tty13
+/devices/virtual/tty/tty14
+  name: /dev/tty14
+/devices/virtual/tty/tty15
+  name: /dev/tty15
+/devices/virtual/tty/tty16
+  name: /dev/tty16
+/devices/virtual/tty/tty17
+  name: /dev/tty17
+/devices/virtual/tty/tty18
+  name: /dev/tty18
+/devices/virtual/tty/tty19
+  name: /dev/tty19
+/devices/virtual/tty/tty2
+  name: /dev/tty2
+/devices/virtual/tty/tty20
+  name: /dev/tty20
+/devices/virtual/tty/tty21
+  name: /dev/tty21
+/devices/virtual/tty/tty22
+  name: /dev/tty22
+/devices/virtual/tty/tty23
+  name: /dev/tty23
+/devices/virtual/tty/tty24
+  name: /dev/tty24
+/devices/virtual/tty/tty25
+  name: /dev/tty25
+/devices/virtual/tty/tty26
+  name: /dev/tty26
+/devices/virtual/tty/tty27
+  name: /dev/tty27
+/devices/virtual/tty/tty28
+  name: /dev/tty28
+/devices/virtual/tty/tty29
+  name: /dev/tty29
+/devices/virtual/tty/tty3
+  name: /dev/tty3
+/devices/virtual/tty/tty30
+  name: /dev/tty30
+/devices/virtual/tty/tty31
+  name: /dev/tty31
+/devices/virtual/tty/tty32
+  name: /dev/tty32
+/devices/virtual/tty/tty33
+  name: /dev/tty33
+/devices/virtual/tty/tty34
+  name: /dev/tty34
+/devices/virtual/tty/tty35
+  name: /dev/tty35
+/devices/virtual/tty/tty36
+  name: /dev/tty36
+/devices/virtual/tty/tty37
+  name: /dev/tty37
+/devices/virtual/tty/tty38
+  name: /dev/tty38
+/devices/virtual/tty/tty39
+  name: /dev/tty39
+/devices/virtual/tty/tty4
+  name: /dev/tty4
+/devices/virtual/tty/tty40
+  name: /dev/tty40
+/devices/virtual/tty/tty41
+  name: /dev/tty41
+/devices/virtual/tty/tty42
+  name: /dev/tty42
+/devices/virtual/tty/tty43
+  name: /dev/tty43
+/devices/virtual/tty/tty44
+  name: /dev/tty44
+/devices/virtual/tty/tty45
+  name: /dev/tty45
+/devices/virtual/tty/tty46
+  name: /dev/tty46
+/devices/virtual/tty/tty47
+  name: /dev/tty47
+/devices/virtual/tty/tty48
+  name: /dev/tty48
+/devices/virtual/tty/tty49
+  name: /dev/tty49
+/devices/virtual/tty/tty5
+  name: /dev/tty5
+/devices/virtual/tty/tty50
+  name: /dev/tty50
+/devices/virtual/tty/tty51
+  name: /dev/tty51
+/devices/virtual/tty/tty52
+  name: /dev/tty52
+/devices/virtual/tty/tty53
+  name: /dev/tty53
+/devices/virtual/tty/tty54
+  name: /dev/tty54
+/devices/virtual/tty/tty55
+  name: /dev/tty55
+/devices/virtual/tty/tty56
+  name: /dev/tty56
+/devices/virtual/tty/tty57
+  name: /dev/tty57
+/devices/virtual/tty/tty58
+  name: /dev/tty58
+/devices/virtual/tty/tty59
+  name: /dev/tty59
+/devices/virtual/tty/tty6
+  name: /dev/tty6
+/devices/virtual/tty/tty60
+  name: /dev/tty60
+/devices/virtual/tty/tty61
+  name: /dev/tty61
+/devices/virtual/tty/tty62
+  name: /dev/tty62
+/devices/virtual/tty/tty63
+  name: /dev/tty63
+/devices/virtual/tty/tty7
+  name: /dev/tty7
+/devices/virtual/tty/tty8
+  name: /dev/tty8
+/devices/virtual/tty/tty9
+  name: /dev/tty9
+/devices/virtual/tty/ttyprintk
+  name: /dev/ttyprintk
+/devices/virtual/vc-mem/vc-mem
+  name: /dev/vc-mem
+/devices/virtual/vc-sm/vcsm
+  name: /dev/vcsm
+/devices/virtual/vc/vcs
+  name: /dev/vcs
+/devices/virtual/vc/vcs1
+  name: /dev/vcs1
+/devices/virtual/vc/vcs2
+  name: /dev/vcs2
+/devices/virtual/vc/vcs3
+  name: /dev/vcs3
+/devices/virtual/vc/vcs4
+  name: /dev/vcs4
+/devices/virtual/vc/vcs5
+  name: /dev/vcs5
+/devices/virtual/vc/vcs6
+  name: /dev/vcs6
+/devices/virtual/vc/vcs7
+  name: /dev/vcs7
+/devices/virtual/vc/vcsa
+  name: /dev/vcsa
+/devices/virtual/vc/vcsa1
+  name: /dev/vcsa1
+/devices/virtual/vc/vcsa2
+  name: /dev/vcsa2
+/devices/virtual/vc/vcsa3
+  name: /dev/vcsa3
+/devices/virtual/vc/vcsa4
+  name: /dev/vcsa4
+/devices/virtual/vc/vcsa5
+  name: /dev/vcsa5
+/devices/virtual/vc/vcsa6
+  name: /dev/vcsa6
+/devices/virtual/vc/vcsa7
+  name: /dev/vcsa7
+/devices/virtual/vc/vcsu
+  name: /dev/vcsu
+/devices/virtual/vc/vcsu1
+  name: /dev/vcsu1
+/devices/virtual/vc/vcsu2
+  name: /dev/vcsu2
+/devices/virtual/vc/vcsu3
+  name: /dev/vcsu3
+/devices/virtual/vc/vcsu4
+  name: /dev/vcsu4
+/devices/virtual/vc/vcsu5
+  name: /dev/vcsu5
+/devices/virtual/vc/vcsu6
+  name: /dev/vcsu6
+/devices/virtual/vc/vcsu7
+  name: /dev/vcsu7
+/devices/virtual/vtconsole/vtcon0
+/devices/virtual/workqueue/blkcg_punt_bio
+/devices/virtual/workqueue/writeback
+>> int.13: device names
+>> int.16: parent
+  prop read: rdCR.n_7QNeEnh23 (failed)
+  old prop read: rdCR.n_7QNeEnh23 (failed)
+  prop read: rdCR.CxwsZFjVASF (failed)
+  old prop read: rdCR.CxwsZFjVASF (failed)
+  prop read: qLht.au1kcdVDjP8 (failed)
+  old prop read: qLht.au1kcdVDjP8 (failed)
+  prop read: VCu0.m2lGPNk7Xc4 (failed)
+  old prop read: VCu0.m2lGPNk7Xc4 (failed)
+  prop read: C66X.TfPFe67fIBB (failed)
+  old prop read: C66X.TfPFe67fIBB (failed)
+  prop read: 1Hef.VoJli79_k95 (failed)
+  old prop read: 1Hef.VoJli79_k95 (failed)
+  prop read: _WWz._NN+DZ1HDn4 (failed)
+  old prop read: _WWz._NN+DZ1HDn4 (failed)
+  prop read: osuh.bZ4QP8ihgx4 (failed)
+  old prop read: osuh.bZ4QP8ihgx4 (failed)
+  prop read: uVOZ.f_UYNWgFjo0 (failed)
+  old prop read: uVOZ.f_UYNWgFjo0 (failed)
+  prop read: Lhed.bZ4QP8ihgx4 (failed)
+  old prop read: Lhed.bZ4QP8ihgx4 (failed)
+  prop read: VVOc.Fxp0d3BezAE (failed)
+  old prop read: VVOc.Fxp0d3BezAE (failed)
+  prop read: 7tlP.Fxp0d3BezAE (failed)
+  old prop read: 7tlP.Fxp0d3BezAE (failed)
+  prop read: CWFH.Fxp0d3BezAE (failed)
+  old prop read: CWFH.Fxp0d3BezAE (failed)
+  prop read: XOSI.Fxp0d3BezAE (failed)
+  old prop read: XOSI.Fxp0d3BezAE (failed)
+  prop read: d1y9.Fxp0d3BezAE (failed)
+  old prop read: d1y9.Fxp0d3BezAE (failed)
+  prop read: s19p.Fxp0d3BezAE (failed)
+  old prop read: s19p.Fxp0d3BezAE (failed)
+  prop read: UPWc.Fxp0d3BezAE (failed)
+  old prop read: UPWc.Fxp0d3BezAE (failed)
+  prop read: ygeg.Fxp0d3BezAE (failed)
+  old prop read: ygeg.Fxp0d3BezAE (failed)
+  prop read: a20U.Fxp0d3BezAE (failed)
+  old prop read: a20U.Fxp0d3BezAE (failed)
+  prop read: 2K8Y.Fxp0d3BezAE (failed)
+  old prop read: 2K8Y.Fxp0d3BezAE (failed)
+  prop read: ghVL.Fxp0d3BezAE (failed)
+  old prop read: ghVL.Fxp0d3BezAE (failed)
+  prop read: 4DCE.Fxp0d3BezAE (failed)
+  old prop read: 4DCE.Fxp0d3BezAE (failed)
+  prop read: JDPt.Fxp0d3BezAE (failed)
+  old prop read: JDPt.Fxp0d3BezAE (failed)
+  prop read: xamg.Fxp0d3BezAE (failed)
+  old prop read: xamg.Fxp0d3BezAE (failed)
+  prop read: HAKk.Fxp0d3BezAE (failed)
+  old prop read: HAKk.Fxp0d3BezAE (failed)
+  prop read: l7UW.SE1wIdpsiiC (failed)
+  old prop read: l7UW.SE1wIdpsiiC (failed)
+  prop read: CJka.SE1wIdpsiiC (failed)
+  old prop read: CJka.SE1wIdpsiiC (failed)
+  prop read: Psuk.Fxp0d3BezAE (failed)
+  old prop read: Psuk.Fxp0d3BezAE (failed)
+  prop read: 1EGY.Fxp0d3BezAE (failed)
+  old prop read: 1EGY.Fxp0d3BezAE (failed)
+  prop read: k4bc.kNaPe9SZft4 (failed)
+  old prop read: k4bc.kNaPe9SZft4 (failed)
+  prop read: ADDn.mUqILwxEtWB (failed)
+  old prop read: ADDn.mUqILwxEtWB (failed)
+  prop read: pBe4.djic47EFb5E (failed)
+  old prop read: pBe4.djic47EFb5E (failed)
+  prop read: rdCR.j8NaKXDZtZ6 (failed)
+  old prop read: rdCR.j8NaKXDZtZ6 (failed)
+  prop read: wkFv.j8NaKXDZtZ6 (failed)
+  old prop read: wkFv.j8NaKXDZtZ6 (failed)
+  prop read: +rIN.j8NaKXDZtZ6 (failed)
+  old prop read: +rIN.j8NaKXDZtZ6 (failed)
+  prop read: 4zLr.j8NaKXDZtZ6 (failed)
+  old prop read: 4zLr.j8NaKXDZtZ6 (failed)
+  prop read: AYEt.QXn1l67RSa1 (failed)
+  old prop read: AYEt.QXn1l67RSa1 (failed)
+  prop read: ZsBS.GQNx7L4uPNA (failed)
+  old prop read: ZsBS.GQNx7L4uPNA (failed)
+  prop read: usDW.ndpeucax6V1 (failed)
+  old prop read: usDW.ndpeucax6V1 (failed)
+----- kernel log -----
+  <6>[    1.976955] NET: Registered protocol family 10
+  <6>[    1.978267] Segment Routing with IPv6
+  <30>[    2.013722] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+  <30>[    2.014442] systemd[1]: Detected architecture arm.
+  <30>[    2.063471] systemd[1]: Set hostname to <rpi4>.
+  <5>[    2.715401] random: systemd: uninitialized urandom read (16 bytes read)
+  <5>[    2.726342] random: systemd: uninitialized urandom read (16 bytes read)
+  <30>[    2.726970] systemd[1]: Listening on udev Control Socket.
+  <5>[    2.727377] random: systemd: uninitialized urandom read (16 bytes read)
+  <30>[    2.729332] systemd[1]: Created slice User and Session Slice.
+  <30>[    2.729953] systemd[1]: Listening on fsck to fsckd communication Socket.
+  <30>[    2.732303] systemd[1]: Created slice system-getty.slice.
+  <30>[    2.733463] systemd[1]: Created slice system-systemd\x2dfsck.slice.
+  <30>[    2.756916] systemd[1]: Condition check resulted in Journal Audit Socket being skipped.
+  <30>[    2.762073] systemd[1]: Listening on Syslog Socket.
+  <6>[    2.885635] i2c /dev entries driver
+  <6>[    3.376272] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+  <46>[    3.486634] systemd-journald[120]: Received request to flush runtime journal from PID 1
+  <6>[    4.016904] rpivid-mem feb00000.hevc-decoder: rpivid-hevcmem initialised: Registers at 0xfeb00000 length 0x00010000
+  <6>[    4.018356] rpivid-mem feb10000.rpivid-local-intc: rpivid-intcmem initialised: Registers at 0xfeb10000 length 0x00001000
+  <6>[    4.019820] rpivid-mem feb20000.h264-decoder: rpivid-h264mem initialised: Registers at 0xfeb20000 length 0x00010000
+  <6>[    4.021233] rpivid-mem feb30000.vp9-decoder: rpivid-vp9mem initialised: Registers at 0xfeb30000 length 0x00010000
+  <6>[    4.111717] mc: Linux media interface: v0.10
+  <4>[    4.136771] vc_sm_cma: module is from the staging directory, the quality is unknown, you have been warned.
+  <6>[    4.143392] bcm2835_vc_sm_cma_probe: Videocore shared memory driver
+  <6>[    4.143413] [vc_sm_connected_init]: start
+  <4>[    4.145478] snd_bcm2835: module is from the staging directory, the quality is unknown, you have been warned.
+  <6>[    4.155286] videodev: Linux video capture interface: v2.00
+  <6>[    4.159893] [vc_sm_connected_init]: installed successfully
+  <6>[    4.178848] bcm2835_audio bcm2835_audio: card created with 8 channels
+  <4>[    4.179726] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+  <4>[    4.180654] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+  <4>[    4.186933] bcm2835_v4l2: module is from the staging directory, the quality is unknown, you have been warned.
+  <4>[    4.189945] bcm2835_isp: module is from the staging directory, the quality is unknown, you have been warned.
+  <4>[    4.208287] bcm2835_codec: module is from the staging directory, the quality is unknown, you have been warned.
+  <6>[    4.229769] bcm2835-isp bcm2835-isp: Device node output[0] registered as /dev/video13
+  <6>[    4.230278] bcm2835-isp bcm2835-isp: Device node capture[0] registered as /dev/video14
+  <6>[    4.235123] bcm2835-isp bcm2835-isp: Device node capture[1] registered as /dev/video15
+  <6>[    4.235491] bcm2835-isp bcm2835-isp: Device node stats[2] registered as /dev/video16
+  <6>[    4.235516] bcm2835-isp bcm2835-isp: Register output node 0 with media controller
+  <6>[    4.235537] bcm2835-isp bcm2835-isp: Register capture node 1 with media controller
+  <6>[    4.235557] bcm2835-isp bcm2835-isp: Register capture node 2 with media controller
+  <6>[    4.235576] bcm2835-isp bcm2835-isp: Register capture node 3 with media controller
+  <6>[    4.235686] bcm2835-codec bcm2835-codec: Device registered as /dev/video10
+  <6>[    4.235783] bcm2835-isp bcm2835-isp: Loaded V4L2 bcm2835-isp
+  <6>[    4.236541] bcm2835-codec bcm2835-codec: Loaded V4L2 decode
+  <6>[    4.250807] bcm2835-codec bcm2835-codec: Device registered as /dev/video11
+  <6>[    4.250845] bcm2835-codec bcm2835-codec: Loaded V4L2 encode
+  <6>[    4.259149] bcm2835-codec bcm2835-codec: Device registered as /dev/video12
+  <6>[    4.259206] bcm2835-codec bcm2835-codec: Loaded V4L2 isp
+  <5>[    4.524407] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+  <4>[    4.622754] [drm] No displays found. Consider forcing hotplug if HDMI is attached
+  <6>[    4.622882] vc4-drm gpu: bound fe600000.firmwarekms (ops vc4_fkms_ops [vc4])
+  <6>[    4.622907] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+  <6>[    4.622919] [drm] No driver support for vblank timestamp query.
+  <6>[    4.622930] [drm] Setting vblank_disable_immediate to false because get_vblank_timestamp == NULL
+  <6>[    4.623879] [drm] Initialized vc4 0.0.0 20140616 for gpu on minor 1
+  <6>[    4.625525] [drm] Initialized v3d 1.0.0 20180419 for fec00000.v3d on minor 0
+  <5>[    4.654352] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+  <7>[    4.751998] brcmfmac: F1 signature read @0x18000000=0x15264345
+  <3>[    4.767956] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43455-sdio for chip BCM4345/6
+  <6>[    4.768826] usbcore: registered new interface driver brcmfmac
+  <4>[    4.789943] brcmfmac mmc1:0001:1: Direct firmware load for brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt failed with error -2
+  <3>[    5.019775] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43455-sdio for chip BCM4345/6
+  <3>[    5.035609] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4345/6 wl0: Mar 23 2020 02:19:54 version 7.45.206 (r725000 CY) FWID 01-88ee44ea
+  <6>[    6.588368] uart-pl011 fe201000.serial: no DMA platform data
+  <5>[    6.827849] random: crng init done
+  <5>[    6.827867] random: 7 urandom warning(s) missed due to ratelimiting
+  <6>[    6.931852] 8021q: 802.1Q VLAN Support v1.8
+  <6>[    7.030620] Adding 102396k swap on /var/swap.  Priority:-2 extents:1 across:102396k SSFS
+  <3>[    7.230475] brcmfmac: brcmf_cfg80211_set_power_mgmt: power save enabled
+  <4>[    7.501846] bcmgenet: Skipping UMAC reset
+  <6>[    7.503733] bcmgenet fd580000.ethernet: configuring instance for external RGMII
+  <6>[    7.504283] bcmgenet fd580000.ethernet eth0: Link is Down
+  <6>[    8.737924] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+  <6>[    9.007657] broken atomic modeset userspace detected, disabling atomic
+  <6>[    9.700452] broken atomic modeset userspace detected, disabling atomic
+  <6>[   10.769416] broken atomic modeset userspace detected, disabling atomic
+  <6>[   11.376106] broken atomic modeset userspace detected, disabling atomic
+  <6>[   12.402854] broken atomic modeset userspace detected, disabling atomic
+  <6>[   13.025917] broken atomic modeset userspace detected, disabling atomic
+  <6>[   13.198370] Bluetooth: Core ver 2.22
+  <6>[   13.198417] NET: Registered protocol family 31
+  <6>[   13.198422] Bluetooth: HCI device and connection manager initialized
+  <6>[   13.198437] Bluetooth: HCI socket layer initialized
+  <6>[   13.198445] Bluetooth: L2CAP socket layer initialized
+  <6>[   13.198459] Bluetooth: SCO socket layer initialized
+  <6>[   13.204474] Bluetooth: HCI UART driver ver 2.3
+  <6>[   13.204482] Bluetooth: HCI UART protocol H4 registered
+  <6>[   13.204515] Bluetooth: HCI UART protocol Three-wire (H5) registered
+  <6>[   13.204642] Bluetooth: HCI UART protocol Broadcom registered
+  <6>[   13.384154] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+  <6>[   13.384164] Bluetooth: BNEP filters: protocol multicast
+  <6>[   13.384182] Bluetooth: BNEP socket layer initialized
+  <6>[   13.445537] Bluetooth: RFCOMM TTY layer initialized
+  <6>[   13.445559] Bluetooth: RFCOMM socket layer initialized
+  <6>[   13.445578] Bluetooth: RFCOMM ver 1.11
+  <6>[   13.947842] broken atomic modeset userspace detected, disabling atomic
+  <6>[   14.549232] broken atomic modeset userspace detected, disabling atomic
+  <6>[   15.460439] broken atomic modeset userspace detected, disabling atomic
+  <6>[   16.047296] broken atomic modeset userspace detected, disabling atomic
+  <6>[  176.037558] st: Version 20160209, fixed bufsize 32768, s/g segs 256
+----- kernel log end -----
+----- /proc/modules -----
+  evdev 24576 0 - Live 0xbf260000
+  joydev 20480 0 - Live 0xbf1eb000
+  sg 28672 0 - Live 0xbf258000
+  st 65536 0 - Live 0xbf241000
+  sr_mod 24576 0 - Live 0xbf23a000
+  cdrom 40960 1 sr_mod, Live 0xbf22f000
+  cmac 16384 1 - Live 0xbf1c3000
+  rfcomm 45056 4 - Live 0xbf1b0000
+  bnep 20480 2 - Live 0xbf1aa000
+  hci_uart 40960 1 - Live 0xbf224000
+  btbcm 16384 1 hci_uart, Live 0xbf1be000
+  bluetooth 376832 29 rfcomm,bnep,hci_uart,btbcm, Live 0xbf45a000
+  ecdh_generic 16384 2 bluetooth, Live 0xbf195000
+  ecc 32768 1 ecdh_generic, Live 0xbf1a1000
+  8021q 32768 0 - Live 0xbf147000
+  garp 16384 1 8021q, Live 0xbf142000
+  stp 16384 1 garp, Live 0xbf13d000
+  llc 16384 2 garp,stp, Live 0xbf138000
+  brcmfmac 319488 0 - Live 0xbf6c1000
+  brcmutil 16384 1 brcmfmac, Live 0xbf0c4000
+  vc4 237568 0 - Live 0xbf53e000
+  sha256_generic 16384 0 - Live 0xbf11a000
+  libsha256 20480 1 sha256_generic, Live 0xbf19b000
+  v3d 69632 0 - Live 0xbf1d9000
+  cec 49152 1 vc4, Live 0xbf1cc000
+  gpu_sched 36864 1 v3d, Live 0xbf18b000
+  drm_kms_helper 184320 2 vc4, Live 0xbf5af000
+  cfg80211 679936 1 brcmfmac, Live 0xbf3b3000
+  rfkill 28672 6 bluetooth,cfg80211, Live 0xbf108000
+  drm 458752 5 vc4,v3d,gpu_sched,drm_kms_helper, Live 0xbf342000
+  raspberrypi_hwmon 16384 0 - Live 0xbf0bf000
+  bcm2835_codec 36864 0 - Live 0xbf333000 (C)
+  bcm2835_isp 32768 0 - Live 0xbf325000 (C)
+  bcm2835_v4l2 45056 0 - Live 0xbf314000 (C)
+  v4l2_mem2mem 32768 1 bcm2835_codec, Live 0xbf306000
+  bcm2835_mmal_vchiq 28672 3 bcm2835_codec,bcm2835_isp,bcm2835_v4l2, Live 0xbf2ee000 (C)
+  drm_panel_orientation_quirks 16384 1 drm, Live 0xbf2e9000
+  videobuf2_dma_contig 20480 2 bcm2835_codec,bcm2835_isp, Live 0xbf2e3000
+  videobuf2_vmalloc 16384 1 bcm2835_v4l2, Live 0xbf2de000
+  videobuf2_memops 16384 2 videobuf2_dma_contig,videobuf2_vmalloc, Live 0xbf2cf000
+  videobuf2_v4l2 28672 4 bcm2835_codec,bcm2835_isp,bcm2835_v4l2,v4l2_mem2mem, Live 0xbf2b7000
+  videobuf2_common 57344 5 bcm2835_codec,bcm2835_isp,bcm2835_v4l2,v4l2_mem2mem,videobuf2_v4l2, Live 0xbf275000
+  snd_bcm2835 24576 1 - Live 0xbf0d8000 (C)
+  vc_sm_cma 32768 2 bcm2835_isp,bcm2835_mmal_vchiq, Live 0xbf084000 (C)
+  snd_soc_core 200704 1 vc4, Live 0xbf1f2000
+  videodev 237568 6 bcm2835_codec,bcm2835_isp,bcm2835_v4l2,v4l2_mem2mem,videobuf2_v4l2,videobuf2_common, Live 0xbf150000
+  mc 45056 6 bcm2835_codec,bcm2835_isp,v4l2_mem2mem,videobuf2_v4l2,videobuf2_common,videodev, Live 0xbf0b3000
+  snd_compress 20480 1 snd_soc_core, Live 0xbf0a0000
+  snd_pcm_dmaengine 16384 1 snd_soc_core, Live 0xbf08f000
+  snd_pcm 98304 4 vc4,snd_bcm2835,snd_soc_core,snd_pcm_dmaengine, Live 0xbf11f000
+  snd_timer 32768 1 snd_pcm, Live 0xbf111000
+  snd 73728 7 snd_bcm2835,snd_soc_core,snd_compress,snd_pcm,snd_timer, Live 0xbf0f5000
+  syscopyarea 16384 1 drm_kms_helper, Live 0xbf0ee000
+  sysfillrect 16384 1 drm_kms_helper, Live 0xbf0e7000
+  sysimgblt 16384 1 drm_kms_helper, Live 0xbf0e0000
+  fb_sys_fops 16384 1 drm_kms_helper, Live 0xbf0d3000
+  rpivid_mem 16384 0 - Live 0xbf0cb000
+  uio_pdrv_genirq 16384 0 - Live 0xbf0ae000
+  uio 20480 1 uio_pdrv_genirq, Live 0xbf07e000
+  i2c_dev 16384 0 - Live 0xbf079000
+  ip_tables 28672 0 - Live 0xbf0a6000
+  x_tables 32768 1 ip_tables, Live 0xbf097000
+  ipv6 450560 24 [permanent], Live 0xbf00a000
+  nf_defrag_ipv6 20480 1 ipv6, Live 0xbf000000
+----- /proc/modules end -----
+  used irqs: 17,18,19,26,29,32,39,40,42,43,44,45,47,48,54,55,56
+=========== end debug info ============
+01: None 00.0: 10107 System
+  [Created at sys.64]
+  Unique ID: rdCR.n_7QNeEnh23
+  Hardware Class: system
+  Model: "System"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+06: None 00.0: 10102 Main Memory
+  [Created at memory.74]
+  Unique ID: rdCR.CxwsZFjVASF
+  Hardware Class: memory
+  Model: "Main Memory"
+  Memory Range: 0x00000000-0x74b30fff (rw)
+  Memory Size: 1 GB + 896 MB
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+07: PCI 00.0: 0604 PCI bridge (Normal decode)
+  [Created at pci.386]
+  Unique ID: qLht.au1kcdVDjP8
+  SysFS ID: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0
+  SysFS BusID: 0000:00:00.0
+  Hardware Class: bridge
+  Model: "Broadcom PCI bridge"
+  Vendor: pci 0x14e4 "Broadcom"
+  Device: pci 0x2711 
+  Revision: 0x10
+  Driver: "pcieport"
+  IRQ: 55 (no events)
+  Module Alias: "pci:v000014E4d00002711sv00000000sd00000000bc06sc04i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+08: PCI 100.0: 0c03 USB Controller (XHCI)
+  [Created at pci.386]
+  Unique ID: VCu0.m2lGPNk7Xc4
+  Parent ID: qLht.au1kcdVDjP8
+  SysFS ID: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0
+  SysFS BusID: 0000:01:00.0
+  Hardware Class: usb controller
+  Model: "VIA VL805 USB 3.0 Host Controller"
+  Vendor: pci 0x1106 "VIA Technologies, Inc."
+  Device: pci 0x3483 "VL805 USB 3.0 Host Controller"
+  SubVendor: pci 0x1106 "VIA Technologies, Inc."
+  SubDevice: pci 0x3483 
+  Revision: 0x01
+  Driver: "xhci_hcd"
+  Memory Range: 0x600000000-0x600000fff (rw,non-prefetchable)
+  IRQ: 56 (37 events)
+  Module Alias: "pci:v00001106d00003483sv00001106sd00003483bc0Csc03i30"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #7 (PCI bridge)
+
+09: None 00.0: 0200 Ethernet controller
+  [Created at pci.1017]
+  Unique ID: C66X.TfPFe67fIBB
+  SysFS ID: /devices/platform/scb/fd580000.ethernet
+  SysFS BusID: fd580000.ethernet
+  Hardware Class: network
+  Model: "ARM Ethernet controller"
+  Device: "ARM Ethernet controller"
+  Driver: "bcmgenet"
+  Device File: eth0
+  HW Address: dc:a6:32:cf:58:58
+  Permanent HW Address: dc:a6:32:cf:58:58
+  Link detected: no
+  Module Alias: "of:NethernetT(null)Cbrcm,bcm2711-genet-v5Cbrcm,genet-v5"
+  Driver Info #0:
+    Driver Status: uio_pdrv_genirq is active
+    Driver Activation Cmd: "modprobe uio_pdrv_genirq"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+10: MMC 01.0: 11700 MMC Controller
+  [Created at pci.1867]
+  Unique ID: 1Hef.VoJli79_k95
+  SysFS ID: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001
+  SysFS BusID: mmc1:0001
+  Model: "SDIO Controller 1"
+  Vendor: int 0x6015 
+  Device: int 0x0002 "SDIO Controller 1"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+11: MMC 00.0: 11700 MMC Controller
+  [Created at pci.1867]
+  Unique ID: _WWz._NN+DZ1HDn4
+  SysFS ID: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+  SysFS BusID: mmc0:1234
+  Model: "SD Controller 0"
+  Vendor: int 0x6015 
+  Device: int 0x0001 "SD Controller 0"
+  Driver: "mmcblk"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+12: SDIO 00.0: 0000 Unclassified device
+  [Created at pci.1939]
+  Unique ID: osuh.bZ4QP8ihgx4
+  Parent ID: 1Hef.VoJli79_k95
+  SysFS ID: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:3
+  SysFS BusID: mmc1:0001:3
+  Hardware Class: unknown
+  Model: "Broadcom BCM43430 WLAN card"
+  Vendor: sdio 0x02d0 "Broadcom Corp."
+  Device: sdio 0xa9a6 "BCM43430 WLAN card"
+  Module Alias: "sdio:c02v02D0dA9A6"
+  Driver Info #0:
+    Driver Status: brcmfmac is active
+    Driver Activation Cmd: "modprobe brcmfmac"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #10 (MMC Controller)
+
+13: SDIO 00.0: 0282 WLAN controller
+  [Created at pci.1939]
+  Unique ID: uVOZ.f_UYNWgFjo0
+  Parent ID: 1Hef.VoJli79_k95
+  SysFS ID: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  SysFS BusID: mmc1:0001:1
+  Hardware Class: network
+  Model: "Broadcom BCM43430 WLAN card"
+  Vendor: sdio 0x02d0 "Broadcom Corp."
+  Device: sdio 0xa9a6 "BCM43430 WLAN card"
+  Driver: "brcmfmac"
+  Driver Modules: "brcmfmac", "brcmfmac"
+  Device File: wlan0
+  Features: WLAN
+  HW Address: dc:a6:32:cf:58:59
+  Permanent HW Address: dc:a6:32:cf:58:59
+  Link detected: yes
+  WLAN channels: 1 2 3 4 5 6 7 8 9 10 11 12 13
+  WLAN frequencies: 2.412 2.417 2.422 2.427 2.432 2.437 2.442 2.447 2.452 2.457 2.462 2.467 2.472
+  WLAN encryption modes: WEP40 WEP104 TKIP CCMP
+  WLAN authentication modes: open sharedkey wpa-psk wpa-eap
+  Module Alias: "sdio:c00v02D0dA9A6"
+  Driver Info #0:
+    Driver Status: brcmfmac is active
+    Driver Activation Cmd: "modprobe brcmfmac"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #10 (MMC Controller)
+
+14: SDIO 00.0: 0000 Unclassified device
+  [Created at pci.1939]
+  Unique ID: Lhed.bZ4QP8ihgx4
+  Parent ID: 1Hef.VoJli79_k95
+  SysFS ID: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+  SysFS BusID: mmc1:0001:2
+  Hardware Class: unknown
+  Model: "Broadcom BCM43430 WLAN card"
+  Vendor: sdio 0x02d0 "Broadcom Corp."
+  Device: sdio 0xa9a6 "BCM43430 WLAN card"
+  Driver: "brcmfmac"
+  Driver Modules: "brcmfmac", "brcmfmac"
+  Module Alias: "sdio:c00v02D0dA9A6"
+  Driver Info #0:
+    Driver Status: brcmfmac is active
+    Driver Activation Cmd: "modprobe brcmfmac"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #10 (MMC Controller)
+
+15: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: VVOc.Fxp0d3BezAE
+  SysFS ID: /class/block/ram11
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram11
+  Device Number: block 1:11
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+16: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: 7tlP.Fxp0d3BezAE
+  SysFS ID: /class/block/ram2
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram2
+  Device Number: block 1:2
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+17: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: CWFH.Fxp0d3BezAE
+  SysFS ID: /class/block/ram0
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram0
+  Device Number: block 1:0
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+18: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: XOSI.Fxp0d3BezAE
+  SysFS ID: /class/block/ram9
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram9
+  Device Number: block 1:9
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+19: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: d1y9.Fxp0d3BezAE
+  SysFS ID: /class/block/ram7
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram7
+  Device Number: block 1:7
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+20: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: s19p.Fxp0d3BezAE
+  SysFS ID: /class/block/ram14
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram14
+  Device Number: block 1:14
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+21: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: UPWc.Fxp0d3BezAE
+  SysFS ID: /class/block/ram5
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram5
+  Device Number: block 1:5
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+22: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: ygeg.Fxp0d3BezAE
+  SysFS ID: /class/block/ram12
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram12
+  Device Number: block 1:12
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+23: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: a20U.Fxp0d3BezAE
+  SysFS ID: /class/block/ram3
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram3
+  Device Number: block 1:3
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+24: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: 2K8Y.Fxp0d3BezAE
+  SysFS ID: /class/block/ram10
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram10
+  Device Number: block 1:10
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+25: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: ghVL.Fxp0d3BezAE
+  SysFS ID: /class/block/ram1
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram1
+  Device Number: block 1:1
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+26: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: 4DCE.Fxp0d3BezAE
+  SysFS ID: /class/block/ram8
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram8
+  Device Number: block 1:8
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+27: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: JDPt.Fxp0d3BezAE
+  SysFS ID: /class/block/ram15
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram15
+  Device Number: block 1:15
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+28: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: xamg.Fxp0d3BezAE
+  SysFS ID: /class/block/ram6
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram6
+  Device Number: block 1:6
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+29: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: HAKk.Fxp0d3BezAE
+  Parent ID: _WWz._NN+DZ1HDn4
+  SysFS ID: /class/block/mmcblk0
+  SysFS BusID: mmc0:1234
+  SysFS Device Link: /devices/platform/emmc2bus/fe340000.emmc2/mmc_host/mmc0/mmc0:1234
+  Hardware Class: disk
+  Model: "Disk"
+  Driver: "sdhci-iproc", "mmcblk"
+  Device File: /dev/mmcblk0
+  Device Files: /dev/mmcblk0, /dev/disk/by-id/mmc-SA32G_0x480c68ee, /dev/disk/by-path/platform-fe340000.emmc2
+  Device Number: block 179:0-179:31
+  Geometry (Logical): CHS 945408/4/16
+  Size: 60506112 sectors a 512 bytes
+  Capacity: 28 GB (30979129344 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #11 (MMC Controller)
+
+30: None 00.0: 11300 Partition
+  [Created at block.434]
+  Unique ID: l7UW.SE1wIdpsiiC
+  Parent ID: HAKk.Fxp0d3BezAE
+  SysFS ID: /class/block/mmcblk0/mmcblk0p1
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/mmcblk0p1
+  Device Files: /dev/mmcblk0p1, /dev/disk/by-path/platform-fe340000.emmc2-part1, /dev/disk/by-id/mmc-SA32G_0x480c68ee-part1, /dev/disk/by-uuid/997C-A34A, /dev/disk/by-label/boot, /dev/disk/by-partuuid/838f922d-01
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #29 (Disk)
+
+31: None 00.0: 11300 Partition
+  [Created at block.434]
+  Unique ID: CJka.SE1wIdpsiiC
+  Parent ID: HAKk.Fxp0d3BezAE
+  SysFS ID: /class/block/mmcblk0/mmcblk0p2
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/mmcblk0p2
+  Device Files: /dev/mmcblk0p2, /dev/disk/by-path/platform-fe340000.emmc2-part2, /dev/disk/by-id/mmc-SA32G_0x480c68ee-part2, /dev/disk/by-label/rootfs, /dev/disk/by-uuid/05c2c54d-f13e-4442-bf69-70e99c3d748d, /dev/disk/by-partuuid/838f922d-02
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #29 (Disk)
+
+32: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: Psuk.Fxp0d3BezAE
+  SysFS ID: /class/block/ram13
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram13
+  Device Number: block 1:13
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+33: None 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: 1EGY.Fxp0d3BezAE
+  SysFS ID: /class/block/ram4
+  Hardware Class: disk
+  Model: "Disk"
+  Device File: /dev/ram4
+  Device Number: block 1:4
+  Size: 8192 sectors a 512 bytes
+  Capacity: 0 GB (4194304 bytes)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+34: USB 00.0: 10a00 Hub
+  [Created at usb.122]
+  Unique ID: k4bc.kNaPe9SZft4
+  Parent ID: VCu0.m2lGPNk7Xc4
+  SysFS ID: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-0:1.0
+  SysFS BusID: 1-0:1.0
+  Hardware Class: hub
+  Model: "Linux Foundation 2.0 root hub"
+  Hotplug: USB
+  Vendor: usb 0x1d6b "Linux Foundation"
+  Device: usb 0x0002 "2.0 root hub"
+  Revision: "5.04"
+  Serial ID: "0000:01:00.0"
+  Driver: "hub"
+  Driver Modules: "usbcore"
+  Speed: 480 Mbps
+  Module Alias: "usb:v1D6Bp0002d0504dc09dsc00dp01ic09isc00ip00in00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #8 (USB Controller)
+
+35: USB 00.0: 10a00 Hub
+  [Created at usb.122]
+  Unique ID: ADDn.mUqILwxEtWB
+  Parent ID: k4bc.kNaPe9SZft4
+  SysFS ID: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1:1.0
+  SysFS BusID: 1-1:1.0
+  Hardware Class: hub
+  Model: "VIA Hub"
+  Hotplug: USB
+  Vendor: usb 0x2109 "VIA Labs, Inc."
+  Device: usb 0x3431 "Hub"
+  Revision: "4.21"
+  Driver: "hub"
+  Driver Modules: "usbcore"
+  Speed: 480 Mbps
+  Module Alias: "usb:v2109p3431d0421dc09dsc00dp01ic09isc00ip00in00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #34 (Hub)
+
+36: USB 00.0: 10a00 Hub
+  [Created at usb.122]
+  Unique ID: pBe4.djic47EFb5E
+  Parent ID: VCu0.m2lGPNk7Xc4
+  SysFS ID: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-0:1.0
+  SysFS BusID: 2-0:1.0
+  Hardware Class: hub
+  Model: "Linux Foundation 3.0 root hub"
+  Hotplug: USB
+  Vendor: usb 0x1d6b "Linux Foundation"
+  Device: usb 0x0003 "3.0 root hub"
+  Revision: "5.04"
+  Serial ID: "0000:01:00.0"
+  Driver: "hub"
+  Driver Modules: "usbcore"
+  Module Alias: "usb:v1D6Bp0003d0504dc09dsc00dp03ic09isc00ip00in00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #8 (USB Controller)
+
+37: None 00.0: 10103 CPU
+  [Created at cpu.278]
+  Unique ID: rdCR.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: ARM
+  Vendor: "ARM Limited"
+  Model: 0.3.0 ""
+  Platform: "BCM2711"
+  Features: half,thumb,fastmult,vfp,edsp,neon,vfpv3,tls,vfpv4,idiva,idivt,vfpd32,lpae,evtstrm,crc32,
+  BogoMips: 270.00
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+38: None 01.0: 10103 CPU
+  [Created at cpu.278]
+  Unique ID: wkFv.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: ARM
+  Vendor: "ARM Limited"
+  Model: 0.3.0 ""
+  Platform: "BCM2711"
+  Features: half
+  BogoMips: 270.00
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+39: None 02.0: 10103 CPU
+  [Created at cpu.278]
+  Unique ID: +rIN.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: ARM
+  Vendor: "ARM Limited"
+  Model: 0.3.0 ""
+  Platform: "BCM2711"
+  Features: half
+  BogoMips: 270.00
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+40: None 03.0: 10103 CPU
+  [Created at cpu.278]
+  Unique ID: 4zLr.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: ARM
+  Vendor: "ARM Limited"
+  Model: 0.3.0 ""
+  Platform: "BCM2711"
+  Features: half
+  BogoMips: 270.00
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+41: None 00.0: 1070a WLAN
+  [Created at net.126]
+  Unique ID: AYEt.QXn1l67RSa1
+  Parent ID: uVOZ.f_UYNWgFjo0
+  SysFS ID: /class/net/wlan0
+  SysFS Device Link: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  Hardware Class: network interface
+  Model: "WLAN network interface"
+  Driver: "brcmfmac"
+  Driver Modules: "brcmfmac", "brcmfmac"
+  Device File: wlan0
+  HW Address: dc:a6:32:cf:58:59
+  Permanent HW Address: dc:a6:32:cf:58:59
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #13 (WLAN controller)
+
+42: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+43: None 00.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: usDW.ndpeucax6V1
+  Parent ID: C66X.TfPFe67fIBB
+  SysFS ID: /class/net/eth0
+  SysFS Device Link: /devices/platform/scb/fd580000.ethernet
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "bcmgenet"
+  Device File: eth0
+  HW Address: dc:a6:32:cf:58:58
+  Permanent HW Address: dc:a6:32:cf:58:58
+  Link detected: no
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #9 (Ethernet controller)
+
+------------------------------------------------------------------------------
+root@rpi4:~# hwinfo --wlan
+
+07: SDIO 00.0: 0282 WLAN controller
+  [Created at pci.1939]
+  Unique ID: uVOZ.f_UYNWgFjo0
+  Parent ID: 1Hef.VoJli79_k95
+  SysFS ID: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  SysFS BusID: mmc1:0001:1
+  Hardware Class: network
+  Model: "Broadcom BCM43430 WLAN card"
+  Vendor: sdio 0x02d0 "Broadcom Corp."
+  Device: sdio 0xa9a6 "BCM43430 WLAN card"
+  Driver: "brcmfmac"
+  Driver Modules: "brcmfmac", "brcmfmac"
+  Device File: wlan0
+  Features: WLAN
+  HW Address: dc:a6:32:cf:58:59
+  Permanent HW Address: dc:a6:32:cf:58:59
+  Link detected: yes
+  WLAN channels: 1 2 3 4 5 6 7 8 9 10 11 12 13
+  WLAN frequencies: 2.412 2.417 2.422 2.427 2.432 2.437 2.442 2.447 2.452 2.457 2.462 2.467 2.472
+  WLAN encryption modes: WEP40 WEP104 TKIP CCMP
+  WLAN authentication modes: open sharedkey wpa-psk wpa-eap
+  Module Alias: "sdio:c00v02D0dA9A6"
+  Driver Info #0:
+    Driver Status: brcmfmac is active
+    Driver Activation Cmd: "modprobe brcmfmac"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #4 (MMC Controller)
+  
+------------------------------------------------------------------------------
+root@rpi4:~# hwinfo --network
+
+12: None 00.0: 1070a WLAN
+  [Created at net.126]
+  Unique ID: AYEt.QXn1l67RSa1
+  Parent ID: uVOZ.dZc7syf8JZ2
+  SysFS ID: /class/net/wlan0
+  SysFS Device Link: /devices/platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1
+  Hardware Class: network interface
+  Model: "WLAN network interface"
+  Driver: "brcmfmac"
+  Driver Modules: "brcmfmac", "brcmfmac"
+  Device File: wlan0
+  HW Address: dc:a6:32:cf:58:59
+  Permanent HW Address: dc:a6:32:cf:58:59
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #7 (Network controller)
+
+13: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+14: None 00.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: usDW.ndpeucax6V1
+  Parent ID: C66X.TfPFe67fIBB
+  SysFS ID: /class/net/eth0
+  SysFS Device Link: /devices/platform/scb/fd580000.ethernet
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "bcmgenet"
+  Device File: eth0
+  HW Address: dc:a6:32:cf:58:58
+  Permanent HW Address: dc:a6:32:cf:58:58
+  Link detected: no
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #3 (Ethernet controller)
+
+------------------------------------------------------------------------------
+

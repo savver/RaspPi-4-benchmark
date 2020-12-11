@@ -1,0 +1,95 @@
+root@raspberrypi:~# uname -a
+Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/                                                       Linux
+
+raspberrypi:~# apt install p7zip
+	Reading package lists... Done
+	Building dependency tree
+	Reading state information... Done
+	Suggested packages:
+	  p7zip-full
+	The following NEW packages will be installed:
+	  p7zip
+	0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+	Need to get 297 kB of archives.
+	After this operation, 808 kB of additional disk space will be used.
+	Get:1 http://mirror.yandex.ru/mirrors/raspbian/raspbian buster/main armhf p7zip armhf 16.02+dfsg-6 [297 kB]
+	Fetched 297 kB in 1s (557 kB/s)
+	Selecting previously unselected package p7zip.
+	(Reading database ... 153834 files and directories currently installed.)
+	Preparing to unpack .../p7zip_16.02+dfsg-6_armhf.deb ...
+	Unpacking p7zip (16.02+dfsg-6) ...
+	Setting up p7zip (16.02+dfsg-6) ...
+	Processing triggers for man-db (2.8.5-2) ...
+
+
+============================================================================
+wlan link up (5GHz), ssh
+small heater + cooler 3V, no dmesg info about throttling cpu
+OS 32bit, so 7zip lib also 32bit(!)
+============================================================================
+root:
+root@raspberrypi:~# 7zr b
+
+	7-Zip (a) [32] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+	p7zip Version 16.02 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,32 bits,4 CPUs LE)
+
+	LE
+	CPU Freq:   703  1497  1497  1497  1497  1498  1498  1498  1498
+
+	RAM size:    1867 MB,  # CPU hardware threads:   4
+	RAM usage:    882 MB,  # Benchmark threads:      4
+
+						   Compressing  |                  Decompressing
+	Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
+			 KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
+
+	22:       3518   337   1014   3423  |      92915   398   1994   7927
+	23:       3579   359   1017   3647  |      91178   399   1977   7889
+	24:       3511   369   1024   3776  |      88233   397   1949   7746
+	25:       3361   371   1035   3838  |      85276   398   1905   7589
+	----------------------------------  | ------------------------------
+	Avr:             359   1023   3671  |              398   1956   7788
+	Tot:             379   1489   5729
+
+no root:
+pi@raspberrypi:~ $ 7zr b
+
+	7-Zip (a) [32] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+	p7zip Version 16.02 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,32 bits,4 CPUs LE)
+
+	LE
+	CPU Freq:   710  1498  1498  1498  1498  1498  1498  1498  1498
+
+	RAM size:    1867 MB,  # CPU hardware threads:   4
+	RAM usage:    882 MB,  # Benchmark threads:      4
+
+						   Compressing  |                  Decompressing
+	Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
+			 KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
+
+	22:       3659   351   1016   3560  |      93600   399   1999   7986
+	23:       3582   360   1015   3650  |      91269   399   1978   7897
+	24:       3495   366   1026   3758  |      88508   399   1949   7770
+	25:       3368   376   1023   3846  |      85277   398   1907   7589
+	----------------------------------  | ------------------------------
+	Avr:             363   1020   3703  |              399   1958   7810
+	Tot:             381   1489   5757
+
+
+	LE
+	CPU Freq:   692  1498  1498  1498  1498  1498  1498  1498  1498
+
+	RAM size:    1867 MB,  # CPU hardware threads:   4
+	RAM usage:    882 MB,  # Benchmark threads:      4
+
+						   Compressing  |                  Decompressing
+	Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
+			 KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
+
+	22:       3625   346   1018   3527  |      93272   398   1999   7958
+	23:       3526   355   1011   3593  |      91251   399   1978   7896
+	24:       3437   360   1027   3696  |      88278   397   1950   7750
+	25:       3342   368   1038   3816  |      85471   399   1907   7607
+	----------------------------------  | ------------------------------
+	Avr:             357   1023   3658  |              398   1959   7802
+	Tot:             378   1491   5730

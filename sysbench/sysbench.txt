@@ -1,0 +1,197 @@
+root@raspberrypi:~# uname -a
+Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
+
+root@raspberrypi:~# cat /proc/version
+Linux version 5.4.51-v7l+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1333 SMP Mon Aug 10 16:51:40 BST 2020
+
+root@raspberrypi:~# sysbench --version
+sysbench 0.4.12
+
+============================================================================
+wlan link up (5GHz), ssh
+small heater + cooler 3V/5V, no dmesg info about throttling cpu
+============================================================================
+
+root@raspberrypi:~# sysbench --test=cpu --num-threads=1 --cpu-max-prime=20000 --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 1
+	Additional request validation enabled.
+
+
+	Doing CPU performance benchmark
+
+	Threads started!
+	Done.
+
+	Maximum prime number checked in CPU test: 20000
+
+
+	Test execution summary:
+		total time:                          250.4210s
+		total number of events:              10000
+		total time taken by event execution: 250.4140
+		per-request statistics:
+			 min:                                 24.95ms
+			 avg:                                 25.04ms
+			 max:                                 62.94ms
+			 approx.  95 percentile:              25.07ms
+
+	Threads fairness:
+		events (avg/stddev):           10000.0000/0.00
+		execution time (avg/stddev):   250.4140/0.00
+
+------------------------------------------------------------------------------------------------
+root@raspberrypi:~# sysbench --test=cpu --num-threads=4 --cpu-max-prime=20000 --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 4
+	Additional request validation enabled.
+
+
+	Doing CPU performance benchmark
+
+	Threads started!
+	Done.
+
+	Maximum prime number checked in CPU test: 20000
+
+
+	Test execution summary:
+		total time:                          62.6196s
+		total number of events:              10000
+		total time taken by event execution: 250.4404
+		per-request statistics:
+			 min:                                 24.94ms
+			 avg:                                 25.04ms
+			 max:                                 65.39ms
+			 approx.  95 percentile:              25.06ms
+
+	Threads fairness:
+		events (avg/stddev):           2500.0000/0.00
+		execution time (avg/stddev):   62.6101/0.01
+
+--------------------------------------------------------------------------------------
+root@raspberrypi:~# sysbench --test=threads --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 1
+	Additional request validation enabled.
+
+
+	Doing thread subsystem performance test
+	Thread yields per test: 1000 Locks used: 8
+	Threads started!
+	Done.
+
+
+	Test execution summary:
+		total time:                          16.9112s
+		total number of events:              10000
+		total time taken by event execution: 16.9047
+		per-request statistics:
+			 min:                                  1.64ms
+			 avg:                                  1.69ms
+			 max:                                  4.36ms
+			 approx.  95 percentile:               1.71ms
+
+	Threads fairness:
+		events (avg/stddev):           10000.0000/0.00
+		execution time (avg/stddev):   16.9047/0.00
+
+--------------------------------------------------------------------------------------
+root@raspberrypi:~# sysbench --test=threads --num-threads=4 --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 4
+	Additional request validation enabled.
+
+
+	Doing thread subsystem performance test
+	Thread yields per test: 1000 Locks used: 8
+	Threads started!
+	Done.
+
+
+	Test execution summary:
+		total time:                          4.4680s
+		total number of events:              10000
+		total time taken by event execution: 17.8589
+		per-request statistics:
+			 min:                                  1.66ms
+			 avg:                                  1.79ms
+			 max:                                  7.74ms
+			 approx.  95 percentile:               1.83ms
+
+	Threads fairness:
+		events (avg/stddev):           2500.0000/1.41
+		execution time (avg/stddev):   4.4647/0.00
+
+--------------------------------------------------------------------------------------
+root@raspberrypi:~# sysbench --test=threads --num-threads=8 --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 8
+	Additional request validation enabled.
+
+
+	Doing thread subsystem performance test
+	Thread yields per test: 1000 Locks used: 8
+	Threads started!
+	Done.
+
+
+	Test execution summary:
+		total time:                          7.6485s
+		total number of events:              10000
+		total time taken by event execution: 61.1449
+		per-request statistics:
+			 min:                                  1.79ms
+			 avg:                                  6.11ms
+			 max:                                 49.22ms
+			 approx.  95 percentile:              12.02ms
+
+	Threads fairness:
+		events (avg/stddev):           1250.0000/18.59
+		execution time (avg/stddev):   7.6431/0.00
+
+---------------------------------------------------------------
+root@raspberrypi:~# sysbench --test=threads --num-threads=16 --validate run
+
+	sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+	Running the test with following options:
+	Number of threads: 16
+	Additional request validation enabled.
+
+
+	Doing thread subsystem performance test
+	Thread yields per test: 1000 Locks used: 8
+	Threads started!
+	Done.
+
+
+	Test execution summary:
+		total time:                          13.6637s
+		total number of events:              10000
+		total time taken by event execution: 218.3100
+		per-request statistics:
+			 min:                                  1.66ms
+			 avg:                                 21.83ms
+			 max:                                138.66ms
+			 approx.  95 percentile:              57.98ms
+
+	Threads fairness:
+		events (avg/stddev):           625.0000/14.54
+		execution time (avg/stddev):   13.6444/0.01
+

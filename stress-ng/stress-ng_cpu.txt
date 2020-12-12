@@ -1,0 +1,345 @@
+============================================================================
+root@raspberrypi:~# uname -a
+Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux
+
+root@raspberrypi:~# cat /proc/version
+Linux version 5.4.51-v7l+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1333 SMP Mon Aug 10 16:51:40 BST 2020
+
+wlan link up (5GHz), ssh
+small heater + cooler 5V
+OS 32bit
+-----------------------------------------------------------------------------
+stress-ng --cpu 4 --cpu-method all --verify --metrics-brief --timeout 60;
+	stress-ng: info:  [3190] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3190]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3190] cpu                9474     60.15    240.49      0.01       157.52        39.39
+	
+stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 60;
+	stress-ng: info:  [3286] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3286]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3286] cpu             4489943     60.00    239.95      0.00     74833.07     18711.99	
+	
+stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 5m; 
+stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 25m; 
+	stress-ng: info:  [3405] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3405]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3405] cpu           112306072   1500.00   5999.58      0.00     74870.75     18718.99
+	
+stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 60; 
+	stress-ng: info:  [3452] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3452]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3452] cpu             3956522     60.00    239.96      0.00     65942.75     16488.26
+	
+stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 10m;
+	stress-ng: info:  [3493] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3493]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3493] cpu            39581819    600.00   2399.82      0.02     65969.77     16493.52
+
+stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 30m;
+	stress-ng: info:  [3513] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3513]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3513] cpu           118694858   1800.00   7199.50      0.02     65941.61     16486.50
+	
+-----------------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method all --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3190] dispatching hogs: 4 cpu
+	stress-ng: info:  [3190] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3190] successful run completed in 60.56s (1 min, 0.56 secs)
+	stress-ng: info:  [3190] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3190]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3190] cpu                9474     60.15    240.49      0.01       157.52        39.39
+	temp=41.0'C
+	1500000
+
+
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3222] dispatching hogs: 4 cpu
+	stress-ng: info:  [3222] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3222] successful run completed in 60.58s (1 min, 0.58 secs)
+	stress-ng: info:  [3222] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3222]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3222] cpu                9034     60.43    241.61      0.01       149.49        37.39
+	temp=42.0'C
+	1500000
+	
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3235] dispatching hogs: 4 cpu
+	stress-ng: info:  [3235] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3235] successful run completed in 60.50s (1 min, 0.50 secs)
+	stress-ng: info:  [3235] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3235]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3235] cpu                8764     60.48    241.87      0.00       144.90        36.23
+	temp=42.0'C
+	1500000
+	
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3271] dispatching hogs: 4 cpu
+	stress-ng: info:  [3271] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3271] successful run completed in 60.73s (1 min, 0.73 secs)
+	stress-ng: info:  [3271] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3271]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3271] cpu                9780     60.37    241.36      0.02       162.01        40.52
+	temp=43.0'C
+	1500000
+
+
+	
+root@raspberrypi:~# vcgencmd get_throttled
+throttled=0x0
+
+-----------------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3286] dispatching hogs: 4 cpu
+	stress-ng: info:  [3286] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3286] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3286] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3286]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3286] cpu             4489943     60.00    239.95      0.00     74833.07     18711.99
+	temp=44.0'C
+	1500000
+	
+	temp=33.0'C
+	600000
+	stress-ng: info:  [3312] dispatching hogs: 4 cpu
+	stress-ng: info:  [3312] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3312] successful run completed in 60.02s (1 min, 0.02 secs)
+	stress-ng: info:  [3312] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3312]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3312] cpu             4490250     60.00    239.95      0.00     74838.24     18713.27
+	temp=44.0'C
+	1500000
+	throttled=0x0
+	
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3332] dispatching hogs: 4 cpu
+	stress-ng: info:  [3332] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3332] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3332] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3332]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3332] cpu             4490374     60.00    239.96      0.01     74840.46     18712.23
+	temp=45.0'C
+	1500000
+	throttled=0x0
+
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 5m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+					vcgencmd get_throttled
+					
+	temp=35.0'C
+	600000
+	stress-ng: info:  [3346] dispatching hogs: 4 cpu
+	stress-ng: info:  [3346] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3346] successful run completed in 300.01s (5 mins, 0.01 secs)
+	stress-ng: info:  [3346] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3346]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3346] cpu            22458449    300.00   1199.87      0.02     74861.66     18717.09
+	temp=47.0'C
+	1500000
+	throttled=0x0
+
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3384] dispatching hogs: 4 cpu
+	stress-ng: info:  [3384] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3384] successful run completed in 300.01s (5 mins, 0.01 secs)
+	stress-ng: info:  [3384] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3384]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3384] cpu            22460296    300.00   1199.95      0.00     74867.81     18717.69
+	temp=46.0'C
+	1500000
+	throttled=0x0
+
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                   stress-ng --cpu 4 --cpu-method=int32 --verify --metrics-brief --timeout 25m; 
+				   vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+				   vcgencmd get_throttled
+				   
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3405] dispatching hogs: 4 cpu
+	stress-ng: info:  [3405] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3405] successful run completed in 1500.01s (25 mins, 0.01 secs)
+	stress-ng: info:  [3405] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3405]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3405] cpu           112306072   1500.00   5999.58      0.00     74870.75     18718.99
+	temp=47.0'C
+	1500000
+	throttled=0x0
+
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3452] dispatching hogs: 4 cpu
+	stress-ng: info:  [3452] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3452] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3452] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3452]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3452] cpu             3956522     60.00    239.96      0.00     65942.75     16488.26
+	temp=49.0'C
+	1500000
+	throttled=0x0
+	
+	
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 10m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3493] dispatching hogs: 4 cpu
+	stress-ng: info:  [3493] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3493] successful run completed in 600.01s (10 mins, 0.01 secs)
+	stress-ng: info:  [3493] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3493]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3493] cpu            39581819    600.00   2399.82      0.02     65969.77     16493.52
+	temp=54.0'C
+	1500000
+	throttled=0x0
+	
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+	                stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 30m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3513] dispatching hogs: 4 cpu
+	stress-ng: info:  [3513] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3513] successful run completed in 1800.01s (30 mins, 0.01 secs)
+	stress-ng: info:  [3513] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3513]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3513] cpu           118694858   1800.00   7199.50      0.02     65941.61     16486.50
+	temp=53.0'C
+	1500000
+	throttled=0x0
+
+3V coller, trottling test
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+					stress-ng --cpu 4 --cpu-method=float --verify --metrics-brief --timeout 10m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=33.0'C
+	600000
+	stress-ng: info:  [3702] dispatching hogs: 4 cpu
+	stress-ng: info:  [3702] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3702] successful run completed in 600.01s (10 mins, 0.01 secs)
+	stress-ng: info:  [3702] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3702]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3702] cpu            39582360    600.00   2399.86      0.01     65970.67     16493.54
+	temp=59.0'C
+	1500000
+	throttled=0x0	
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=double --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3635] dispatching hogs: 4 cpu
+	stress-ng: info:  [3635] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3635] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3635] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3635]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3635] cpu              956105     60.00    239.94      0.00     15935.22      3984.77
+	temp=47.0'C
+	1500000
+	throttled=0x0
+
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=double  --verify --metrics-brief --timeout 5m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=30.0'C
+	600000
+	stress-ng: info:  [3649] dispatching hogs: 4 cpu
+	stress-ng: info:  [3649] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3649] successful run completed in 300.01s (5 mins, 0.01 secs)
+	stress-ng: info:  [3649] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3649]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3649] cpu             4770031    300.00   1199.89      0.01     15900.13      3975.36
+	temp=51.0'C
+	1500000
+	throttled=0x0
+	
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=fft --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3585] dispatching hogs: 4 cpu
+	stress-ng: info:  [3585] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3585] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3585] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3585]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3585] cpu               83120     60.00    239.97      0.00      1385.31       346.38
+	temp=49.0'C
+	1500000
+	throttled=0x0
+	
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=fft --verify --metrics-brief --timeout 5m; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=32.0'C
+	600000
+	stress-ng: info:  [3602] dispatching hogs: 4 cpu
+	stress-ng: info:  [3602] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3602] successful run completed in 300.01s (5 mins, 0.01 secs)
+	stress-ng: info:  [3602] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3602]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3602] cpu              414981    300.00   1199.90      0.00      1383.27       345.85
+	temp=53.0'C
+	1500000
+	throttled=0x0
+---------------------------------------------------------------------
+root@raspberrypi:~# vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; 
+                    stress-ng --cpu 4 --cpu-method=callfunc --verify --metrics-brief --timeout 60; 
+					vcgencmd measure_temp; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;  
+					vcgencmd get_throttled
+					
+	temp=31.0'C
+	600000
+	stress-ng: info:  [3686] dispatching hogs: 4 cpu
+	stress-ng: info:  [3686] cache allocate: using defaults, can't determine cache details from sysfs
+	stress-ng: info:  [3686] successful run completed in 60.01s (1 min, 0.01 secs)
+	stress-ng: info:  [3686] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+	stress-ng: info:  [3686]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+	stress-ng: info:  [3686] cpu            16843101     60.00    239.96      0.00    280722.05     70191.29
+	temp=47.0'C
+	1500000
+	throttled=0x0
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
+

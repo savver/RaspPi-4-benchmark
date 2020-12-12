@@ -1,0 +1,84 @@
+https://github.com/ThomasKaiser/sbc-bench
+
+You need an armhf or arm64 Debian Stretch or Ubuntu Bionic install. 
+Older variants are not supported (due to distro packages being way too outdated). Then it's
+	wget https://raw.githubusercontent.com/ThomasKaiser/sbc-bench/master/sbc-bench.sh
+	sudo /bin/bash ./sbc-bench.sh -c
+	
+	
+
+root@raspberrypi:/home/pi/Documents# mkdir sbc-bench
+root@raspberrypi:/home/pi/Documents# cd sbc-bench
+root@raspberrypi:/home/pi/Documents/sbc-bench# wget https://raw.githubusercontent.com/ThomasKaiser/sbc-bench/master/sbc-bench.sh 
+  
+	--2020-12-12 08:02:58--  https://raw.githubusercontent.com/ThomasKaiser/sbc-bench/master/sbc-bench.sh
+	Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.244.133
+	Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.244.133|:443... connected.
+	HTTP request sent, awaiting response... 200 OK
+	Length: 37053 (36K) [text/plain]
+	Saving to: ‘sbc-bench.sh’
+
+	sbc-bench.sh                        100%[=================================================================>]  36.18K  --.-KB/s    in 0.008s
+
+	2020-12-12 08:02:59 (4.65 MB/s) - ‘sbc-bench.sh’ saved [37053/37053]
+
+
+root@raspberrypi:/home/pi/Documents/sbc-bench# bash ./sbc-bench.sh -c; vcgencmd measure_temp; vcgencmd get_throttled
+
+Average load is 0.1 or higher (way too much background activity). Waiting...
+
+System too busy for benchmarking: 08:04:41 up 3 min,  2 users,  load average: 0.48, 0.45, 0.20
+System too busy for benchmarking: 08:04:46 up 3 min,  2 users,  load average: 0.60, 0.48, 0.21
+System too busy for benchmarking: 08:04:51 up 3 min,  2 users,  load average: 0.56, 0.47, 0.21
+System too busy for benchmarking: 08:04:57 up 3 min,  2 users,  load average: 0.51, 0.46, 0.21
+System too busy for benchmarking: 08:05:02 up 3 min,  2 users,  load average: 0.47, 0.45, 0.21
+System too busy for benchmarking: 08:05:07 up 3 min,  2 users,  load average: 0.43, 0.45, 0.20
+System too busy for benchmarking: 08:05:12 up 3 min,  2 users,  load average: 0.40, 0.44, 0.20
+System too busy for benchmarking: 08:05:17 up 3 min,  2 users,  load average: 0.36, 0.43, 0.20
+System too busy for benchmarking: 08:05:22 up 3 min,  2 users,  load average: 0.34, 0.42, 0.20
+System too busy for benchmarking: 08:05:27 up 4 min,  2 users,  load average: 0.31, 0.42, 0.20
+System too busy for benchmarking: 08:05:32 up 4 min,  2 users,  load average: 0.28, 0.41, 0.20
+System too busy for benchmarking: 08:05:37 up 4 min,  2 users,  load average: 0.26, 0.40, 0.20
+System too busy for benchmarking: 08:05:42 up 4 min,  2 users,  load average: 0.24, 0.40, 0.19
+System too busy for benchmarking: 08:05:47 up 4 min,  2 users,  load average: 0.22, 0.39, 0.19
+System too busy for benchmarking: 08:05:52 up 4 min,  2 users,  load average: 0.20, 0.38, 0.19
+System too busy for benchmarking: 08:05:57 up 4 min,  2 users,  load average: 0.18, 0.38, 0.19
+System too busy for benchmarking: 08:06:02 up 4 min,  2 users,  load average: 0.17, 0.37, 0.19
+System too busy for benchmarking: 08:06:07 up 4 min,  2 users,  load average: 0.16, 0.36, 0.19
+System too busy for benchmarking: 08:06:12 up 4 min,  2 users,  load average: 0.14, 0.36, 0.19
+System too busy for benchmarking: 08:06:17 up 4 min,  2 users,  load average: 0.13, 0.35, 0.18
+System too busy for benchmarking: 08:06:22 up 4 min,  2 users,  load average: 0.12, 0.34, 0.18
+System too busy for benchmarking: 08:06:27 up 5 min,  2 users,  load average: 0.11, 0.34, 0.18
+System too busy for benchmarking: 08:06:32 up 5 min,  2 users,  load average: 0.10, 0.33, 0.18
+
+sbc-bench v0.7.5
+
+Installing needed tools. This may take some time... Done.
+Checking cpufreq OPP... Done.
+Executing tinymembench. This will take a long time... Done.
+Executing OpenSSL benchmark. This will take 3 minutes... Done.
+Executing 7-zip benchmark. This will take a long time... Done.
+Checking cpufreq OPP... Done.
+
+It seems neither throttling nor frequency capping has occured.
+
+Memory performance:
+memcpy: 2563.4 MB/s
+memset: 3345.3 MB/s (0.4%)
+
+7-zip total scores (3 consecutive runs): 5740,5614,5677
+
+OpenSSL results:
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-128-cbc      62541.89k    76551.91k    82810.45k    84341.42k    84904.62k    84869.12k
+aes-128-cbc      62592.47k    76550.06k    82828.12k    84468.05k    84809.05k    84972.89k
+aes-192-cbc      56284.12k    67208.45k    71889.92k    73064.79k    73389.40k    73460.39k
+aes-192-cbc      56284.65k    67357.08k    71763.11k    72954.20k    73479.51k    73422.17k
+aes-256-cbc      51004.93k    59940.82k    63516.07k    64326.66k    64752.30k    64760.49k
+aes-256-cbc      50874.37k    59938.58k    63442.26k    63526.91k    64517.46k    64487.42k
+
+Full results uploaded to http://ix.io/2HEL. Please check the log for anomalies (e.g. swapping
+or throttling happenend) and otherwise share this URL.
+
+temp=48.0'C
+throttled=0x0

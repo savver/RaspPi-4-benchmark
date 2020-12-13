@@ -1,0 +1,36 @@
+GPU tempr
+pi@raspberrypi:~ $ vcgencmd measure_temp
+temp=34.0'C
+
+
+CPU tempr
+pi@raspberrypi:~ $ cat /sys/class/thermal/thermal_zone0/temp
+34563
+
+nearly same
+pi@raspberrypi:~ $ vcgencmd measure_temp;  cat /sys/class/thermal/thermal_zone0/temp
+	temp=35.0'C
+	35050
+
+	temp=34.0'C
+	35050
+
+	temp=34.0'C
+	34076
+	
+	temp=45.0'C
+	44303
+
+	temp=50.0'C
+	50147
+
+	temp=51.0'C
+	51121
+
+
+pi@raspberrypi:~ $ cd /opt/vc/bin/
+pi@raspberrypi:/opt/vc/bin $ dir -al
+	total 1280
+	...
+	-rwxr-xr-x 1 root root  16460 Jul 20 09:51 vcgencmd
+

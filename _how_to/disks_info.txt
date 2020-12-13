@@ -1,0 +1,129 @@
+pi@raspberrypi:~ $ lsblk
+
+	NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+	mmcblk0     179:0    0  7.4G  0 disk
+	├─mmcblk0p1 179:1    0  256M  0 part /boot
+	└─mmcblk0p2 179:2    0  7.2G  0 part /
+
+--------------------------------------------------------------
+pi@raspberrypi:~ $ df -h
+
+	Filesystem      Size  Used Avail Use% Mounted on
+	/dev/root       7.0G  5.9G  845M  88% /
+	devtmpfs        805M     0  805M   0% /dev
+	tmpfs           934M     0  934M   0% /dev/shm
+	tmpfs           934M  8.5M  926M   1% /run
+	tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+	tmpfs           934M     0  934M   0% /sys/fs/cgroup
+	/dev/mmcblk0p1  253M   54M  199M  22% /boot
+	tmpfs           187M     0  187M   0% /run/user/1000
+	
+--------------------------------------------------------------
+root@NanoPi-M4:~# fdisk -l
+
+	Disk /dev/ram0: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram1: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram2: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram3: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram4: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram5: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram6: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram7: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram8: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram9: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram10: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram11: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram12: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram13: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram14: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/ram15: 4 MiB, 4194304 bytes, 8192 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 4096 bytes
+	I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+	Disk /dev/mmcblk0: 7.4 GiB, 7969177600 bytes, 15564800 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 512 bytes
+	I/O size (minimum/optimal): 512 bytes / 512 bytes
+	Disklabel type: dos
+	Disk identifier: 0x117d8a62
+
+	Device         Boot  Start      End  Sectors  Size Id Type
+	/dev/mmcblk0p1        8192   532479   524288  256M  c W95 FAT32 (LBA)
+	/dev/mmcblk0p2      532480 15564799 15032320  7.2G 83 Linux
